@@ -7,7 +7,584 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
+
+
+
+
+//.navbar-laravel {
+  //background-color: #fff;
+ // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+//}
+
+
+.nav-tabs {
+	background-color: #2C2B2B
+	
+	
+}
+
+
+
+.btn-default:hover {
+	background-color: #F7F8FB
+}
+
+
+
+
+
+//.container {
+  //  margin-top: 5px;
+    
+//}
+
+//controla el movimiento arriba o abajo del carousel
+.carousel {
+     margin-top: -24px;
+}
+
+
+
+
+/* Carousel Styles */
+.carousel-indicators .active {
+    background-color: #2980b9;
+
+}
+
+.carousel-inner img {
+    width: 40%;
+    max-height: 400px
+
+}
+
+
+
+
+.carousel-control {
+    width: 0;
+
+}
+
+.carousel-control.left,
+.carousel-control.right {
+	opacity: 1;
+	filter: alpha(opacity=100);
+	background-image: none;
+	background-repeat: no-repeat;
+	text-shadow: none;
+
+}
+
+.carousel-control.left span {
+	padding: 15px;
+}
+
+.carousel-control.right span {
+	padding: 15px;
+}
+
+.carousel-control .glyphicon-chevron-left, 
+.carousel-control .glyphicon-chevron-right, 
+.carousel-control .icon-prev, 
+.carousel-control .icon-next {
+	position: absolute;
+	top: 35%;
+	z-index: 5;
+	display: inline-block;
+}
+
+
+//controla la altura del icono
+.carousel-control-prev-icon,
+.carousel-control-next-icon, 
+ {
+	position: absolute;
+	top: 46%;
+	z-index: 8;
+	display: inline-block;
+	background-color: #070789;
+}
+
+
+
+
+
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .icon-prev {
+	left: 0;
+}
+
+.carousel-control .glyphicon-chevron-right,
+.carousel-control .icon-next {
+	right: 0;
+}
+
+.carousel-control.left span,
+.carousel-control.right span {
+	background-color: #E01515;
+}
+
+.carousel-control.left span:hover,
+.carousel-control.right span:hover {
+	opacity: .10;
+	filter: alpha(opacity=30);
+}
+
+/* Carousel Header Styles */
+.header-text {
+    position: absolute;
+    top: 5%;
+    left: 1.8%;
+    right: auto;
+    width: 96.66666666666666%;
+    color: #FAF8F8; //letra blanca
+}
+
+.header-text h2 {
+    font-size: 40px;
+}
+
+//.header-text h4 span {
+  //  background-color: #D61E1E; //rojo fondo letra
+	//padding: 2px;
+//}
+
+.header-text h3 span {
+	background-color: #000;
+	padding: 15px;
+}
+
+.btn-min-block {
+    min-width: 170px;
+    line-height: 26px;
+    
+}
+
+.btn {
+	position: relative;
+	top: 38%;
+	right: 3%;
+	left:  0%;
+	margin: 21px; //baja el boton
+}
+
+.btn-theme {
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #fff;
+    margin-right: 15px;
+}
+
+.btn-theme:hover {
+    color: #000;
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    border-color: #fff;
+}
+
+
+
+//forma un marco sobre las tarjetas
+.tarjetas{
+	background: #FBFBFD;
+	border-top: 5px solid #3da5e2;
+	padding: 10 20px;//el 10 ensancha el marco negro
+	margin-bottom: 0px;//controla la distancia inferior con el otro contenedor
+}
+
+
+
+
+
+.tarjetas .contenedor-imagen:hover img{ //forma el jover sobre las imagenes de las targetas
+	opacity: .6;
+	
+}
+
+
+
+
+
+
+
+//forma un marco sobre el carousel
+.marcoCarousel{
+	background: #FBFBFD; //marco negro lateral
+	border-top: 24px solid #FBFBFD; //marco rojo superior
+	padding: 18 20px;
+	margin-bottom: 0px; //controla la distancia inferior con el otro contenedor
+	
+}
+
+//personaliza el titulo de las tarjetas
+.tarjetas .titulo {
+	background: #2D5B89;//coloca un marco de color azul al titulo
+	padding: 8px 0;
+	text-align: center;
+	color: #FBFBFD;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+
+
+//forma un marco sobre formulario contacto
+.contacto{
+	background: #FBFBFD;
+	border-top: 5px solid #3692EF;
+	padding: 10 15px;
+	margin-bottom: 20px;
+}
+
+
+//personaliza el titulo de contacto
+.contacto .tituloContacto {
+	background: #E6F6F5;
+	padding: 10px 0;
+	text-align: center;
+	color: #2B4CF6;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+
+
+//personaliza el card header del login
+.sesionLogin .card-header {
+	background: #E6F6F5;
+	padding: 10px 0;
+	text-align: center;
+	color: #2B4CF6;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+
+
+.fm-nav a{
+	color: #fff; //color de la letra de los links del navbar
+	padding: 15px; //alto del navbar
+}
+
+
+.fm-nav .disabled{
+	color: rgba(255,255,255,.5);
+}
+
+
+.fm-nav a:hover{
+	background: rgba(255,255,255,.1); //agrega un color blanco transparente al hover de los links
+}
+
+
+
+
+
+
+.hoverDropdown-nav a:hover{
+	background: rgba(255,255,255,.1);  //agrega un color blanco transparente al hover de iniciarSesion
+}
+
+
+.error{
+        color: red;
+        font-size: 12px;
+
+    }
+
+
+    .table-hover> tbody> tr:hover {
+	background: #A7DFD4;  //agrega un color aguaMarina al hover de la tabla mensajes
+}
+
+
+
+//personaliza el titulo del menuPrincipal de Empleados
+.menuPrincipalTitulo .tituloMenuEmpleados {
+	background: #2D5B89;//coloca un marco de color azul al titulo
+	padding: 15px 0;
+	text-align: center;
+	color: #FBFBFD;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+
+
+.menuPrincipalTitulo .list-group-item:hover{ //agrega el hover de colorGris al MenuPrincipalEmpleados
+	background-color: #A7DFD4;
+}
+
+
+//forma un marco sobre el menuPrincipalEmpleados
+.menuPrincipalTitulo{
+	background: #FBFBFD; //marco negro lateral
+	border-top: 8px solid #3776FC; //marco rojo superior
+	padding: 18 20px;
+	margin-bottom: 0px; //controla la distancia inferior con el otro contenedor
+	
+}
+
+
+
+
+
+//.menuEmpleados .list-group-item:hover{ //agrega el hover de oscuro al MenuEmpleados
+//	background-color: #535456;
+//}
+
+
+//.menuEmpleados .list-group{ //ajusta el ancho del menuEmpleados al ancho del texto
+//	display:inline-block;
+//}
+
+
+
+
+//nueva tabla empleados----------------------------------------------------------------------------------
+
+
+//controla la tabla empleados ajustandola en pantalla
+.container-empleados{
+	margin-right: 12px;
+	margin-left: 212px;
+	padding-top: 12px;
+}
+
+//icono card empleados
+.container-empleados .card .card-header .icono { 
+	font-size: 25px; //tamaño del icono 
+	line-height: 20px;
+	
+}
+
+//tamaño letra card-header empleados
+.container-empleados .card .card-header { 
+	font-weight: lighter; //negrita
+	font-size: 20px; //tamaño de la letra
+
+}
+
+//controla el btn del card-hearder empleados
+.container-empleados .card .card-header .btn {
+	margin-left: 770px;
+	padding-top: 3px;//aumenta la distancia del margen superior dentro del btn
+	top: -4px;//mueve arriba o hacia abajo el btn
+}
+
+
+.container-empleados .card .card-header {
+	margin-top: -20px;
+	margin-bottom: -6px;//hacerca la tabla al card-header
+	max-height: 68px; //alto del card-header
+
+}
+
+//hacerca los botones delete y edit a la parte superior de la tabla
+.container-empleados .card-body .table .btn {
+	top: -21px;
+    margin-bottom: -20px; //hacerca el margen inferior al boton
+}
+
+//pega el boton a la derecha de la linea de la tabla
+.container-empleados .card-body .table .btn.editar {
+	margin-left: 2px; 
+}
+
+//pega el boton a la derecha de la linea de la tabla
+.container-empleados .card-body .table .btn.eliminar {
+	margin-left: -15px; 
+	margin-right: -5px;
+}
+
+.container-empleados .card .card-body .table{
+	width: 105%; //ancho de la tabla
+    text-transform: capitalize;
+	font-size: 14px;
+}
+
+
+
+
+
+//.wrapper{ //controla el ancho del container del menuEmpleados
+//	width: 1330px;//margen derecha
+//	margin: 0 -110px; //margen izquierda
+//}
+
+.navbar .tamañoimg{
+	 width: 5%; //ancho del logo en el navbar
+	 max-height: 80px; //alto
+}
+
+
+.navbar .tamañoimg{
+	margin-left: 35px; //mueve a la izquierda el logo del navbar
+}
+
+
+
+
+
+
+
+
+
+
+.navbar {
+	margin-bottom: -48px; //reduce el margen inferior, pega el navbar al carousel
+	max-height: 60px; //controla el ancho del navbar
+}
+
+.linkHome .nav-link{
+	text-transform: capitalize;
+	font-size: 14px;
+}
+
+.linkSesion .nav-link{
+	text-transform: capitalize;
+	font-size: 14px;
+}
+
+//.linkSesion .dropdown-toggle{
+//	white-space: pre; //coloca el texto en una sola linea (Iniciar sesion)link
+//}
+
+
+.linkLogout .nav-item { //tamaño y tipo de letra del logout
+	text-transform: capitalize;
+	font-size: 14px;
+}
+
+
+
+//menu layout.app
+
+//pega el menu al borde izquierdo
+* {
+	margin: 0;	
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body{
+	background-color: #E6E8EB;
+	font-family: 'Roboto', sans-serif; //tipo de letra
+	line-height: 18px; //espacio entre lineas de texto 
+}
+
+
+a {
+	text-decoration: none; //quita el subrayado del texto
+	color: #fff; //color del texto del menu
+}
+
+.btn-menu { //para dispositivos moviles
+	display: none; //ancho del boton
+	padding: 20px; //altura del btn menu
+	background: #0d2c44; //color del marco del boton
+	color: #fff; //color blanco
+}
+
+
+.btn-menu .icono{
+	float: right; //icono a la derecha
+}
+
+.contenedor-menu{
+	width: 10px;
+	min-width: 200px; //ancho del contenedor
+	//margin: 20px;
+	//margin-right: 5%;
+	display: inline-block;
+	font-family: 'Roboto', sans-serif; //tipo de letra
+	font-size: 13px; //tamaño de la letra
+	line-height: 14px; //espaciado entre links
+	background: #29363d;
+	position: absolute;
+	height: 100%;
+
+}
+
+.contenedor-menu .menu{
+	width: 100%;
+}
+
+
+
+
+
+.contenedor-menu ul { //quita las viñetas
+	list-style: none;
+}
+
+
+//se accede a todos los elementos li y a
+.contenedor-menu .menu li a { 
+	color: #fff;
+	display: block;
+	//position: absolute;
+	//height: 100%;
+	padding: 19px 15px; //espacio entre lineas y espacio del borde
+	background: #29363d;
+	//white-space: pre;
+}
+
+
+//hover de etiquetas li y a
+.contenedor-menu .menu li a:hover { 
+	background: #1a95d5;
+	color: #fff;
+}
+
+
+//icono
+.contenedor-menu .menu .icono { 
+	font-size: 12px; //tamaño de los iconos del menu
+	line-height: 20px;
+}
+
+//icono izquierda, espacio entre el texto
+.contenedor-menu .menu .icono.izquierda { 
+	float: left;
+	margin-right: 10px;
+}
+
+//icono derecha, espacio entre el texto
+.contenedor-menu .menu .icono.derecha{ 
+	float: right;
+	margin-left: 10px;
+}
+
+
+//quita los submenu
+.contenedor-menu .menu ul {
+	display: none;
+}
+
+.contenedor-menu .menu ul li a {
+	background: #23292A; //color del submenu
+	color: #e9e9e9;
+}
+
+
+//adapta el menu a dispositivos moviles
+@media screen and (max-width: 450px) {
+	body {
+		padding-top: 80px;
+	}
+
+	.contenedor-menu {
+		margin: 0;
+		width: 100%;
+		position: fixed;
+		top: 0;
+		z-index: 1000;
+	}
+
+	.btn-menu {
+		display: block;
+	}
+
+	.contenedor-menu .menu {
+		display: none;
+	}
 }
