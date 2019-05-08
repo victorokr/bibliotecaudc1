@@ -40,6 +40,9 @@ Route::get('saludos/{nombre?}', ['as' => 'saludos' ,'uses' => 'pagesController@s
 Route::resource('mensajes', 'MessagesController'); //remplaza todas las rutas que usa el crud de mensajes
 
 
+Route::resource('lista/empleados', 'ListaempleadosController');
+
+
 Route::get('consultantes/login', 'ConsultantesController@showLoginForm');
 Route::post('consultantes/login','ConsultantesController@login');
 Route::get('logout', 'ConsultantesController@logout');

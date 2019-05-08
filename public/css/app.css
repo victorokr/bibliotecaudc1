@@ -10962,6 +10962,10 @@ a.text-dark:focus {
   font-size: 14px;
 }
 
+.linkSesion .dropdown-toggle {
+  float: left;
+}
+
 .linkLogout .nav-item {
   text-transform: capitalize;
   font-size: 14px;

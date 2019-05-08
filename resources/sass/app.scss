@@ -446,6 +446,9 @@
 //	white-space: pre; //coloca el texto en una sola linea (Iniciar sesion)link
 //}
 
+.linkSesion .dropdown-toggle{
+	float: left; //link a la derecha
+}
 
 .linkLogout .nav-item { //tamaño y tipo de letra del logout
 	text-transform: capitalize;
