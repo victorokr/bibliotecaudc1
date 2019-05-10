@@ -42,85 +42,65 @@
 
 <div id="app">
  <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-laravel">
-    <div class="row tamañoimg">
+    <a class="row tamañoimg navbar-brand" href="#">
         <img class="navbar-light" src="/images/logo.png">
-    </div>
+    </a>
 
 
-    {{-- home-contacto-mensajes-inicio --}}
     <div class="container">
-            <div class="row linkHome">
-                <div class="col-xl-12 col-lg-12 col-md-6 col-sm-4 col-4">
-                    <ul class="fm-nav nav bg-inverse nav-pills border-0 rounded justify-content-start  "><!--star   alinea los link a la izquierda--> 
-                            
-                            
-                            
-                       @if (auth()->guest())
-                        <li class="nav-item {{ activeMenuArea('home') }}">
-                          <a href="{{ route('home') }}" class="nav-link"><i class="fas fa-home"></i> Home</a>
-                        </li>
-                        
-
-                            
-                        <li class="nav-item {{ activeMenuArea('/mensajes/create') }}">
-                          <a href="{{ route('mensajes.create') }}" class="nav-link"><i class="fas fa-marker"></i> Contacto</a>
-                        </li>
-                        @endif
-                      
-                        
-                        @if (auth()->check())
-                        <li class="nav-item {{ activeMenuArea('consultantes/area') }}">
-                          <a href="{{ url('/consultantes/area') }}" class="nav-link">InicioConsultantes</a>
-                        </li>
-                        @endif
-
-
-                        @if (auth()->check())
-                            {{-- @if (auth()->user()->hasRoles(['Empleado'])) --}}
-                            <li class="nav-item {{ activeMenuArea('mensajes') }}">
-                              <a href="{{ route('mensajes.index') }}" class="nav-link"><i class="fas fa-envelope"></i>   Mensajes</a>
-                            </li>
-                            {{-- @endif --}}
-
-
-                            <li class="nav-item {{ activeMenuArea('empleados/login') }}">
-                              <a href="{{ url('lista/empleados') }}" class="nav-link"><i class="fas fa-home"></i> Inicio</a>
-                            </li>
-
-                            <!--  <li class="nav-item {{ activeMenuArea('gestion/empleados') }}">
-                              <a href="{{ url('gestion/empleados') }}" class="nav-link">GestionEmpleados</a>
-                            </li> -->
-
-                            @endif
-                        
-                    </ul>
-                </div>
-            </div>
-    </div>
-
+        <div class="row linkHome">
+            <div class="col-xl-12 col-lg-12 col-md-6 col-sm-4 col-4">
+                <ul class="fm-nav nav bg-inverse nav-pills border-0 rounded justify-content-start  "><!--star   alinea los link a la izquierda--> 
+                    
+                    
+                    
+                @if (auth()->guest())
+                <li class="nav-item {{ activeMenuArea('home') }}">
+                  <a href="{{ route('home') }}" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                </li>
                 
+
+                    
+                <li class="nav-item {{ activeMenuArea('/mensajes/create') }}">
+                  <a href="{{ route('mensajes.create') }}" class="nav-link"><i class="fas fa-marker"></i> Contacto</a>
+                </li>
+                @endif
+              
+                
+                @if (auth()->check())
+                <li class="nav-item {{ activeMenuArea('consultantes/area') }}">
+                  <a href="{{ url('/consultantes/area') }}" class="nav-link">InicioConsultantes</a>
+                </li>
+
+                <li class="nav-item {{ activeMenuArea('empleados/login') }}">
+                  <a href="{{ url('lista/empleados') }}" class="nav-link"><i class="fas fa-home"></i> Inicio</a>
+                </li>
+
+                {{-- @if (auth()->user()->hasRoles(['Empleado'])) --}}
+                <li class="nav-item {{ activeMenuArea('mensajes') }}">
+                  <a href="{{ route('mensajes.index') }}" class="nav-link"><i class="fas fa-envelope"></i>   Mensajes</a>
+                </li>
+                @endif
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+
     {{-- iniciar sesion --}}
-    <div class="container justify-content-end">
-      <ul class="hoverDropdown-nav nav bg-inverse nav-pills border-0 rounded ">                             
-          @if (auth()->guest())
-          <div class="row linkSesion">
-              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"> <!--controla los tamaños para diferentes pantallas de pc y dispositivos moviles-->
-                
-                  <li class="nav-item dropdown">
-                   <a class=" nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-key"></i> Iniciar Sesión</a>
-                      <div class="dropdown-menu">
-                          <a class="dropdown-item {{ activeMenuArea('consultantes/login') }}" href="/consultantes/login"><i class="fas fa-book-reader"></i> Consultantes</a>
-
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item {{ activeMenuArea('login') }}" href="login"><i class="fas fa-users-cog"></i> Empleados</a>
-                      </div>
-                  </li>
-              </div>
-          </div>
-      </ul>
-     @endif 
+    
+    <div class="container">
+      <div class="hoverDropdown-nav nav bg-inverse nav-pills border-0 rounded">                             
+          
+      </div>
     </div>
-      
+    
+
+                
+       
 
 
     {{-- Nombre-mi cuenta-logout --}}            
@@ -129,10 +109,26 @@
             <div class="col-xl-12 col-lg-6 col-md-8 col-sm-4 col-4">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    @if (auth()->guest())
+                    <div class="hoverDropdown-nav nav bg-inverse nav-pills border-0 rounded">
+                      <ul class="navbar-nav mr-auto">
+                        <div class="row linkSesion">
+                          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"> <!--controla los tamaños para diferentes pantallas de pc y dispositivos moviles-->
+                            
+                              <li class="nav-item dropdown">
+                                <a class=" nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-key"></i> Iniciar Sesión</a>
+                                  <div class="dropdown-menu">
+                                      <a class="dropdown-item {{ activeMenuArea('consultantes/login') }}" href="/consultantes/login"><i class="fas fa-book-reader"></i> Consultantes</a>
 
-                    </ul>
-
+                                      <div class="dropdown-divider"></div>
+                                      <a class="dropdown-item {{ activeMenuArea('login') }}" href="login"><i class="fas fa-users-cog"></i> Empleados</a>
+                                  </div>
+                              </li>
+                          </div>
+                        </div>
+                      </ul>
+                    </div>  
+                    @endif
                     <!-- Right Side Of Navbar -->
                     <ul class="hoverDropdown-nav nav-pills border-0 rounded navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -188,7 +184,7 @@
      </header>
 
 
-        <!-- menu con jquery -->
+         {{-- menu con jquery --}} 
         @if (auth()->check()) 
         <div class="contenedor-menu">
           <div class="row">
@@ -197,53 +193,53 @@
                <a href="#" class="btn-menu">Menu<i class="icono fas fa-bars"></i></a> <!--enlace para dispositivos moviles, con icono fas fa-bars-->
                <ul class="menu">
               
-                <li><a href="#"><i class="icono izquierda fas fa-users-cog"></i> Empleados <i class="icono derecha fas fa-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="{{ url('lista/empleados/create') }}">Crear Empleado</a></li>
-                        <li><a href="{{ url('lista/empleados') }}">Lista Empleados</a></li>    
-                    </ul>
-                </li>
+                    <li><a href="#"><i class="icono izquierda fas fa-users-cog"></i> Empleados <i class="icono derecha fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{{ url('lista/empleados/create') }}">Crear Empleado</a></li>
+                            <li><a href="{{ url('lista/empleados') }}">Lista Empleados</a></li>    
+                        </ul>
+                    </li>
 
-                <li><a href="#"><i class="icono izquierda fas fa-file-contract"></i> Contratos <i class="icono derecha fas fa-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="{{ url('lista/contratos/create') }}">Crear Contrato</a>
-                        <li><a href="{{ url('lista/contratos') }}">Lista de Contratos</a>
-                    </ul>
-                </li>
-               
+                    <li><a href="#"><i class="icono izquierda fas fa-file-contract"></i> Contratos <i class="icono derecha fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{{ url('lista/contratos/create') }}">Crear Contrato</a>
+                            <li><a href="{{ url('lista/contratos') }}">Lista de Contratos</a>
+                        </ul>
+                    </li>
+                   
 
-                <li><a href="#"><i class="icono izquierda fas fa-book-reader"></i> Consultantes <i class="icono derecha fas fa-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="{{ url('lista/consultantes/create') }}">Crear Consultante</a>
-                        <li><a href="{{ url('lista/consultantes') }}">Lista Consultantes</a>
-                    </ul>
-                </li>
-                <li><a href="#"><i class="icono izquierda fas fa-book"></i> MaterialBiblioteca <i class="icono derecha fas fa-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="#">Agregar Material</a></li>
-                        <li><a href="#">Lista del Material</a></li> 
-                    </ul>
-                </li>
+                    <li><a href="#"><i class="icono izquierda fas fa-book-reader"></i> Consultantes <i class="icono derecha fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{{ url('lista/consultantes/create') }}">Crear Consultante</a>
+                            <li><a href="{{ url('lista/consultantes') }}">Lista Consultantes</a>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="icono izquierda fas fa-book"></i> MaterialBiblioteca <i class="icono derecha fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="#">Agregar Material</a></li>
+                            <li><a href="#">Lista del Material</a></li> 
+                        </ul>
+                    </li>
 
-                <li><a href="#"><i class="icono izquierda fas fa-diagnoses"></i> Autor <i class="icono derecha fas fa-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="#">Agregar Autor</a>
-                        <li><a href="#">Lista de Autores</a>
-                    </ul>
-                </li>
+                    <li><a href="#"><i class="icono izquierda fas fa-diagnoses"></i> Autor <i class="icono derecha fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="#">Agregar Autor</a>
+                            <li><a href="#">Lista de Autores</a>
+                        </ul>
+                    </li>
 
-                <li><a href="#"><i class="icono izquierda fab fa-readme"></i> Editorial <i class="icono derecha fas fa-chevron-down"></i></a>
-                    <ul>
-                        <li><a href="#">Agregar Editorial</a>
-                        <li><a href="#">Lista de Editoriales</a>
-                    </ul>
-                </li>
+                    <li><a href="#"><i class="icono izquierda fab fa-readme"></i> Editorial <i class="icono derecha fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="#">Agregar Editorial</a>
+                            <li><a href="#">Lista de Editoriales</a>
+                        </ul>
+                    </li>
 
-                <li><a href="#"><i class="icono izquierda far fa-atlas"></i> Prestamo <i class="icono derecha fas fa-chevron-down"></i></a></li>
-                <li><a href="#"><i class="icono izquierda far fa-id-card"></i> Prestamos <i class="icono derecha fas fa-chevron-down"></i></a></li>
-                <li><a href="#"><i class="icono izquierda fas fa-laptop"></i> Servicios <i class="icono derecha fas fa-chevron-down"></i></a></li>
-                <li><a href="#"><i class="icono izquierda fas fa-box-open"></i>Inventario <i class="icono derecha fas fa-chevron-down"></i></a></li>    
-                menu con jquery</ul>   
+                    <li><a href="#"><i class="icono izquierda far fa-address-book"></i> Prestamo <i class="icono derecha fas fa-chevron-down"></i></a></li>
+                    <li><a href="#"><i class="icono izquierda fab fa-accusoft"></i> Prestamos <i class="icono derecha fas fa-chevron-down"></i></a></li>
+                    <li><a href="#"><i class="icono izquierda fas fa-laptop"></i> Servicios <i class="icono derecha fas fa-chevron-down"></i></a></li>
+                    <li><a href="#"><i class="icono izquierda fas fa-box-open"></i>Inventario <i class="icono derecha fas fa-chevron-down"></i></a></li>     
+                </ul>   
             </div>
           </div>
         </div>

@@ -21,9 +21,9 @@ class MessagesController extends Controller
 
     function __construct()
     {
-        $this->middleware('auth:employes', ['except' =>['create' , 'store']]); //protege la ruta mensajes, solo se muestra haciendo login, se le paso employes como parametro para que no bloquie la ruta mensajes despues de hacer login
+        $this->middleware('auth', ['except' =>['create' , 'store']]); //protege la ruta mensajes, solo se muestra haciendo login, se le paso employes como parametro para que no bloquie la ruta mensajes despues de hacer login
 
-        $this->middleware('roles:Empleado', ['except' =>['create','store']]);//protege la ruta mensages dentro de la sesion y le pasa por parametro los distintos roles ej: ('roles:administrador,jefeDeInventario') si se agrega o se quitan roles aqui, tambien se debe hacer en el link
+        //$this->middleware('roles:Empleado', ['except' =>['create','store']]);//protege la ruta mensages dentro de la sesion y le pasa por parametro los distintos roles ej: ('roles:administrador,jefeDeInventario') si se agrega o se quitan roles aqui, tambien se debe hacer en el link
     }
 
 

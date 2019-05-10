@@ -10806,7 +10806,7 @@ a.text-dark:focus {
 .marcoCarousel {
   background: #FBFBFD;
   border-top: 24px solid #FBFBFD;
-  padding: 18 20px;
+  padding: 0 20px;
   margin-bottom: 0px;
 }
 
@@ -10960,10 +10960,6 @@ a.text-dark:focus {
 .linkSesion .nav-link {
   text-transform: capitalize;
   font-size: 14px;
-}
-
-.linkSesion .dropdown-toggle {
-  float: left;
 }
 
 .linkLogout .nav-item {

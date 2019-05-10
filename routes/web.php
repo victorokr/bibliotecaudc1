@@ -33,7 +33,7 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 
 
-
+//rutas del menu de navegacion navbar
 Route::get( '/', ['as'=> 'home','uses' => 'pagesController@home']);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('saludos/{nombre?}', ['as' => 'saludos' ,'uses' => 'pagesController@saludo'])->where( 'nombre', "[A-Za-z]+");
@@ -42,7 +42,7 @@ Route::resource('mensajes', 'MessagesController'); //remplaza todas las rutas qu
 
 Route::resource('lista/empleados', 'ListaempleadosController');
 
-
+//rutas segundo login
 Route::get('consultantes/login', 'ConsultantesController@showLoginForm');
 Route::post('consultantes/login','ConsultantesController@login');
 Route::get('logout', 'ConsultantesController@logout');
