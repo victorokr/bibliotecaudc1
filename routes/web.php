@@ -22,9 +22,10 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-// Registration Routes...
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
+//Registration Routes...
+// Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+// Route::post('register', 'Auth\RegisterController@register');
+Auth::routes(['verify'=> true,'register' => false]);
 
  // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
@@ -46,4 +47,4 @@ Route::resource('lista/empleados', 'ListaempleadosController');
 Route::get('consultantes/login', 'ConsultantesController@showLoginForm');
 Route::post('consultantes/login','ConsultantesController@login');
 Route::get('logout', 'ConsultantesController@logout');
-Route::get('consultantes/area', 'AreaconsultantesController@consultante')->middleware('revalidate');
+Route::get('consultantes/area', 'AreaconsultantesController@consultante'); //->middleware('revalidate')

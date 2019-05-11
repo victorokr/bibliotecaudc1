@@ -46,6 +46,14 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'consultants' => [
+            'driver' => 'session',
+            'provider' => 'consultant',
+        ],
+
+
+
     ],
 
     /*
@@ -75,6 +83,15 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+
+        'consultant' => [
+            'driver' => 'eloquent',
+            'model' => App\Consultante_biblioteca::class,
+        ],
+
+
+
     ],
 
     /*
@@ -98,6 +115,15 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+
+
+        'consultants' => [
+            'provider' => 'consultant',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+
     ],
 
 ];
