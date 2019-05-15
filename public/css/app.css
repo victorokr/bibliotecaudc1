@@ -10836,12 +10836,49 @@ a.text-dark:focus {
 }
 
 .sesionLogin .card-header {
-  background: #E6F6F5;
   padding: 10px 0;
   text-align: center;
-  color: #2B4CF6;
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
+}
+
+.sesionLogin .card {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  margin-top: 15px;
+  margin-left: 180px;
+  width: 50%;
+}
+
+.sesionLogin .card-body {
+  margin-top: 55px;
+}
+
+.sesionLogin .card-body p {
+  margin-top: -30px;
+}
+
+.sesionLogin .card-header .icono {
+  font-size: 40px;
+  background: #28a745;
+  color: #ffffff;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+}
+
+.sesionLogin .card-body p {
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.sesionLogin .card-body .form-group .a {
+  margin-top: -10px;
+}
+
+.sesionLogin .card-body .form-group .b {
+  margin-top: -5px;
 }
 
 .fm-nav a {

@@ -246,18 +246,78 @@
 	font-weight: 300;
 }
 
-
+//----------------------------------------------------------------------------
 //personaliza el card header del login
 .sesionLogin .card-header {
-	background: #E6F6F5;
+	//background: #E6F6F5;
 	padding: 10px 0;
 	text-align: center;
-	color: #2B4CF6;
+	//color: #2B4CF6;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
+	//margin-top: 15px;//ancho del header
 }
 
 
+//personaliza el login
+.sesionLogin .card {
+	//background: #E6F6F5;
+	//padding: 10px 0;
+	text-align: center;
+	//color: #2B4CF6;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	margin-top: 15px; //distancia entre el login y el navbar
+	margin-left: 180px;
+	width: 50%; //ancho de tarjeta login
+}
+
+
+//personaliza el login input
+.sesionLogin .card-body {
+	margin-top: 55px; //distancia entre el login y el navbar
+	
+}
+
+//distancia del titulo y el card-header login
+.sesionLogin .card-body p {
+	margin-top: -30px; //distancia entre el login y el navbar
+	
+}
+
+//icono card login
+.sesionLogin .card-header .icono { 
+	font-size: 40px; //tamaño del icono 
+	background: #28a745;
+	color: #ffffff;//cilueta blanca
+	border-radius: 100%;
+	width: 60px;//ancho circle
+	height: 60px;//alto circle
+}
+
+//tamaño letra card-body login
+.sesionLogin .card-body p { 
+	font-weight: lighter; //negrita
+	font-size: 20px; //tamaño de la letra
+
+}
+
+//posicion olvide contraseña loginConsultantes
+.sesionLogin .card-body .form-group .a { 
+	//white-space: pre; //coloca el texto en una sola linea
+	margin-top: -10px;
+}
+
+
+
+//posicion button ssucces loginEmpleados 
+.sesionLogin .card-body .form-group .b  { 
+	margin-top: -5px;
+}
+
+
+
+//------------------------------------------------------------------------------------------
 .fm-nav a{
 	color: #fff; //color de la letra de los links del navbar
 	padding: 15px; //alto del navbar

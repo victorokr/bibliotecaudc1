@@ -121,7 +121,7 @@
                                       <a class="dropdown-item {{ activeMenuArea('consultantes/login') }}" href="/consultantes/login"><i class="fas fa-book-reader"></i> Consultantes</a>
 
                                       <div class="dropdown-divider"></div>
-                                      <a class="dropdown-item {{ activeMenuArea('login') }}" href="login"><i class="fas fa-users-cog"></i> Empleados</a>
+                                      <a class="dropdown-item {{ activeMenuArea('/login') }}" href="/login"><i class="fas fa-users-cog"></i> Empleados</a>
                                   </div>
                               </li>
                           </div>
