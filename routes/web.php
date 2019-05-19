@@ -34,6 +34,16 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 
 
+ // Password Reset Routes consultantes
+Route::get('consultante/password/reset', 'consultante\ConsultanteForgotPasswordController@showLinkRequestForm')->name('consultante.password.request');
+
+Route::post('consultante/password/email', 'consultante\ConsultanteForgotPasswordController@sendResetLinkEmail')->name('consultante.password.email');
+
+Route::get('consultante/password/reset/{token}', 'consultante\ConsultanteResetPasswordController@showResetForm')->name('consultante.password.reset');
+
+Route::post('consultante/password/reset', 'consultante\ConsultanteResetPasswordController@reset')->name('consultante.password.update');
+
+
 //rutas del menu de navegacion navbar
 Route::get( '/', ['as'=> 'home','uses' => 'pagesController@home']);
 Route::get('/home', 'HomeController@index')->name('home');

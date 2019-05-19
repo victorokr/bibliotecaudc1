@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable; //se llamo para poder reestablecer la contraseña
-use App\Notifications\ResetPasswordNotificationEs;
+use App\Notifications\ConsultanteResetPasswordNotification;//se llamo para poder reestablecer la contraseña
 
 class Consultante_biblioteca extends Authenticatable
 {
@@ -22,10 +22,10 @@ class Consultante_biblioteca extends Authenticatable
      * @param  string  $token
      * @return void
      */
-    // public function sendPasswordResetNotification($token)
-    // {
-    //     $this->notify(new ResetPasswordNotificationEs($token));
-    // }
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ConsultanteResetPasswordNotification($token));
+    }
 
 
     // public function setPasswordAttribute($password)//modifica el password encriptandolo

@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if (session()->has('infoContraseña'))
+      <div class="alert alert-success mt-10"><strong>Aviso: </strong>{{ session('infoContraseña') }}</div>
+      @endif
+
 <div class="container">
     <div class="row sesionLogin justify-content-center">
         <div class="col-8">
@@ -53,9 +58,9 @@
                         </div>
                             @if (Route::has('password.request'))
                             <div class="col-12 ">
-                                <label class="a btn btn-link" style="margin-top: -7px " href="{{ route('password.request') }}">
+                                <a class="a btn btn-link" style="margin-top: -7px " href="{{ route('password.request') }}">
                                         {{ __('Olvidé mi contraseña?') }}
-                                </label>
+                                </a>
                             </div>
                             @endif
                         <div class="form-group row pt-1">

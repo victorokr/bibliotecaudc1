@@ -18,7 +18,7 @@ class ForgotPasswordController extends Controller
     |
     */
 
-    use SendsPasswordResetEmails;
+    use SendsPasswordResetEmails;//retorna la vista email Send Password Reset Link
 
     /**
      * Create a new controller instance.

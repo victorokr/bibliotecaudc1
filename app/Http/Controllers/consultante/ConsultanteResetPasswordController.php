@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\consultante;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Support\Facades\Hash;//se agrego para que funcione el metodo resetPassword
 use Illuminate\Support\Str;//se agrego para que funcione el metodo resetPassword
 use Illuminate\Auth\Events\PasswordReset;//se agrego para que funcione el metodo resetPassword
+use Illuminate\Support\Facades\Password;//se agrego para que funcione metodo broker
 
-class ResetPasswordController extends Controller
+class ConsultanteResetPasswordController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +30,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/login';
+    protected $redirectTo = '/consultantes/login';
 
     /**
      * Create a new controller instance.
@@ -37,7 +39,23 @@ class ResetPasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest:consultants');
+    }
+
+    /**
+     * Display the password reset view for the given token.
+     *
+     * If no token is present, display the link request form.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string|null  $token
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showResetForm(Request $request, $token = null)
+    {
+        return view('consultpassword.passwords.reset')->with(
+            ['token' => $token, 'email' => $request->email]
+        );
     }
 
 
@@ -66,6 +84,27 @@ class ResetPasswordController extends Controller
         return back()->with('infoContraseña','Tu contraseña se ha actualizado, por favor inicia sesion'); 
     }
 
-    
 
+    /**
+     * Get the broker to be used during password reset.
+     *
+     * @return \Illuminate\Contracts\Auth\PasswordBroker
+     */
+    public function broker()
+    {
+        return Password::broker('consultants');
+    }
+
+    /**
+     * Get the guard to be used during password reset.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return Auth::guard('consultants');
+    }
+
+
+    
 }
