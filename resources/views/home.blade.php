@@ -4,7 +4,7 @@
 <!--<h5><center>Biblioteca Universitaria de Colombia</center></h5>-->
 
       
-
+<div class="contenedorimgHome">
 <div class="container">
     <div class="row marcoCarousel">
         <div class="col-12">
@@ -171,5 +171,5 @@
     </div>
     </div>
     
-
+</div>
 @endsection

@@ -10671,7 +10671,16 @@ a.text-dark:focus {
 }
 
 .carousel {
-  margin-top: -24px;
+  margin-top: 0px;
+}
+
+.contenedorimgHome {
+  background-image: url("/images/fondohome6.jpg");
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 200%;
+  width: 100%;
 }
 
 /* Carousel Styles */
@@ -10792,22 +10801,8 @@ a.text-dark:focus {
   border-color: #fff;
 }
 
-.tarjetas {
-  background: #FBFBFD;
-  border-top: 5px solid #3da5e2;
-  padding: 10 20px;
-  margin-bottom: 0px;
-}
-
 .tarjetas .contenedor-imagen:hover img {
   opacity: 0.6;
-}
-
-.marcoCarousel {
-  background: #FBFBFD;
-  border-top: 24px solid #FBFBFD;
-  padding: 0 20px;
-  margin-bottom: 0px;
 }
 
 .tarjetas .titulo {
@@ -10819,20 +10814,29 @@ a.text-dark:focus {
   font-weight: 300;
 }
 
-.contacto {
-  background: #FBFBFD;
-  border-top: 5px solid #3692EF;
-  padding: 10 15px;
-  margin-bottom: 20px;
-}
-
-.contacto .tituloContacto {
-  background: #E6F6F5;
-  padding: 10px 0;
+.contacto .card {
   text-align: center;
-  color: #2B4CF6;
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
+  margin-top: 15px;
+}
+
+.contenedorimgcontacto {
+  background-image: url("/images/fondologin.jpg");
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.contenedorimgcontacto .card-header .icono {
+  font-size: 30px;
+  background: #28a745;
+  color: #ffffff;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
 }
 
 .sesionLogin .card-header {
@@ -10847,8 +10851,6 @@ a.text-dark:focus {
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
   margin-top: 15px;
-  margin-left: 180px;
-  width: 50%;
 }
 
 .sesionLogin .card-body {
@@ -10879,6 +10881,15 @@ a.text-dark:focus {
 
 .sesionLogin .card-body .form-group .b {
   margin-top: -5px;
+}
+
+.contenedorimg {
+  background-image: url("/images/fondologin.jpg");
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
 }
 
 .fm-nav a {

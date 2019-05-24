@@ -40,8 +40,22 @@
 
 //controla el movimiento arriba o abajo del carousel
 .carousel {
-     margin-top: -24px;
+     margin-top: 0px;
 }
+
+
+
+//imagen de fondo home
+.contenedorimgHome  { 
+	background-image: url('/images/fondohome6.jpg');
+	background-size: 100% 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 200%;
+	width: 100%;
+}
+
+
 
 
 
@@ -185,12 +199,12 @@
 
 
 //forma un marco sobre las tarjetas
-.tarjetas{
-	background: #FBFBFD;
-	border-top: 5px solid #3da5e2;
-	padding: 10 20px;//el 10 ensancha el marco negro
-	margin-bottom: 0px;//controla la distancia inferior con el otro contenedor
-}
+//.tarjetas{
+//	background: #FBFBFD;
+//	border-top: 5px solid #3da5e2;
+//	padding: 10 20px;//el 10 ensancha el marco negro
+//	margin-bottom: 0px;//controla la distancia inferior con el otro contenedor
+//}
 
 
 
@@ -208,13 +222,13 @@
 
 
 //forma un marco sobre el carousel
-.marcoCarousel{
-	background: #FBFBFD; //marco negro lateral
-	border-top: 24px solid #FBFBFD; //marco rojo superior
-	padding: 0 20px; //cero pega el carousel al navbar
-	margin-bottom: 0px; //controla la distancia inferior con el otro contenedor
+//.marcoCarousel{
+//	background: #FBFBFD; //marco negro lateral
+//	border-top: 24px solid #FBFBFD; //marco rojo superior
+//	padding: 0 20px; //cero pega el carousel al navbar
+//	margin-bottom: 0px; //controla la distancia inferior con el otro contenedor
 	
-}
+//}
 
 //personaliza el titulo de las tarjetas
 .tarjetas .titulo {
@@ -226,24 +240,56 @@
 	font-weight: 300;
 }
 
-
+//---------------------------------------------------------------------------
 //forma un marco sobre formulario contacto
-.contacto{
-	background: #FBFBFD;
-	border-top: 5px solid #3692EF;
-	padding: 10 15px;
-	margin-bottom: 20px;
-}
+//.contacto{
+//	background: #FBFBFD;
+//	border-top: 5px solid #3692EF;
+//	padding: 10 15px;
+//	margin-bottom: 20px;
+//}
 
 
 //personaliza el titulo de contacto
-.contacto .tituloContacto {
-	background: #E6F6F5;
-	padding: 10px 0;
+//.contacto .tituloContacto {
+//	background: #E6F6F5;
+//	padding: 10px 0;
+//	text-align: center;
+//	color: #2B4CF6;
+//	font-family: 'Open Sans', sans-serif;
+//	font-weight: 300;
+//}
+
+//personaliza el formulario contacto
+.contacto .card {
+	//background: #E6F6F5;
+	//padding: 10px 0;
 	text-align: center;
-	color: #2B4CF6;
+	//color: #2B4CF6;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
+	margin-top: 15px; //distancia entre el login y el navbar
+	//width: 50%; //ancho de tarjeta login
+}
+
+//imagen de fondo contacto 
+.contenedorimgcontacto  { 
+	background-image: url('/images/fondologin.jpg');
+	background-size: 100% 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
+}
+
+//icono card contacto
+.contenedorimgcontacto .card-header .icono { 
+	font-size: 30px; //tamaño del icono 
+	background: #28a745;
+	color: #ffffff;//cilueta blanca
+	border-radius: 100%;
+	width: 40px;//ancho circle
+	height: 40px;//alto circle
 }
 
 //----------------------------------------------------------------------------
@@ -268,8 +314,8 @@
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
 	margin-top: 15px; //distancia entre el login y el navbar
-	margin-left: 180px;
-	width: 50%; //ancho de tarjeta login
+	//margin-left: 180px;
+	//width: 50%; //ancho de tarjeta login
 }
 
 
@@ -315,6 +361,20 @@
 	margin-top: -5px;
 }
 
+//imagen de fondo logins 
+.contenedorimg  { 
+	background-image: url('/images/fondologin.jpg');
+	background-size: 100% 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
+}
+
+//imagen de fondo logins 
+//.contenedorimg .sesionLogin  { 
+//	margin-left: 200px;
+//}
 
 
 //------------------------------------------------------------------------------------------
