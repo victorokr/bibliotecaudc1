@@ -51,10 +51,10 @@ Route::get('saludos/{nombre?}', ['as' => 'saludos' ,'uses' => 'pagesController@s
 Route::resource('mensajes', 'MessagesController'); //remplaza todas las rutas que usa el crud de mensajes
 
 
-Route::resource('lista/empleados', 'ListaempleadosController')->middleware('revalidate');
+Route::resource('lista/empleados', 'ListaempleadosController');//->middleware('revalidate');
 
 //rutas segundo login
 Route::get('consultantes/login', 'ConsultantesController@showLoginForm');
 Route::post('consultantes/login','ConsultantesController@login');
 Route::get('logout', 'ConsultantesController@logout');
-Route::get('consultantes/area', 'AreaconsultantesController@consultante')->middleware('revalidate');
+Route::get('consultantes/area', 'AreaconsultantesController@consultante');

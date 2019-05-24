@@ -2,9 +2,13 @@
 
 @section('content')
 
-@if(session()->has('info'))
+{{-- @if(session()->has('info'))
 	<h3>{{ session ('info') }}</h3>
-@else
+@else --}}
+
+      @if (session()->has('info'))
+      <div class="alert alert-success mt-10"><strong>Aviso: </strong>{{ session('info') }}</div>
+      @else
 
 <div class="contenedorimgcontacto">
 	<div class="container  ">
