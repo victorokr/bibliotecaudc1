@@ -12,7 +12,7 @@
   <div class="row">		
 	<div class="col-xl-12 col-md-12 col-sm-12 col-xs-4 col-lg-12"> 
 	  <div class="card">
-	    <div class="card-header"><i class="icono fas fa-users-cog"></i> Empleados <a class="btn btn-success 				btn-sm" href="{{ url('lista/empleados/create') }}"> <i class="fas fa-plus-circle"></i> crear 				empleado </a></div>
+	    <div class="card-header"><i class="icono fas fa-users-cog"></i> Empleados <a class="btn btn-success btn-sm" href="{{ url('lista/empleados/create') }}"> <i class="fas fa-plus-circle"></i> crear empleado </a></div>
 	       
 	      <div class="card-body">   
 				<div class="table-responsive">
@@ -65,7 +65,7 @@
 									{{ $role->display_name         }}
 									@endforeach --}}
 
-									{{-- {{ $listaempleado->roles->pluck('display_name')->implode(' - ') }} --}}<!--esta linea hace lo mismo que el foreach, remplaza, y agrega la coma para separar los nombres de los roles-->
+									{{ $listaempleado->roles->pluck('display_name')->implode(' - ') }}<!--esta linea hace lo mismo que el foreach, remplaza, y agrega la coma para separar los nombres de los roles-->
 								</td>
 
 						

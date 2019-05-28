@@ -34,4 +34,51 @@ class Empleado extends Authenticatable
     {
         $this->notify(new ResetPasswordNotificationEs($token));
     }
+
+
+     public function setPasswordAttribute($password)//modifica el password encriptandolo
+    {
+        $this->attributes['password']=bcrypt($password);
+    }
+
+
+
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role','empleado_role','id_empleado','id_role');//el primero pertenece a la tabla pivot, 2do a la tabla empleado para evitar que eloquen lo busque en orden alfabetico, 3ro el id de la tabla a relacionar, tabla role.
+    }
+
+
+
+
+    public function contrato()//este metodo define la relacion de uno a muchos. Trae los datos de la tabla contrato
+    {
+        return $this->hasMany('App\Contrato','id_contrato');
+    }
+
+
+
+
+    public function hasRoles(array $roles)
+    {
+        foreach ($roles as $role)
+         {
+             foreach ($this->roles as $empleadoRol)//$this->role hace referencia al campo rol en la abase de datos
+             {
+
+                if ($empleadoRol->Nombre === $role)
+                {
+                    return true;
+                }
+
+
+             }
+            
+         }
+
+
+
+        return false;
+    }
 }

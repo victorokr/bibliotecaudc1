@@ -25,7 +25,7 @@ class ListaempleadosController extends Controller
 
      public function __construct()
     {
-       $this->middleware('auth'); //protege la ruta lista empleados, solo se muestra haciendo login, se le paso employes como parametro para que no bloquie la ruta lista empleados despues de hacer login
+       $this->middleware('auth:employes'); //protege la ruta lista empleados, solo se muestra haciendo login, se le paso employes como parametro para que no bloquie la ruta lista empleados despues de hacer login
 
        // $this->middleware('roles:Administrador', ['except' =>['edit','update']]);//protege la ruta gestionempleados dentro de la sesion y le pasa por parametro los distintos roles ej: ('roles:administrador,jefeDeInventario') si se agrega o se quitan roles aqui, tambien se debe hacer en el link
     }
@@ -85,7 +85,7 @@ class ListaempleadosController extends Controller
     {
         $listaempleados = \App\Empleado::findOrFail($id);
 
-        $this->authorize('edit',$listaempleados);
+        //$this->authorize('edit',$listaempleados);//politica
 
         $roles = Role::pluck('display_name', 'id_role');//esta linea le pasa los roles actuales al form edit, el metodo pluck recupera todos los valores de una clave dada
 
@@ -110,7 +110,7 @@ class ListaempleadosController extends Controller
 
         $listaempleados = \App\Empleado::findOrFail($id);
 
-       $this->authorize('update',$listaempleados);
+       //$this->authorize('update',$listaempleados);//polici
 
        $listaempleados->roles()->sync($request->roles);//el metodo sync evita duplicaciones en la tabla pivote de roles al seleccionar los checkbox en el formulario
 
@@ -128,7 +128,7 @@ class ListaempleadosController extends Controller
     {
         $listaempleados = \App\Empleado::findOrFail($id); 
 
-        $this->authorize('destroy',$listaempleados);
+        //$this->authorize('destroy',$listaempleados);
 
         $listaempleados->delete();
         

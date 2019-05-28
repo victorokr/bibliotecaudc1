@@ -519,14 +519,96 @@
 	font-size: 14px;
 }
 
+//.wrapper{ //controla el ancho del container del menuEmpleados
+//	width: 1330px;//margen derecha
+//	margin: 0 -110px; //margen izquierda
+//}
 
 
 
+
+//nueva tabla mensajes----------------------------------------------------------------------------------
+
+
+//controla la tabla empleados ajustandola en pantalla
+.container-mensajes{
+	margin-right: 12px;
+	margin-left: 212px;
+	padding-top: 12px;
+}
+
+//icono card empleados
+.container-mensajes .card .card-header .icono { 
+	font-size: 15px; //tamaño del icono 
+	line-height: 20px;
+	
+}
+
+//tamaño letra card-header empleados
+.container-mensajes .card .card-header { 
+	font-weight: lighter; //negrita
+	font-size: 20px; //tamaño de la letra
+
+}
+
+//controla el btn del card-hearder empleados
+.container-mensajes .card .card-header .btn {
+	margin-left: 770px;
+	padding-top: 3px;//aumenta la distancia del margen superior dentro del btn
+	top: -4px;//mueve arriba o hacia abajo el btn
+}
+
+
+.container-mensajes .card .card-header {
+	margin-top: 0px;
+	margin-bottom: -6px;//hacerca la tabla al card-header
+	max-height: 100px; //alto del card-header
+
+}
+
+//hacerca los botones delete y edit a la parte superior de la tabla
+.container-mensajes .card-body .table .btn {
+	top: -21px;
+    margin-bottom: -20px; //hacerca el margen inferior al boton
+}
+
+//pega el boton a la derecha de la linea de la tabla
+.container-mensajes .card-body .table .btn.editar {
+	margin-left: 2px; 
+}
+
+//pega el boton a la derecha de la linea de la tabla
+.container-mensajes .card-body .table .btn.eliminar {
+	margin-left: -15px; 
+	margin-right: 0px;
+}
+
+.container-mensajes .card .card-body .table{
+	width: 105%; //ancho de la tabla
+    text-transform: capitalize;
+	font-size: 14px;
+}
 
 //.wrapper{ //controla el ancho del container del menuEmpleados
 //	width: 1330px;//margen derecha
 //	margin: 0 -110px; //margen izquierda
 //}
+
+//-----------------------------------------------------------------------------------------
+//empleados edit form
+
+.contenedorEditEmpleados{//posicion del card que contiene los demas card
+	margin-right: 12px;
+	margin-left: 212px;
+	padding-top: 0px;
+
+}
+
+
+
+
+
+//------------------------------------------------------------------------------------------
 
 .navbar .tamañoimg{
 	 width: 5%; //ancho del logo en el navbar

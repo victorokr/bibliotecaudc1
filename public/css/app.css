@@ -10986,6 +10986,60 @@ a.text-dark:focus {
   font-size: 14px;
 }
 
+.container-mensajes {
+  margin-right: 12px;
+  margin-left: 212px;
+  padding-top: 12px;
+}
+
+.container-mensajes .card .card-header .icono {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.container-mensajes .card .card-header {
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.container-mensajes .card .card-header .btn {
+  margin-left: 770px;
+  padding-top: 3px;
+  top: -4px;
+}
+
+.container-mensajes .card .card-header {
+  margin-top: 0px;
+  margin-bottom: -6px;
+  max-height: 100px;
+}
+
+.container-mensajes .card-body .table .btn {
+  top: -21px;
+  margin-bottom: -20px;
+}
+
+.container-mensajes .card-body .table .btn.editar {
+  margin-left: 2px;
+}
+
+.container-mensajes .card-body .table .btn.eliminar {
+  margin-left: -15px;
+  margin-right: 0px;
+}
+
+.container-mensajes .card .card-body .table {
+  width: 105%;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.contenedorEditEmpleados {
+  margin-right: 12px;
+  margin-left: 212px;
+  padding-top: 0px;
+}
+
 .navbar .tamañoimg {
   width: 5%;
   max-height: 80px;
