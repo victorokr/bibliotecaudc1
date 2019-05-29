@@ -50,7 +50,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('saludos/{nombre?}', ['as' => 'saludos' ,'uses' => 'pagesController@saludo'])->where( 'nombre', "[A-Za-z]+");
 Route::resource('mensajes', 'MessagesController'); //remplaza todas las rutas que usa el crud de mensajes
 
-
+Route::resource('lista/contratos', 'ListacontratosController');
 Route::resource('lista/empleados', 'ListaempleadosController');//->middleware('revalidate');
 
 //rutas segundo login
@@ -58,3 +58,6 @@ Route::get('consultantes/login', 'ConsultantesController@showLoginForm');
 Route::post('consultantes/login','ConsultantesController@login');
 Route::get('logout', 'ConsultantesController@logout');
 Route::get('consultantes/area', 'AreaconsultantesController@consultante');
+
+
+
