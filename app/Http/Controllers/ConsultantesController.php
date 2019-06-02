@@ -44,7 +44,7 @@ class ConsultantesController extends Controller
     public function authenticated()
     {
 
-    	return redirect('consultantes/area');
+    	return redirect('/consultantes/area');
     }
 
 
@@ -69,7 +69,7 @@ class ConsultantesController extends Controller
         {
 
            return redirect()
-           ->intended(url('consultantes/area'))
+           ->intended(url('/consultantes/area'))
            ->with('status','eres admin');
         }
 

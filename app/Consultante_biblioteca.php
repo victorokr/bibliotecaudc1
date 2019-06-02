@@ -28,6 +28,33 @@ class Consultante_biblioteca extends Authenticatable
     }
 
 
+     public function hasRoles(array $roles)
+    {
+        foreach ($roles as $role)
+         {
+             foreach ($this->roles as $consultanteRol)//$this->role hace referencia al campo rol en la abase de datos
+             {
+
+                if ($consultanteRol->Nombre === $role)
+                {
+                    return true;
+                }
+
+
+             }
+            
+         }
+
+
+
+        return false;
+    }
+
+        public function roles()
+        {
+        return $this->belongsToMany('App\Role','role_consultantebiblioteca','id_consultanteBiblioteca','id_role');//el primero pertenece a la tabla pivot, 2do a la tabla empleado para evitar que eloquen lo busque en orden alfabetico, 3ro el id de la tabla a relacionar, tabla role.
+        }
+
     // public function setPasswordAttribute($password)//modifica el password encriptandolo
     // {
     //     $this->attributes['password']=bcrypt($password);

@@ -116,11 +116,12 @@
    </div>
 
 
-	{{-- @if (auth()->user()->hasRoles(['Administrador'])) --}}
+	
 	<div class="card border-light">
 	 <div class="card-header"><i class="fas fa-user-tie"></i> {{ __('Roles') }}</div>
 	   <div class="card-body">
 		<div class="row justify-contend-star">
+         @if (auth()->user()->hasRoles(['Administrador']))
 			@foreach ($roles as $id_role => $Nombre)
 			<label class="form-check-label btn btn-light">
 			<input
@@ -132,16 +133,17 @@
 			</label><!--la linea del metodo pluck, verifica el role en la base de datos y muestra el check en el checkbox-->
 			@endforeach	  			
 			{!!$errors->first('roles','<span class=error>:message</span>')!!}
+         @endif
 		</div>
-
+    
 			<div class="row justify-content-center">
-					<div class="col-12 col-md-6">
-					 <input class="btn btn-success btn-sm btn-block" type="submit" value="Guardar">
-					</div>
-				</div>		 
+			  <div class="col-12 col-md-6">
+			  <input class="btn btn-success btn-sm btn-block" type="submit" value="Guardar">
+			  </div>
+			</div>		 
 	   </div>
     </div>
 </div>
 </div>
-{{-- @endif --}}
+
 			  

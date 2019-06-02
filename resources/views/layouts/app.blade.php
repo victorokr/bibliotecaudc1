@@ -68,20 +68,26 @@
               
                 
                 @if (auth()->check())
+                @if (auth()->user()->hasRoles(['Estudiante']))
                 <li class="nav-item {{ activeMenuArea('consultantes/area') }}">
                   <a href="{{ url('/consultantes/area') }}" class="nav-link">InicioConsultantes</a>
                 </li>
+                @endif
 
+
+                @if (auth()->user()->hasRoles(['Administrador','Empleado']))
                 <li class="nav-item {{ activeMenuArea('empleados/login') }}">
-                  <a href="{{ url('lista/empleados') }}" class="nav-link"><i class="fas fa-home"></i> Inicio</a>
+                  <a href="{{ url('/empleados/area') }}" class="nav-link"><i class="fas fa-home"></i> Inicio</a>
                 </li>
+                @endif
 
-                {{-- @if (auth()->user()->hasRoles(['Empleado'])) --}}
+
+                @if (auth()->user()->hasRoles(['Empleado']))
                 <li class="nav-item {{ activeMenuArea('mensajes') }}">
                   <a href="{{ route('mensajes.index') }}" class="nav-link"><i class="fas fa-envelope"></i>   Mensajes</a>
                 </li>
                 @endif
-                
+                @endif
             </ul>
         </div>
     </div>
@@ -192,7 +198,7 @@
                
                <a href="#" class="btn-menu">Menu<i class="icono fas fa-bars"></i></a> <!--enlace para dispositivos moviles, con icono fas fa-bars-->
                <ul class="menu">
-              
+                    @if (auth()->user()->hasRoles(['Administrador']))
                     <li><a href="#"><i class="icono izquierda fas fa-users-cog"></i> Empleados <i class="icono derecha fas fa-chevron-down"></i></a>
                         <ul>
                             <li><a href="{{ url('lista/empleados/create') }}">Crear Empleado</a></li>
@@ -206,8 +212,10 @@
                             <li><a href="{{ url('lista/contratos') }}">Lista de Contratos</a>
                         </ul>
                     </li>
-                   
+                    @endif
 
+
+                    @if (auth()->user()->hasRoles(['Empleado']))
                     <li><a href="#"><i class="icono izquierda fas fa-book-reader"></i> Consultantes <i class="icono derecha fas fa-chevron-down"></i></a>
                         <ul>
                             <li><a href="{{ url('lista/consultantes/create') }}">Crear Consultante</a>
@@ -235,10 +243,20 @@
                         </ul>
                     </li>
 
-                    <li><a href="#"><i class="icono izquierda far fa-address-book"></i> Prestamo <i class="icono derecha fas fa-chevron-down"></i></a></li>
                     <li><a href="#"><i class="icono izquierda fab fa-accusoft"></i> Prestamos <i class="icono derecha fas fa-chevron-down"></i></a></li>
                     <li><a href="#"><i class="icono izquierda fas fa-laptop"></i> Servicios <i class="icono derecha fas fa-chevron-down"></i></a></li>
-                    <li><a href="#"><i class="icono izquierda fas fa-box-open"></i>Inventario <i class="icono derecha fas fa-chevron-down"></i></a></li>     
+                    @endif
+
+
+                    @if (auth()->user()->hasRoles(['Estudiante']))
+                    <li><a href="#"><i class="icono izquierda far fa-address-book"></i> Prestamo <i class="icono derecha fas fa-chevron-down"></i></a></li>
+                    @endif
+
+                    
+
+                    @if (auth()->user()->hasRoles(['jefeDeInventario']))
+                    <li><a href="#"><i class="icono izquierda fas fa-box-open"></i>Inventario <i class="icono derecha fas fa-chevron-down"></i></a></li> 
+                    @endif    
                 </ul>   
             </div>
           </div>

@@ -11034,6 +11034,23 @@ a.text-dark:focus {
   font-size: 14px;
 }
 
+.container-areaEmpleados {
+  padding-top: 110px;
+}
+
+.container-areaEmpleados .card-group {
+  margin-left: 212px;
+}
+
+.container-areaEmpleados {
+  background-image: url("/images/fondohome6.jpg");
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
 .contenedorEditEmpleados {
   margin-right: 12px;
   margin-left: 212px;
