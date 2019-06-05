@@ -85,7 +85,7 @@
 		  <div class="input-group input-group-sm mb-4">
 		    <div class="input-group-prepend">
 			  <span class="input-group-text">contraseña</span>	  		
-			  <input class="form-control" id="validationCustom05" type="password" name="password" value="{{ $listaempleados->password  }}" required>
+			  <input class="form-control" id="validationCustom05" type="password" name="password" value="{{  old('password')  }}" required>
 			</div>
 			<div class="valid-feedback">¡se ve bien!</div>
 		    <small id="passwordHelpBlock" class="form-text text-muted">
@@ -99,7 +99,7 @@
 		    <div class="input-group-prepend">
 			  <span class="input-group-text">confirmar...</span>
 			  <input class="form-control" type="password" name="password_confirmation" 
-			  value="{{ $listaempleados->password  }}" required>
+			  value="{{ old('password') }}" required>
 			</div>
 				<div class="valid-feedback">¡se ve bien!</div>
 				<small id="passwordHelpBlock" class="form-text text-muted">

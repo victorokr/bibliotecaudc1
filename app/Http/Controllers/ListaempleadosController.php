@@ -85,7 +85,7 @@ class ListaempleadosController extends Controller
     {
         $listaempleados = \App\Empleado::findOrFail($id);
 
-        //$this->authorize('edit',$listaempleados);//politica
+        $this->authorize('edit',$listaempleados);//politica
 
         $roles = Role::pluck('display_name', 'id_role');//esta linea le pasa los roles actuales al form edit, el metodo pluck recupera todos los valores de una clave dada
 
@@ -110,7 +110,7 @@ class ListaempleadosController extends Controller
 
         $listaempleados = \App\Empleado::findOrFail($id);
 
-       //$this->authorize('update',$listaempleados);//polici
+       $this->authorize('update',$listaempleados);//polici
 
        $listaempleados->roles()->sync($request->roles);//el metodo sync evita duplicaciones en la tabla pivote de roles al seleccionar los checkbox en el formulario
 
@@ -128,7 +128,7 @@ class ListaempleadosController extends Controller
     {
         $listaempleados = \App\Empleado::findOrFail($id); 
 
-        //$this->authorize('destroy',$listaempleados);
+        $this->authorize('destroy',$listaempleados);
 
         $listaempleados->delete();
         

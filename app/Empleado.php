@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+//use Illuminate\Support\Facades\Hash;
 use App\Notifications\ResetPasswordNotificationEs;
 use Illuminate\Foundation\Auth\User as Authenticatable; //se coloco esta linea en remplazo de eloquent
 //use Illuminate\Database\Eloquent\Model;
