@@ -55,30 +55,30 @@ class Consultante_biblioteca extends Authenticatable
         return $this->belongsToMany('App\Role','role_consultantebiblioteca','id_consultanteBiblioteca','id_role');//el primero pertenece a la tabla pivot, 2do a la tabla empleado para evitar que eloquen lo busque en orden alfabetico, 3ro el id de la tabla a relacionar, tabla role.
         }
 
-    // public function setPasswordAttribute($password)//modifica el password encriptandolo
-    // {
-    //     $this->attributes['password']=bcrypt($password);
-    // }
+    public function setPasswordAttribute($password)//modifica el password encriptandolo
+    {
+        $this->attributes['password']=bcrypt($password);
+    }
 
 
-    // public function institucionUniversidadd()//este metodo define la relacion de uno a muchos. Trae los datos de la tabla institucion universidad
-    // {
-    //     return $this->belongsTo('App\Institucion_universidad','id_institucionUniversidad');
-    // }
+    public function institucionUniversidadd()//este metodo define la relacion de uno a muchos. Trae los datos de la tabla institucion universidad
+    {
+        return $this->belongsTo('App\Institucion_universidad','id_institucionUniversidad');
+    }
 
-    // public function facultadd()//este metodo define la relacion de uno a muchos. Trae los datos de la tabla institucion universidad
-    // {
-    //     return $this->belongsTo('App\Facultad','id_facultad');
-    // }
+    public function facultadd()//este metodo define la relacion de uno a muchos. Trae los datos de la tabla institucion universidad
+    {
+        return $this->belongsTo('App\Facultad','id_facultad');
+    }
 
-    // public function tipoDeConsultante()//este metodo define la relacion de uno a muchos. Trae los datos de la tabla institucion universidad
-    // {
-    //     return $this->belongsTo('App\Tipo_de_consultante','id_tipoDeConsultante');
-    // }
+    public function tipoDeConsultante()//este metodo define la relacion de uno a muchos. Trae los datos de la tabla institucion universidad
+    {
+        return $this->belongsTo('App\Tipo_de_consultante','id_tipoDeConsultante');
+    }
 
-    // public function perfiles()
-    // {
-    //     return $this->belongsToMany('App\Perfil','consultantebiblioteca_perfil','id_consultanteBiblioteca','id_perfil');//el primero pertenece a la tabla pivot, 2do a la tabla perfil para evitar que eloquen lo busque en orden alfabetico, 3ro el id de la tabla a relacionar, tabla consultante_biblioteca.
-    // }
+    public function perfiles()
+    {
+        return $this->belongsToMany('App\Perfil','consultantebiblioteca_perfil','id_consultanteBiblioteca','id_perfil');//el primero pertenece a la tabla pivot, 2do a la tabla perfil para evitar que eloquen lo busque en orden alfabetico, 3ro el id de la tabla a relacionar, tabla consultante_biblioteca.
+    }
 
 }
