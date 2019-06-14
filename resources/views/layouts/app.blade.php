@@ -36,6 +36,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet"><!--carga el archivo compilado-->
 
+   {{--  plugin multiSelect --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+
 </head>
 
 <body>
@@ -225,7 +229,7 @@
                     <li><a href="#"><i class="icono izquierda fas fa-book"></i> MaterialBiblioteca <i class="icono derecha fas fa-chevron-down"></i></a>
                         <ul>
                             <li><a href="#">Agregar Material</a></li>
-                            <li><a href="#">Lista del Material</a></li> 
+                            <li><a href="{{ url('material/biblioteca') }}">Lista del Material</a></li> 
                         </ul>
                     </li>
 
@@ -269,8 +273,15 @@
 
 
 
-
+<!--trae el codigo jquery de la ruta public/js/main-->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="{{ asset('js/main.js') }}" defer></script><!--trae el codigo jquery de la ruta public/js/main-->
+<script src="{{ asset('js/main.js') }}" defer></script>
+
+{{-- plugin multiSelect --}}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
 </body>
 </html>

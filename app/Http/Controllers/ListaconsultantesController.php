@@ -69,8 +69,8 @@ class ListaconsultantesController extends Controller
         $listaconsultantes = \App\Consultante_biblioteca::create( $request->all() );
         $listaconsultantes->perfiles()->attach($request->perfiles);
 
-        // $role = \App\Role::where('Nombre','=','consultante_biblioteca')->firstOrFail();
-        // $listaconsultantes->attachRole($role);
+        
+        $listaconsultantes->roles()->attach(4);//asigna el rol estudiante por defecto al crear un consultante
 
         return redirect()->route('consultantes.index', compact('listaconsultantes'));
     }
@@ -101,6 +101,7 @@ class ListaconsultantesController extends Controller
 
         $tipoDeConsultante = Tipo_de_consultante::pluck('tipoDeConsultante','id_tipoDeConsultante');
         $perfiles = Perfil::pluck('Nombre_perfil', 'id_perfil');
+        
         return view('listaconsultantes.edit', compact('listaconsultantes','institucionUniversidadd','facultadd','tipoDeConsultante','perfiles'));
     }
 

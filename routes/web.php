@@ -55,6 +55,9 @@ Route::resource('mensajes', 'MessagesController'); //remplaza todas las rutas qu
 Route::resource('lista/contratos', 'ListacontratosController');
 Route::resource('lista/empleados', 'ListaempleadosController');//->middleware('revalidate');
 Route::resource('lista/consultantes', 'ListaconsultantesController');
+Route::resource('material/biblioteca', 'MaterialbibliotecaController');
+Route::resource('editorial', 'EditorialController');
+Route::resource('autor', 'AutorController');
 
 //rutas segundo login
 Route::get('consultantes/login', 'ConsultantesController@showLoginForm');
