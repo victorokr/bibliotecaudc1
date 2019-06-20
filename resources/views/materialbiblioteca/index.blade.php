@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
  
-@if (session()->has('infoDeleteConsultantes'))
-<div class="alert alert-success">{{ session('infoMaterialBiblioteca') }}</div>
+@if (session()->has('infoDeleteMaterial'))
+<div class="alert alert-success">{{ session('infoDeleteMaterial') }}</div>
 @endif
 
 
@@ -10,7 +10,7 @@
  <div class="row menuEmpleados">
   <div class="col-xl-12 col-md-12 col-sm-12 col-lg-12 "> <!--es lo mismo que col-12 -->
   	<div class="card">
-      <div class="card-header"><i class="fas fa-book-reader"></i> Material Biblioteca <a class="btn btn-success btn-sm" href="{{ url('lista/consultantes/create') }}"> <i class="fas fa-plus-circle"></i> Material</a></div>
+      <div class="card-header"><i class="fas fa-book-reader"></i> Material Biblioteca <a class="btn btn-success btn-sm" href="{{ url('material/biblioteca/create') }}"> <i class="fas fa-plus-circle"></i> Material</a></div>
        <div class="card-body">
         
 		<div class="table-responsive">

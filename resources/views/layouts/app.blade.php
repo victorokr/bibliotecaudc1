@@ -26,7 +26,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" ></script> {{-- se suprimio el defer, impedia el funcionamiento de select2 --}}
 
 
     <!-- Fonts -->
@@ -36,9 +36,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet"><!--carga el archivo compilado-->
 
+
    {{--  plugin multiSelect --}}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" /> --}}
+    
 
 </head>
 
@@ -228,7 +229,7 @@
                     </li>
                     <li><a href="#"><i class="icono izquierda fas fa-book"></i> MaterialBiblioteca <i class="icono derecha fas fa-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#">Agregar Material</a></li>
+                            <li><a href="{{ url('material/biblioteca/create') }}">Agregar Material</a></li>
                             <li><a href="{{ url('material/biblioteca') }}">Lista del Material</a></li> 
                         </ul>
                     </li>
@@ -274,14 +275,18 @@
 
 
 <!--trae el codigo jquery de la ruta public/js/main-->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> --}}
+<script src="{{ asset('js/jquery-3.4.1.min.js') }}" ></script>
 <script src="{{ asset('js/main.js') }}" defer></script>
 
 {{-- plugin multiSelect --}}
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --}}
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script> --}}
+<link href="{{asset('css/select2.css')}}" rel="stylesheet" />
+<script src="{{asset('js/select2.js')}}"></script>
 
 
 </body>
 </html>
+

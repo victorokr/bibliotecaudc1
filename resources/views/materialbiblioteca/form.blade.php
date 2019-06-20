@@ -1,11 +1,11 @@
-<div class="col-12">
+
  {!!csrf_field() !!} 
 
-    <div class="card-deck">
+    <div class="card-group">
 		<div class="card border-light">
-			<div class="card-body">	
+			<div class="card-body justify-content-center">	
 			    
-			     <div class="col-12">
+			     <div class="col-8">
 			  	  <div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">
 				  		<span class="input-group-text">Codigo_libro</span>
@@ -13,14 +13,14 @@
 				  	  </div>	  
 				  		<div class="valid-feedback">¡se ve bien!</div>
 						<small id="passwordHelpBlock" class="form-text text-muted">
-                         Max 21 caracteres
+                         
 						</small>
 						{!!$errors->first('Codigo_libro','<span class=error>:message</span>')!!} 
 				  </div> 
-				 </div> 
+				 </div>
 				   
 
-				 <div class="col-12">
+				 <div class="col-8">
 				    <div class="input-group input-group-sm mb-4">
 				      <div class="input-group-prepend">
 						<span class="input-group-text">Codigo_ISBN</span>
@@ -28,29 +28,29 @@
 					  </div>	
 						<div class="valid-feedback">¡se ve bien!</div>
 						<small id="passwordHelpBlock" class="form-text text-muted">
-                         Max 21 caracteres
+                         
 						</small>
 						{!!$errors->first('Codigo_ISBN','<span class=error>:message</span>')!!}
 					</div>
 				 </div>	
 
-				 <div class="col-12">
-					<div class="input-group input-group-sm mb-4">
+				 <div class="col-8">
+					<div class="input-group input-group-sm mb-3">
 				      <div class="input-group-prepend">
 					    <span class="input-group-text">Titulo</span>
-			  			<input class="form-control"  id="validationCustom03" type="text" name="Titulo" value="{{ $materialBibliotecas->Titulo  }}" required>
+			  			<input class="form-control"  id="validationCustom03" type="text" name="Titulo" value="{{ $materialBibliotecas->Titulo  }}" style="width: 250px" required>
 			  		  </div>
 			  			<div class="valid-feedback">¡se ve bien!</div>
 			  			<small id="passwordHelpBlock" class="form-text text-muted">
-                         Max 30 caracteres
+                         
 						</small>
 						{!!$errors->first('Titulo','<span class=error>:message</span>')!!}
 				    </div>
 				 </div>
 
 
-				 <div class="col-12 pt-2">
-			  		  <div class="input-group input-group-sm">	
+				 <div class="col-8 pt-2">
+			  		  <div class="input-group input-group-sm mb-4">	
 			  			<div class="input-group-prepend">
 			     		<label class="input-group-text" for="validationCustom04">Fecha</label>
 			    		</div>
@@ -64,30 +64,26 @@
 				 </div>
 
 
-				 <div class="col-12">		
+				 <div class="col-8">		
 					<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">
 			  			<span class="input-group-text">Edicion</span>
-			  			<input class="form-control"  id="validationCustom05" type="text" name="Edicion" value="{{ $materialBibliotecas->Edicion }}" required>
+			  			<input class="form-control"  id="validationCustom05" type="text" name="Edicion" value="{{ $materialBibliotecas->Edicion }}" style="width: 240px"required>
 			  		  </div>	
 			  			<div class="valid-feedback">¡se ve bien!</div>
 			  			<small id="passwordHelpBlock" class="form-text text-muted">
-                         Max:35 caracteres
+                         
 						</small>
 						{!!$errors->first('Edicion','<span class=error>:message</span>')!!}
 			  		</div>
 			  	 </div>
-			    
-			</div>
-		</div>
 
-		<div class="card border-light">
-			<div class="card-body">    
-			  	 <div class="col-12">
+
+			     <div class="col-12">
 				  	<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">
 				  	  	<span class="input-group-text">Editorial</span>
-			  			<select name="id_editorial" class="form-control custom-select mr-sm-2" id="inlineFormCustomSelect" required>
+			  			<select name="id_editorial" class="form-control custom-select mr-sm-2" id="validationCustom06" style="width: 235px" required>
 							   <option value="" selected>seleccionar</option>	
 							   @foreach ($editoriall as $edito=>$Editorial)    
 							     <option value="{{ $edito }}" {{ old('id_editorial',$materialBibliotecas->id_editorial)== $edito ? 'selected':'' }} >
@@ -99,37 +95,55 @@
 						{!!$errors->first('id_editorial','<span class=error>:message</span>')!!}
 				  	</div>
 				 </div>
+			</div>
+		</div>
 
-
-			  	 <div class="col-12">
-			  		
-			  			  {{-- <span class="input-group-text">AsignarTema</span> --}}
-			  			  <select name="id_temaDelMaterial" class="form-control custom-select mr-sm-2" id="name" multiple="multiple" required>
-			  			   
-			  			   <option value="cheese">queso</option>
-			  			   <option value="tomatoes">tomatoes</option>
-			  			   <option value="mosarela">mosarela</option>
-			  			   <option value="onions">onions</option>
-				  			{{-- @foreach ($temaa as $tema => $Area)
-					  			
-						  			<input
-						  			   
-						  			  value="{{ $tema }}"
-						  			  {{ $materialBibliotecas->temaDelmaterial->pluck('id_temaDelMaterial')}} 
-						  			  name="temaa[]">
-						  			{{ $Area }}
-					  			
-				  			@endforeach --}}
+		<div class="card border-light">
+			<div class="card-body"> 
+			     <div class="col-10">
+			  		<div class="input-group input-group-sm mb-4"> 
+				  	  <div class="input-group-prepend">
+			  			  <span class="input-group-text">Autor</span>
+			  			  <select  class="autores form-control custom-select mr-sm-2" id="validationCustom07" name="autores[]" multiple="multiple" style="width: 300px" required>
+				  			@foreach ($autoress as $auto => $Nombre)
+					  			<option value="{{ $auto }}" {{ $materialBibliotecas->autores->pluck('id_autor')->contains($auto) ? 'selected':'' }}>{{ $Nombre }}</option>
+				  			@endforeach
 				  		  </select>
-				  		  <script type="text/javascript">
-				  		  	$("#name").select2({
-				  		  		placeholder:'seleccionar',
-				  		  		allowClear: true
-				  		  	});
+				  	  </div>
+				  		  <script type="text/javascript" >
+				  		  	$(document).ready(function() {
+    						$('.autores').select2();
+    						placeholder: "seleccionar"
+    						tags : true
+    						width: 'resolve'
+							});
 				  		  </script>
 				  	  
-				  	   {!!$errors->first('temaa','<span class=error>:message</span>')!!}
-				  	
+				  	   {!!$errors->first('autores','<span class=error>:message</span>')!!}
+				  	</div>
+				 </div>
+
+			  	 <div class="col-10">
+			  		<div class="input-group input-group-sm mb-4"> 
+				  	  <div class="input-group-prepend">
+			  			  <span class="input-group-text">Tema</span>
+			  			  <select  class="js-example-basic-multiple form-control custom-select mr-sm-2" id="validationCustom08" name="temaDelmaterial[]" multiple="multiple" style="width: 300px" required>
+				  			@foreach ($temaa as $tema => $Area)
+					  			<option value="{{ $tema }}"{{ $materialBibliotecas->temaDelmaterial->pluck('id_temaDelMaterial')->contains($tema) ? 'selected':''  }}>{{ $Area }}</option>
+				  			@endforeach
+				  		  </select>
+				  	  </div>
+				  		  <script type="text/javascript" >
+				  		  	$(document).ready(function() {
+    						$('.js-example-basic-multiple').select2();
+    						placeholder: "seleccionar"
+    						tags : true
+    						width: 'resolve'
+							});
+				  		  </script>
+				  	  
+				  	   {!!$errors->first('temaDelmaterial','<span class=error>:message</span>')!!}
+				  	</div>
 				 </div> 
 
 
@@ -138,7 +152,7 @@
 				  	<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">
 				  	  	<span class="input-group-text">Baja de libro</span>
-			  			<select name="id_baja" class="form-control custom-select mr-sm-2" id="inlineFormCustomSelect" required>
+			  			<select name="id_baja" class="form-control custom-select mr-sm-2" id="inlineFormCustomSelect" style="width: 260px" required>
 							   <option value="" selected>seleccionar</option>	
 							   @foreach ($bajaa as $baj=>$Baja)    
 							     <option value="{{ $baj }}" {{ old('id_baja',$materialBibliotecas->id_baja)== $baj ? 'selected':'' }} >
@@ -156,7 +170,7 @@
 				  	<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">
 				  	  	<span class="input-group-text">TipoDeMaterial</span>
-			  			<select name="id_tipoDeMaterial" class="form-control custom-select mr-sm-2" id="inlineFormCustomSelect" required>
+			  			<select name="id_tipoDeMaterial" class="form-control custom-select mr-sm-2" id="inlineFormCustomSelect" style="width: 240px" required>
 							   <option value="" selected>seleccionar</option>	
 							   @foreach ($tipoDeMateriall as $tipomate=>$Tipo_de_material)    
 							     <option value="{{ $tipomate }}" {{ old('id_tipoDeMaterial',$materialBibliotecas->id_tipoDeMaterial)== $tipomate ? 'selected':'' }} >
@@ -167,61 +181,60 @@
 				  	  	<div class="valid-feedback">¡se ve bien!</div> 
 						{!!$errors->first('id_tipoDeMaterial','<span class=error>:message</span>')!!}
 				  	</div>
-				 </div>	  	
-
-			</div>		
-		</div>
+				 </div>	
 
 
-		<div class="card border-light">
-			<div class="card-body">
-				 <div class="col-6">
-			  			<div class="form-check btn-group-vertical" data-toggle="">
-			  			  <p class="font-weight-light">Carrera</p> 
+				 <div class="col-12">
+			  		<div class="input-group input-group-sm mb-4"> 
+				  	  <div class="input-group-prepend">	
+			  			  <span class="input-group-text">Carrera</span>
+			  			  <select  class="carrera form-control custom-select mr-sm-2" id="validationCustom09" name="carreras[]" multiple="multiple" style="width: 290px" required> 
 				  			@foreach ($carreraa as $carre => $Carrera)
-					  			<label class="form-check-label btn btn-info btn-sm">
-						  			<input
-						  			  type="checkbox" 
-						  			  value="{{ $carre }}"
-						  			  {{ $materialBibliotecas->carreras->pluck('id_carrera')->contains($carre) ? 'checked' : ''}} 
-						  			  name="carreras[]">
-						  			{{ $Carrera }}
-					  			</label><!--la linea del metodo pluck, verifica el role en la base de datos y muestra el check en el checkbox-->
+						  			<option value="{{ $carre }}"{{ $materialBibliotecas->carreras->pluck('id_carrera')->contains($carre) ? 'selected' : '' }}>{{ $Carrera }}</option>
 				  			@endforeach
-				  	    </div>
+				  		   </select>
+				  	  </div>
+				  			<script type="text/javascript" >
+				  		  	$(document).ready(function() {
+    						$('.carrera').select2();
+    						placeholder: "seleccionar"
+    						tags : true
+							});
+				  		  </script>
+				  	   
 				  	   {!!$errors->first('carreras','<span class=error>:message</span>')!!}
+				  	</div>
 				 </div>
 
-				 
 
-				 
-
-				 
-				<div class="row justify-content-star "> 
-				 <div class="col-6">
-			  			<div class="form-check btn-group-vertical" data-toggle="">
-			  			  <p class="font-weight-light">Sede</p> 
+				 <div class="col-12">
+			  		<div class="input-group input-group-sm mb-4"> 
+				  	  <div class="input-group-prepend">	
+			  			  <span class="input-group-text">Sede</span>	
+			  			  <select  class="sede form-control custom-select mr-sm-2" id="validationCustom10" name="ubicaciones[]" multiple="multiple" style="width: 305px" required> 
 				  			@foreach ($ubicacionn  as $ubica => $Sede)
-					  			<label class="form-check-label btn btn-info btn-sm">
-						  			<input
-						  			  type="checkbox" 
-						  			  value="{{ $ubica }}"
-						  			  {{ $materialBibliotecas->ubicaciones->pluck('id_ubicacion')->contains($ubica) ? 'checked' : ''}} 
-						  			  name="ubicaciones[]">
-						  			{{ $Sede }}
-					  			</label><!--la linea del metodo pluck, verifica el role en la base de datos y muestra el check en el checkbox-->
+					  			<option value="{{ $ubica }}"{{ $materialBibliotecas->ubicaciones->pluck('id_ubicacion')->contains($ubica) ? 'selected' : '' }}>{{ $Sede }}</option>
 				  			@endforeach
-				  	    </div>
+				  		   </select>	
+				  	  </div>
+				  	  <script type="text/javascript" >
+				  		  	$(document).ready(function() {
+    						$('.sede').select2();
+    						placeholder: "seleccionar"
+    						tags : true
+							});
+				  		  </script>
 				  	   {!!$errors->first('ubicaciones','<span class=error>:message</span>')!!}
-				 </div>  
+				    </div>  
 				</div>
 				<div class="row justify-content-center">
-					<div class="col-6">
-					 <input class="btn btn-success btn-block btn-sm" type="submit" value="Guardar">
+					<div class="col-12">
+					 <input class="btn btn-success  btn-sm" type="submit" value="Guardar">
 					</div>
-				</div>  
-			</div>	
-		</div>
+				</div>
+
+			</div>		
+		</div>	
 	</div>			    
-</div>
+
 

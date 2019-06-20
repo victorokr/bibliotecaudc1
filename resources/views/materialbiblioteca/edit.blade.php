@@ -6,7 +6,7 @@
 @endif
 
 <div class="contenedorEditEmpleados">
-  <div class="row justify-content-star">
+  <div class="row">
 	<div class="col-12">
 	  <div class="card border-light">
 		<div class="card-header"><i class="icono fas fa-users-cog"></i> <small>{{ __('Editar Material') }}</small></div>
