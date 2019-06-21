@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateAutorRequest;
+use App\Http\Requests\CreateAutorRequest;
 
 class AutorController extends Controller
 {
@@ -24,8 +26,8 @@ class AutorController extends Controller
      */
     public function index()
     {
-        $autores = \App\Autor::all();
-        return view('autor.index', compact('autores'));
+        $listaAutores = \App\Autor::all();
+        return view('autor.index', compact('listaAutores'));
     }
 
     /**
@@ -35,7 +37,7 @@ class AutorController extends Controller
      */
     public function create()
     {
-        //
+        return view('autor.create');
     }
 
     /**
@@ -44,9 +46,12 @@ class AutorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateAutorRequest $request)
     {
-        //
+        //return $request->all(); 
+       $listaAutores = \App\Autor::create( $request->all() );
+
+       return redirect()->route('autor.index', compact('listaAutores'));
     }
 
     /**
@@ -68,7 +73,8 @@ class AutorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $listaAutores = \App\Autor::findOrFail ($id);
+        return view('autor.edit', compact('listaAutores'));
     }
 
     /**
@@ -78,9 +84,13 @@ class AutorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateAutorRequest $request, $id)
     {
-        //
+         $listaAutores = \App\Autor::findOrFail($id);
+         
+         $listaAutores->update($request->all());
+        
+         return back()->with('infoAutor','Autor actualizado');
     }
 
     /**
@@ -91,6 +101,8 @@ class AutorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $listaAutores = \App\Autor::findOrFail($id);
+        $listaAutores->delete();
+        return back()->with('infoDeleteAutor','Autor eliminado');
     }
 }

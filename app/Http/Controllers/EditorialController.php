@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateEditorialRequest;
+use App\Http\Requests\CreateEditorialRequest;
 
 class EditorialController extends Controller
 {
@@ -23,8 +25,8 @@ class EditorialController extends Controller
      */
     public function index()
     {
-        $editoriales = \App\Editorial::all();
-        return view ('editorial.index', compact('editoriales'));
+        $listaEditoriales = \App\Editorial::all();
+        return view ('editorial.index', compact('listaEditoriales'));
     }
 
     /**
@@ -34,7 +36,7 @@ class EditorialController extends Controller
      */
     public function create()
     {
-        //
+        return view('editorial.create');
     }
 
     /**
@@ -43,9 +45,12 @@ class EditorialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateEditorialRequest $request)
     {
-        //
+       //return $request->all(); 
+       $listaEditoriales = \App\Editorial::create( $request->all() );
+
+       return redirect()->route('editorial.index', compact('listaEditoriales'));
     }
 
     /**
@@ -67,7 +72,8 @@ class EditorialController extends Controller
      */
     public function edit($id)
     {
-        //
+        $listaEditoriales = \App\Editorial::findOrFail ($id);
+        return view('editorial.edit', compact('listaEditoriales'));
     }
 
     /**
@@ -77,9 +83,13 @@ class EditorialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateEditorialRequest $request, $id)
     {
-        //
+         $listaEditoriales = \App\Editorial::findOrFail($id);
+         
+         $listaEditoriales->update($request->all());
+        
+         return back()->with('infoEditorial','Editorial actualizada');
     }
 
     /**
@@ -90,6 +100,8 @@ class EditorialController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $listaEditoriales = \App\Editorial::findOrFail($id);
+        $listaEditoriales->delete();
+        return back()->with('infoDeleteEditorial','Editorial eliminada');
     }
 }

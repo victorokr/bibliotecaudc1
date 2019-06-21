@@ -236,15 +236,15 @@
 
                     <li><a href="#"><i class="icono izquierda fas fa-diagnoses"></i> Autor <i class="icono derecha fas fa-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#">Agregar Autor</a>
-                            <li><a href="#">Lista de Autores</a>
+                            <li><a href="{{ url('autor/create') }}">Agregar Autor</a>
+                            <li><a href="{{ url('autor') }}">Lista de Autores</a>
                         </ul>
                     </li>
 
                     <li><a href="#"><i class="icono izquierda fab fa-readme"></i> Editorial <i class="icono derecha fas fa-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#">Agregar Editorial</a>
-                            <li><a href="#">Lista de Editoriales</a>
+                            <li><a href="{{ url('editorial/create') }}">Agregar Editorial</a>
+                            <li><a href="{{ url('editorial') }}">Lista de Editoriales</a>
                         </ul>
                     </li>
 
