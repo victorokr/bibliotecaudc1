@@ -46,4 +46,26 @@ class Materialbiblioteca extends Model
     	return $this->belongsToMany('App\Ubicacion','mbiblioteca_ubicacion','id_materialBiblioteca','id_ubicacion');
     }
 
+
+    // Query Scope metodos para busquedas codigo,autor,nombre
+    public function scopeCodigo($query, $codigoisbn)
+    {
+        if($codigoisbn)
+        return $query->where('Codigo_ISBN','LIKE',"%$codigoisbn%");
+    }
+
+    public function scopeTitulo($query, $titulo)
+    {
+        if($titulo)
+        return $query->where('Titulo','LIKE',"%$titulo%");
+    }
+
+    public function scopeAutor($query, $autor)
+    {
+        if($autor)
+        return $query->whereHas("autores", function ($query) use ($autor){
+            $query->where('Nombre','LIKE', "%$autor%");
+        });
+    }
+
 }

@@ -598,6 +598,76 @@
 
 
 
+
+//tabla materialBiblioteca----------------------------------------------------------------------------------
+
+
+//controla la tabla consultantes ajustandola en pantalla
+.container-materialBiblioteca{
+	margin-right: 12px;
+	margin-left: 212px;
+	padding-top: 12px;
+}
+
+//icono card consultantes
+.container-materialBiblioteca .card .card-header .icono { 
+	font-size: 25px; //tamaño del icono 
+	line-height: 20px;
+	
+}
+
+//tamaño letra card-header consultantes
+.container-materialBiblioteca .card .card-header { 
+	font-weight: lighter; //negrita
+	font-size: 20px; //tamaño de la letra
+
+}
+
+//controla el btn del card-hearder consultantes
+.container-materialBiblioteca .card .card-header .btn {
+	margin-left: 770px;
+	padding-top: 3px;//aumenta la distancia del margen superior dentro del btn
+	top: -4px;//mueve arriba o hacia abajo el btn
+}
+
+
+.container-materialBiblioteca .card .card-header {
+	margin-top: -20px;
+	margin-bottom: -6px;//hacerca la tabla al card-header
+	max-height: 68px; //alto del card-header
+
+}
+
+//hacerca los botones delete y edit a la parte superior de la tabla
+.container-materialBiblioteca .card-body .table .btn {
+	top: -21px;
+    margin-bottom: -20px; //hacerca el margen inferior al boton
+}
+
+//pega el boton a la derecha de la linea de la tabla
+.container-materialBiblioteca .card-body .table .btn.editar {
+	margin-left: 2px; 
+}
+
+//pega el boton a la derecha de la linea de la tabla
+.container-materialBiblioteca .card-body .table .btn.eliminar {
+	margin-left: -15px; 
+	margin-right: -5px;
+}
+
+.container-materialBiblioteca .card .card-body .table{
+	width: 150%; //ancho de la tabla
+    text-transform: capitalize;
+	font-size: 14px;
+}
+
+//.wrapper{ //controla el ancho del container del menuEmpleados
+//	width: 1330px;//margen derecha
+//	margin: 0 -110px; //margen izquierda
+//}
+
+
+
 //tabla autores----------------------------------------------------------------------------------
 
 

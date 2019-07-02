@@ -10,6 +10,7 @@ use App\Baja;
 use App\Tipodematerial;
 use App\Carrera;
 use App\Ubicacion;
+use App\Materialbiblioteca;
 use App\Http\Requests\UpdateMaterialbibliotecaRequest;
 use App\Http\Requests\CreateMaterialbibliotecaRequest;
 
@@ -28,9 +29,18 @@ class MaterialbibliotecaController extends Controller
     $this->middleware('roles:Empleado');  
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $materialBibliotecas = \App\Materialbiblioteca::all();
+
+        $codigoisbn = $request->get('Codigo_ISBN');
+        $titulo     = $request->get('Titulo');
+        $autor      = $request->get('autores');
+
+        $materialBibliotecas = Materialbiblioteca::orderBy('id_materialBiblioteca','ASC')
+        ->codigo($codigoisbn)//codigo es el nombre del metodo en el modelo, pero sin scope
+        ->titulo($titulo)
+        ->autor($autor)
+        ->paginate(4);
 
         return view('materialbiblioteca.index', compact('materialBibliotecas') );
     }

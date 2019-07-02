@@ -58,6 +58,7 @@ Route::resource('lista/consultantes', 'ListaconsultantesController');
 Route::resource('material/biblioteca', 'MaterialbibliotecaController');
 Route::resource('editorial', 'EditorialController');
 Route::resource('autor', 'AutorController');
+//Route::resource('prestamo/consultante', 'PrestamoController');
 
 //rutas segundo login
 Route::get('consultantes/login', 'ConsultantesController@showLoginForm');

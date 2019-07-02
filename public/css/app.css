@@ -11034,6 +11034,54 @@ a.text-dark:focus {
   font-size: 14px;
 }
 
+.container-materialBiblioteca {
+  margin-right: 12px;
+  margin-left: 212px;
+  padding-top: 12px;
+}
+
+.container-materialBiblioteca .card .card-header .icono {
+  font-size: 25px;
+  line-height: 20px;
+}
+
+.container-materialBiblioteca .card .card-header {
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.container-materialBiblioteca .card .card-header .btn {
+  margin-left: 770px;
+  padding-top: 3px;
+  top: -4px;
+}
+
+.container-materialBiblioteca .card .card-header {
+  margin-top: -20px;
+  margin-bottom: -6px;
+  max-height: 68px;
+}
+
+.container-materialBiblioteca .card-body .table .btn {
+  top: -21px;
+  margin-bottom: -20px;
+}
+
+.container-materialBiblioteca .card-body .table .btn.editar {
+  margin-left: 2px;
+}
+
+.container-materialBiblioteca .card-body .table .btn.eliminar {
+  margin-left: -15px;
+  margin-right: -5px;
+}
+
+.container-materialBiblioteca .card .card-body .table {
+  width: 150%;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
 .container-autores {
   margin-right: 12px;
   margin-left: 212px;

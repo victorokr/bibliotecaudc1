@@ -27,7 +27,7 @@ class CreateMaterialbibliotecaRequest extends FormRequest
             
             'Codigo_libro'=>'required|max:25',
             'Codigo_ISBN'=>'required|max:25',
-            'Titulo'=>'required|max:30',
+            'Titulo'=>'required|max:65',
             'Fecha' => 'required',
             'Edicion'=>'required|max:20',
             'id_editorial' => 'required',

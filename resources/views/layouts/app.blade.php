@@ -75,7 +75,7 @@
                 @if (auth()->check())
                 @if (auth()->user()->hasRoles(['Estudiante']))
                 <li class="nav-item {{ activeMenuArea('consultantes/area') }}">
-                  <a href="{{ url('/consultantes/area') }}" class="nav-link">InicioConsultantes</a>
+                  <a href="{{ url('/consultantes/area') }}" class="nav-link"><i class="fas fa-home"></i> Inicio</a>
                 </li>
                 @endif
 
@@ -254,7 +254,7 @@
 
 
                     @if (auth()->user()->hasRoles(['Estudiante']))
-                    <li><a href="#"><i class="icono izquierda far fa-address-book"></i> Prestamo <i class="icono derecha fas fa-chevron-down"></i></a></li>
+                    <li><a href="#"><i class="icono izquierda fas fa-book-reader"></i> Prestamo <i class="icono derecha fas fa-chevron-down"></i></a></li>
                     @endif
 
                     
