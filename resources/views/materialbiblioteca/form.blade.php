@@ -227,6 +227,30 @@
 				  	   {!!$errors->first('ubicaciones','<span class=error>:message</span>')!!}
 				    </div>  
 				</div>
+
+				<div class="col-12">
+			  		<div class="input-group input-group-sm mb-4"> 
+				  	  <div class="input-group-prepend">	
+			  			  <span class="input-group-text">Estado</span>	
+			  			  <select  class="estado form-control custom-select mr-sm-2" id="validationCustom11" name="estado[]"multiple="multiple" style="width: 295px" required> 
+				  			@foreach ($estadoo  as $estado => $Estado)
+					  			<option value="{{ $estado }}"{{ $materialBibliotecas->estado
+					  				->pluck('id_estado')->contains($estado) ? 'selected' : '' }}>
+					  			{{ $Estado }}</option>
+				  			@endforeach
+				  		   </select>	
+				  	  </div>
+				  	  <script type="text/javascript" >
+				  		  	$(document).ready(function() {
+    						$('.estado').select2();
+    						placeholder: "seleccionar"
+    						tags : true
+							});
+				  		  </script>
+				  	   {!!$errors->first('estado','<span class=error>:message</span>')!!}
+				    </div>  
+				</div>
+
 				<div class="row justify-content-center">
 					<div class="col-12">
 					 <input class="btn btn-success  btn-sm" type="submit" value="Guardar">

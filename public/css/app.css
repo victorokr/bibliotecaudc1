@@ -11077,9 +11077,113 @@ a.text-dark:focus {
 }
 
 .container-materialBiblioteca .card .card-body .table {
+  width: 165%;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.container-indexprestamo {
+  margin-right: 20px;
+  margin-left: 220px;
+  padding-top: 1px;
+}
+
+.container-indexprestamo .card .card-header .icono {
+  font-size: 25px;
+  line-height: 20px;
+}
+
+.container-indexprestamo .card .card-header {
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.container-indexprestamo .card .card-header .btn {
+  margin-left: 770px;
+  padding-top: 3px;
+}
+
+.container-indexprestamo .card .card-header {
+  margin-top: -20px;
+  margin-bottom: -6px;
+  max-height: 68px;
+}
+
+.container-indexprestamo .card-body .table .btn {
+  top: -21px;
+  margin-bottom: -20px;
+}
+
+.container-indexprestamo .card-body .table .btn.editar {
+  margin-left: 2px;
+}
+
+.container-indexprestamo .card-body .table .btn.eliminar {
+  margin-left: -15px;
+  margin-right: -5px;
+}
+
+.container-indexprestamo .card .card-body .table {
+  width: 100%;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.container-indexprestamo .card {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.container-indexprestamos {
+  margin-right: 20px;
+  margin-left: 220px;
+  padding-top: 1px;
+}
+
+.container-indexprestamos .card .card-header .icono {
+  font-size: 25px;
+  line-height: 20px;
+}
+
+.container-indexprestamos .card .card-header {
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.container-indexprestamos .card .card-header .btn {
+  margin-left: 770px;
+  padding-top: 3px;
+}
+
+.container-indexprestamos .card .card-header {
+  margin-top: -20px;
+  margin-bottom: -6px;
+  max-height: 68px;
+}
+
+.container-indexprestamos .card-body .table .btn {
+  top: -21px;
+  margin-bottom: -20px;
+}
+
+.container-indexprestamos .card-body .table .btn.editar {
+  margin-left: 2px;
+}
+
+.container-indexprestamos .card-body .table .btn.eliminar {
+  margin-left: -15px;
+  margin-right: -5px;
+}
+
+.container-indexprestamos .card .card-body .table {
   width: 150%;
   text-transform: capitalize;
   font-size: 14px;
+}
+
+.container-indexprestamos .card {
+  margin-right: -15px;
+  margin-left: -15px;
 }
 
 .container-autores {

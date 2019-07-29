@@ -57,9 +57,11 @@
 					<th>Tema</th>
 					<th>Baja</th>
 					<th>tipoDeMaterial</th>
+					{{-- <th>Ejemplares</th> --}}
+					{{-- <th>Disponibles</th> --}}
 					<th>Carrera</th>
 					<th>Sede</th>
-					
+					<th>Estado</th>
 
 				  </tr>
 
@@ -72,6 +74,10 @@
 				 <tr>
 
 					<td><!--con esta etiqueta se alinean horizontalmente los botones del crud-->
+
+									<a class="editar btn btn-success btn-sm mr-1" title="AgregarEjemplares" href="{{route('biblioteca.show', $materialBiblioteca->id_materialBiblioteca) }}">
+										<i class="fas fa-book-open"></i></a> <!--crea el enlace sobre editar-->
+
 								
 									<a class="editar btn btn-info btn-sm" title="Editar" href="{{route('biblioteca.edit', $materialBiblioteca->id_materialBiblioteca) }}"><i class="fas fa-edit"></i></a> <!--crea el enlace sobre editar-->
 						 
@@ -98,10 +104,12 @@
 					<td>{{ optional($materialBiblioteca->baja)->Baja      }}</td>
 					<td>{{ optional($materialBiblioteca->tipoDeMaterial)->Tipo_de_material                      }}</td>
 
-
+					{{-- <td>{{ optional($materialBiblioteca->estadoMaterialBibliotecas)->codigo }}</td> --}}
+					{{-- <td>{{ optional($materialBiblioteca->estadoMaterialBibliotecas)->codigo }}</td> --}}
 					<td>{{ $materialBiblioteca->carreras->pluck('Carrera')->implode(' - ')}}</td>
 					<td>{{ $materialBiblioteca->ubicaciones->pluck('Sede')->implode(' - ')}}</td>
-					
+					<td>{{ $materialBiblioteca->estado->pluck('Estado')->implode(' - ')}}</td>
+
 					@empty
 					<div class="alert alert-info">No se encontraron resultados en nuestros registros</div>
 					

@@ -248,13 +248,25 @@
                         </ul>
                     </li>
 
-                    <li><a href="#"><i class="icono izquierda fab fa-accusoft"></i> Prestamos <i class="icono derecha fas fa-chevron-down"></i></a></li>
+                    <li><a href="#"><i class="icono izquierda fab fa-accusoft"></i> Prestamos <i class="icono derecha fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{{ url('prestamos') }}">Lista de prestamos</a>
+                            
+                        </ul>
+                    </li>
+
+
                     <li><a href="#"><i class="icono izquierda fas fa-laptop"></i> Servicios <i class="icono derecha fas fa-chevron-down"></i></a></li>
                     @endif
 
 
                     @if (auth()->user()->hasRoles(['Estudiante']))
-                    <li><a href="#"><i class="icono izquierda fas fa-book-reader"></i> Prestamo <i class="icono derecha fas fa-chevron-down"></i></a></li>
+                    <li><a href="#"><i class="icono izquierda fas fa-book-reader"></i> Prestamo <i class="icono derecha fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{{ url('prestamo/consultante/create') }}">Solicitar prestamo</a>
+                            
+                        </ul>
+                    </li>
                     @endif
 
                     

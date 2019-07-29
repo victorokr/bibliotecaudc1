@@ -41,10 +41,30 @@ class Materialbiblioteca extends Model
     	return $this->belongsToMany('App\Carrera','carrera_mbiblioteca','id_materialBiblioteca','id_carrera');
     }
 
+
+    public function estado()
+    {
+        return $this->belongsToMany('App\Estado','estado_materialbiblioteca','id_materialBiblioteca','id_estado');
+    }
+
+
     public function ubicaciones()
     {
     	return $this->belongsToMany('App\Ubicacion','mbiblioteca_ubicacion','id_materialBiblioteca','id_ubicacion');
     }
+
+
+    public function estadoMaterialBibliotecas()//este metodo define la relacion de uno a muchos. Trae los datos de la tabla estado_materialbiblioteca
+    {
+        return $this->hasOne('App\Estado_materialbiblioteca','id_estadoMaterialBiblioteca');
+    }
+
+
+    public function prestamos()
+    {
+        return $this->belongsToMany('App\Prestamos','materialbiblioteca_prestamo','id_materialBiblioteca','id_prestamo');
+    }
+
 
 
     // Query Scope metodos para busquedas codigo,autor,nombre

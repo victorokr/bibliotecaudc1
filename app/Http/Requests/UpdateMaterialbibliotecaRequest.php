@@ -25,7 +25,7 @@ class UpdateMaterialbibliotecaRequest extends FormRequest
     {
         return [
             
-            'Codigo_libro'=>'required|max:25',
+            //'codigo'=>'required|max:25',
             'Codigo_ISBN'=>'required|max:25',
             'Titulo'=>'required|max:65',
             'Fecha' => 'required',
@@ -35,7 +35,8 @@ class UpdateMaterialbibliotecaRequest extends FormRequest
             'id_tipoDeMaterial' => 'required',
             'autores' => 'required',
             'temaDelmaterial' => 'required',
-            'carreras' => 'required'
+            'carreras' => 'required',
+            'estado' => 'required'
         ];
     }
 }
