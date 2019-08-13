@@ -81,4 +81,11 @@ class Consultante_biblioteca extends Authenticatable
         return $this->belongsToMany('App\Perfil','consultantebiblioteca_perfil','id_consultanteBiblioteca','id_perfil');//el primero pertenece a la tabla pivot, 2do a la tabla perfil para evitar que eloquen lo busque en orden alfabetico, 3ro el id de la tabla a relacionar, tabla consultante_biblioteca.
     }
 
+
+    public function scopeDocumento($query, $documentoConsultante)
+    {
+        if($documentoConsultante)
+        return $query->where('Documento','LIKE',"%$documentoConsultante%");
+    }
+
 }

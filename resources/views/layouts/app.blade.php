@@ -229,7 +229,7 @@
                     </li>
                     <li><a href="#"><i class="icono izquierda fas fa-book"></i> MaterialBiblioteca <i class="icono derecha fas fa-chevron-down"></i></a>
                         <ul>
-                            <li><a href="{{ url('material/biblioteca/create') }}">Agregar Material</a></li>
+                            {{-- <li><a href="{{ url('material/biblioteca/create') }}">Agregar Material</a></li> --}}
                             <li><a href="{{ url('material/biblioteca') }}">Lista del Material</a></li> 
                         </ul>
                     </li>
@@ -272,7 +272,15 @@
                     
 
                     @if (auth()->user()->hasRoles(['jefeDeInventario']))
-                    <li><a href="#"><i class="icono izquierda fas fa-box-open"></i>Inventario <i class="icono derecha fas fa-chevron-down"></i></a></li> 
+                    <li><a href="#"><i class="icono izquierda fas fa-box-open"></i>Inventario <i class="icono derecha fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{{ url('biblioteca/inventario') }}">Inventario Material </a>
+                                
+                            {{-- <li><a href="{{ url('entradas') }}">Registrar Entradas</a>
+                            <li><a href="{{ url('salidas') }}">Registrar Traslados</a> --}}    
+                        </ul>
+
+                    </li> 
                     @endif    
                 </ul>   
             </div>

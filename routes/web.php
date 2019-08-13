@@ -56,11 +56,14 @@ Route::resource('lista/contratos', 'ListacontratosController');
 Route::resource('lista/empleados', 'ListaempleadosController');//->middleware('revalidate');
 Route::resource('lista/consultantes', 'ListaconsultantesController');
 Route::resource('material/biblioteca', 'MaterialbibliotecaController');
-Route::resource('ejemplares', 'EjemplaresController');
 Route::resource('editorial', 'EditorialController');
 Route::resource('autor', 'AutorController');
 Route::resource('prestamo/consultante', 'PrestamoController');
 Route::resource('prestamos', 'PrestamosController');
+Route::resource('bajas', 'BajasController');
+Route::resource('entradas', 'EntradasController');
+Route::resource('salidas', 'SalidasController');
+Route::resource('biblioteca/inventario', 'BibliotecainventarioController');
 
 //rutas segundo login
 Route::get('consultantes/login', 'ConsultantesController@showLoginForm');

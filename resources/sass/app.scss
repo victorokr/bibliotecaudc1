@@ -333,26 +333,21 @@
 
 //icono card login
 .sesionLogin .card-header .icono { 
-	font-size: 40px; //tamaño del icono 
+	font-size: 13px; //tamaño del icono 
 	background: #28a745;
 	color: #ffffff;//cilueta blanca
 	border-radius: 100%;
-	width: 60px;//ancho circle
-	height: 60px;//alto circle
+	width: 17px;//ancho circle
+	height: 17px;//alto circle
 }
 
-//tamaño letra card-body login
-.sesionLogin .card-body p { 
-	font-weight: lighter; //negrita
-	font-size: 20px; //tamaño de la letra
 
-}
 
 //posicion olvide contraseña loginConsultantes
-.sesionLogin .card-body .form-group .a { 
+//.sesionLogin .card-body .form-group .a { 
 	//white-space: pre; //coloca el texto en una sola linea
-	margin-top: -10px;
-}
+	//margin-top: -10px;
+//}
 
 
 
@@ -363,7 +358,7 @@
 
 //imagen de fondo logins 
 .contenedorimg  { 
-	background-image: url('/images/fondologin.jpg');
+	background-image: url('/images/fondologin2.jpg');
 	background-size: 100% 100%;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -546,6 +541,15 @@
 	
 }
 
+//logoudc vista index consultante 
+.container-consultantes .card .card-body .logoudc{
+	width: 15%; //ancho del logo en el navbar
+	max-height: 110px; //alto
+	margin-left: 890px;
+	margin-top: -80px;
+}
+
+
 //tamaño letra card-header consultantes
 .container-consultantes .card .card-header { 
 	font-weight: lighter; //negrita
@@ -657,6 +661,86 @@
 
 .container-materialBiblioteca .card .card-body .table{
 	width: 165%; //ancho de la tabla
+    text-transform: capitalize;
+	font-size: 14px;
+}
+
+//.wrapper{ //controla el ancho del container del menuEmpleados
+//	width: 1330px;//margen derecha
+//	margin: 0 -110px; //margen izquierda
+//}
+
+
+
+
+//crud materialBibliotecaInventario----------------------------------------------------------------------------------
+
+
+//controla la tabla consultantes ajustandola en pantalla
+.container-inventario{
+	margin-right: 12px;
+	margin-left: 212px;
+	padding-top: 0px;//pega el card al navbar
+}
+
+//icono card consultantes
+.container-inventario .card .card-header .icono { 
+	font-size: 25px; //tamaño del icono 
+	line-height: 20px;
+	
+}
+
+//logoudc vista index inventario 
+.container-inventario .card .card-body  .logoudc{
+	width: 15%; //ancho del logo en el navbar
+	max-height: 110px; //alto
+	margin-left: 890px;
+	margin-top: -80px;
+}
+
+
+
+//tamaño letra card-header consultantes
+.container-inventario .card .card-header { 
+	font-weight: lighter; //negrita
+	font-size: 20px; //tamaño de la letra
+
+}
+
+//controla el btn del card-hearder consultantes
+.container-inventario .card .card-header .btn {
+	margin-left: 790px;
+	padding-top: 3px;//aumenta la distancia del margen superior dentro del btn
+	top: -4px;//mueve arriba o hacia abajo el btn
+}
+
+
+.container-inventario .card .card-header {
+	margin-top: -20px;
+	margin-bottom: -6px;//hacerca la tabla al card-header
+	max-height: 68px; //alto del card-header
+
+}
+
+//hacerca los botones delete y edit a la parte superior de la tabla
+.container-inventario .card-body .table .btn {
+	top: -21px;
+    margin-bottom: -20px; //hacerca el margen inferior al boton
+}
+
+//pega el boton a la derecha de la linea de la tabla
+.container-inventario .card-body .table .btn.editar {
+	margin-left: 2px; 
+}
+
+//pega el boton a la derecha de la linea de la tabla
+.container-inventario .card-body .table .btn.eliminar {
+	margin-left: -15px; 
+	margin-right: -5px;
+}
+
+.container-inventario .card .card-body .table{
+	width: 145%; //ancho de la tabla
     text-transform: capitalize;
 	font-size: 14px;
 }

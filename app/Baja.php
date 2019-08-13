@@ -12,6 +12,6 @@ class Baja extends Model
 
     public function materialbiblioteca()//este metodo define la relacion de uno a muchos. Trae los datos de la tabla materialbiblioteca
     {
-        return $this->hasMany('App\Materialbiblioteca','id_materialBiblioteca');
+        return $this->hasOne('App\Materialbiblioteca','id_materialBiblioteca');
     }
 }

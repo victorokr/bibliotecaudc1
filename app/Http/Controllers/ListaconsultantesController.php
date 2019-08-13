@@ -7,6 +7,7 @@ use App\Perfil;
 use App\Institucion_universidad;
 use App\Facultad;
 use App\Tipo_de_consultante;
+use App\Consultante_biblioteca;
 use App\Http\Requests\UpdateConsultanteRequest;
 use Illuminate\validation\Rule;
 use App\Http\Requests\CreateConsultanteRequest;
@@ -32,9 +33,15 @@ class ListaconsultantesController extends Controller
 
 
 
-    public function index()
+    public function index(Request $request)
     {
-        $listaconsultantes = \App\consultante_biblioteca::all();
+        //$listaconsultantes = \App\consultante_biblioteca::all();
+
+        $documento   = $request->get('Documento');
+
+        $listaconsultantes = Consultante_biblioteca::orderBy('id_consultanteBiblioteca','DESC')
+        ->documento($documento)//documento es el nombre del metodo en el modelo, pero sin scope
+        ->paginate(4);
 
         return view('listaconsultantes.index', compact('listaconsultantes') );
     }

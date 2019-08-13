@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Estado_materialbiblioteca;
-use App\Estado;
 
-class EjemplaresController extends Controller
+class SalidasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class EjemplaresController extends Controller
      */
     public function index()
     {
-        $ejemplaress = \App\Estado_materialbiblioteca:: all();
-        return view('ejemplares.index',compact('ejemplaress'));
+        //
     }
 
     /**
@@ -26,8 +23,7 @@ class EjemplaresController extends Controller
      */
     public function create()
     {
-        $estadoo = Estado::pluck('Estado','id_estado');//'campo','id'
-        return view('ejemplares.create',compact('estadoo'));
+        //
     }
 
     /**
@@ -37,10 +33,8 @@ class EjemplaresController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {  
-        //return $request->all();
-        $ejemplaress = \App\Estado_materialbiblioteca::create($request->all());
-        return redirect()->route('ejemplares.index', compact('ejemplaress'));
+    {
+        //
     }
 
     /**
@@ -51,9 +45,7 @@ class EjemplaresController extends Controller
      */
     public function show($id)
     {
-         $ejemplaress = \App\Estado_materialbiblioteca::findOrFail($id); 
-
-        return view('ejemplares.show', compact('ejemplaress'));
+        //
     }
 
     /**
@@ -64,10 +56,7 @@ class EjemplaresController extends Controller
      */
     public function edit($id)
     {
-
-        $ejemplaress = \App\Estado_materialbiblioteca::findOrFail($id);
-        $estadoo = Estado_materialbiblioteca::pluck('codigo','id_estadoMaterialBiblioteca');//'campo','id'
-        return view('ejemplares.edit', compact('ejemplaress','estadoo'));
+        //
     }
 
     /**
@@ -79,9 +68,7 @@ class EjemplaresController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $ejemplaress = \App\Estado_materialbiblioteca::findOrFail($id);
-         $ejemplaress->update($request->all());
-         return back()->with('infoEjemplar','Ejemplar actualizado');
+        //
     }
 
     /**
@@ -92,8 +79,6 @@ class EjemplaresController extends Controller
      */
     public function destroy($id)
     {
-        $ejemplaress = \App\Estado_materialbiblioteca::findOrFail($id);
-        $ejemplaress->destroy();
-        return back()->with('infoDeleteEjemplar','Ejemplar eliminado');
+        //
     }
 }

@@ -10862,21 +10862,12 @@ a.text-dark:focus {
 }
 
 .sesionLogin .card-header .icono {
-  font-size: 40px;
+  font-size: 13px;
   background: #28a745;
   color: #ffffff;
   border-radius: 100%;
-  width: 60px;
-  height: 60px;
-}
-
-.sesionLogin .card-body p {
-  font-weight: lighter;
-  font-size: 20px;
-}
-
-.sesionLogin .card-body .form-group .a {
-  margin-top: -10px;
+  width: 17px;
+  height: 17px;
 }
 
 .sesionLogin .card-body .form-group .b {
@@ -10884,7 +10875,7 @@ a.text-dark:focus {
 }
 
 .contenedorimg {
-  background-image: url("/images/fondologin.jpg");
+  background-image: url("/images/fondologin2.jpg");
   background-size: 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
@@ -10997,6 +10988,13 @@ a.text-dark:focus {
   line-height: 20px;
 }
 
+.container-consultantes .card .card-body .logoudc {
+  width: 15%;
+  max-height: 110px;
+  margin-left: 890px;
+  margin-top: -80px;
+}
+
 .container-consultantes .card .card-header {
   font-weight: lighter;
   font-size: 20px;
@@ -11078,6 +11076,61 @@ a.text-dark:focus {
 
 .container-materialBiblioteca .card .card-body .table {
   width: 165%;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.container-inventario {
+  margin-right: 12px;
+  margin-left: 212px;
+  padding-top: 0px;
+}
+
+.container-inventario .card .card-header .icono {
+  font-size: 25px;
+  line-height: 20px;
+}
+
+.container-inventario .card .card-body .logoudc {
+  width: 15%;
+  max-height: 110px;
+  margin-left: 890px;
+  margin-top: -80px;
+}
+
+.container-inventario .card .card-header {
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.container-inventario .card .card-header .btn {
+  margin-left: 790px;
+  padding-top: 3px;
+  top: -4px;
+}
+
+.container-inventario .card .card-header {
+  margin-top: -20px;
+  margin-bottom: -6px;
+  max-height: 68px;
+}
+
+.container-inventario .card-body .table .btn {
+  top: -21px;
+  margin-bottom: -20px;
+}
+
+.container-inventario .card-body .table .btn.editar {
+  margin-left: 2px;
+}
+
+.container-inventario .card-body .table .btn.eliminar {
+  margin-left: -15px;
+  margin-right: -5px;
+}
+
+.container-inventario .card .card-body .table {
+  width: 145%;
   text-transform: capitalize;
   font-size: 14px;
 }

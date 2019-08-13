@@ -10,7 +10,7 @@
  <div class="row menuEmpleados">
   <div class="col-xl-12 col-md-12 col-sm-12 col-lg-12 "> <!--es lo mismo que col-12 -->
   	<div class="card">
-      <div class="card-header"><i class="fas fa-diagnoses"></i> Ejemplares <a class="btn btn-success btn-sm" href="{{ url('ejemplares/create') }}"> <i class="fas fa-plus-circle"></i> Agregar</a></div>
+      <div class="card-header"><i class="fas fa-diagnoses"></i>Motivo de Baja <a class="btn btn-success btn-sm" href="{{ url('ejemplares/create') }}"> <i class="fas fa-plus-circle"></i> Agregar</a></div>
        <div class="card-body">
         
 		<div class="table-responsive">
@@ -20,8 +20,9 @@
 			
 			  <tr>
 				<th>Acciones</th>
-				<th>Codigo</th>   <!--campos de la tabla-->
-				<th>Estado</th>
+				<th>Bajas Por</th>   <!--campos de la tabla-->
+				<th>Fecha</th>
+				<th>Sede</th>
 				
 				
 
@@ -31,18 +32,18 @@
 		     </thead>
 
 		     <tbody>
-			 @foreach ($ejemplaress as $ejemplares) <!--desde el controlador, metodo index, se pasa la variable materialBiblioteca-->
+			 @foreach ($listaDeBajas as $listBajas) <!--desde el controlador, metodo index, se pasa la variable materialBiblioteca-->
 
 			 <tr>
 
 				<td><!--con esta etiqueta se alinean horizontalmente los botones del crud-->
 							
-								<a class="editar btn btn-info btn-sm" href="{{route('ejemplares.edit',
-								 $ejemplares->id_estadoMaterialBiblioteca) }}"><i class="fas fa-edit"></i></a> 
+								<a class="editar btn btn-info btn-sm" href="{{route('bajas.edit',
+								 $listBajas->id_baja) }}" ><i class="fas fa-edit"></i></a> 
 					 
 							
 							
-							<form style="display: inline" method="POST" action="{{ route('ejemplares.destroy', $ejemplares->id_estadoMaterialBiblioteca) }}" >
+							<form style="display: inline" method="POST" action="{{ route('bajas.destroy', $listBajas->id_baja) }}" >
 
 								{!! csrf_field()!!}
 								{!! method_field('DELETE')!!}
@@ -51,8 +52,10 @@
 							</form>
 					
 				</td>
-				<td>{{ $ejemplares->codigo  }}</td>
-				<td>{{ optional($ejemplares->estado)->Estado  }}</td>
+				
+				<td>{{ $listBajas->Baja  }}</td>
+				<td>{{ $listBajas->Fecha}}</td>
+				{{-- <td>{{ optional($listBajas->baja)->Titulo  }}</td> --}}
 							
 			 </tr>
 			 @endforeach

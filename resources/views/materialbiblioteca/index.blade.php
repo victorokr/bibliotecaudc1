@@ -1,16 +1,29 @@
 @extends('layouts.app')
 @section('content')
  
-@if (session()->has('infoDeleteMaterial'))
-<div class="alert alert-success">{{ session('infoDeleteMaterial') }}</div>
-@endif
+
+<div class="container">
+  <div class="row justify-content-center">
+  	<div class="col-auto">
+		@if (session()->has('infoUpdateMaterialBiblioteca'))
+		<div class="alert alert-success mt-1 text-center" style="width: 900px" id="alerta" >
+		  <strong>Aviso: </strong>{{ session('infoUpdateMaterialBiblioteca') }}
+		  <button type="button" class="close" data-dismiss="alert" arial-label="cerrar" >
+				<span arial-hidden="true"> &times; </span>
+		  </button>
+	    </div>
+		@endif
+
+	</div>	
+  </div>
+</div>
 
 
 <div class="container-materialBiblioteca">
  <div class="row ">
   <div class="col-xl-12 col-md-12 col-sm-12 col-lg-12 "> <!--es lo mismo que col-12 -->
   	<div class="card">
-      <div class="card-header"><i class="fas fa-book-reader"></i> Material Biblioteca <a class="btn btn-success btn-sm" title="Agregar Material"  href="{{ url('material/biblioteca/create') }}"> <i class="fas fa-plus"></i> agregar</a></div>
+      <div class="card-header"><i class="fas fa-book-reader"></i> Material Biblioteca <a class="btn btn-outline-primary btn-sm disabled" title="Agregar Material"  href="{{ url('material/biblioteca/create') }}"> <i class="fas fa-plus"></i> agregar</a></div>
        <div class="card-body">
 
             <form method="GET" action="{{ route('biblioteca.index') }}">
@@ -46,7 +59,6 @@
 				
 				  <tr>
 					<th>Acciones</th>
-					<th>ID</th>   <!--campos de la tabla-->
 					<th>CodigoLibro</th>
 					<th>Codigo ISBN</th>
 					<th>Titulo</th>
@@ -75,8 +87,8 @@
 
 					<td><!--con esta etiqueta se alinean horizontalmente los botones del crud-->
 
-									<a class="editar btn btn-success btn-sm mr-1" title="AgregarEjemplares" href="{{route('biblioteca.show', $materialBiblioteca->id_materialBiblioteca) }}">
-										<i class="fas fa-book-open"></i></a> <!--crea el enlace sobre editar-->
+									{{-- <a class="editar btn btn-success btn-sm mr-1" title="AgregarEjemplares" href="{{route('biblioteca.show', $materialBiblioteca->id_materialBiblioteca) }}">
+										<i class="fas fa-book-open"></i></a> --}} 
 
 								
 									<a class="editar btn btn-info btn-sm" title="Editar" href="{{route('biblioteca.edit', $materialBiblioteca->id_materialBiblioteca) }}"><i class="fas fa-edit"></i></a> <!--crea el enlace sobre editar-->
@@ -88,11 +100,11 @@
 									{!! csrf_field()!!}
 									{!! method_field('DELETE')!!}
 
-									<button class="eliminar btn btn-danger btn-sm" title="Eliminar" type="submit"><i class="fas fa-trash-alt"></i></button>
+									<button class="eliminar btn btn-danger btn-sm" title="Eliminar" type="submit" disabled><i class="fas fa-trash-alt"></i></button>
 								</form>
 						
 					</td>
-					<td>{{ $materialBiblioteca->id_materialBiblioteca   }}</td>
+					
 					<td>{{ $materialBiblioteca->Codigo_libro	                 }}</td>
 					<td>{{ $materialBiblioteca->Codigo_ISBN                  }}</td>
 					<td>{{ $materialBiblioteca->Titulo                  }}</td>

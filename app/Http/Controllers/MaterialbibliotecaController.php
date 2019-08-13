@@ -38,7 +38,7 @@ class MaterialbibliotecaController extends Controller
         $titulo     = $request->get('Titulo');
         $autor      = $request->get('autores');
 
-        $materialBibliotecas = Materialbiblioteca::orderBy('id_materialBiblioteca','ASC')
+        $materialBibliotecas = Materialbiblioteca::orderBy('id_materialBiblioteca','DESC')
         ->codigo($codigoisbn)//codigo es el nombre del metodo en el modelo, pero sin scope
         ->titulo($titulo)
         ->autor($autor)
@@ -54,17 +54,17 @@ class MaterialbibliotecaController extends Controller
      */
     public function create()
     {
-        $editoriall = Editorial::pluck('Editorial','id_editorial');//'campo','id'
-        $autoress = Autor::pluck('Nombre','id_autor');
-        $temaa = Tema_del_material::pluck('Area','id_temaDelMaterial');
-        $bajaa = Baja::pluck('Baja','id_baja');
-        $tipoDeMateriall = Tipodematerial::pluck('Tipo_de_material','id_tipoDeMaterial');
-        $carreraa = Carrera::pluck('Carrera','id_carrera');
-        $ubicacionn = Ubicacion::pluck('Sede','id_ubicacion');
-        $estadoo = Estado::pluck('Estado','id_estado');
-        //$codigoEjemplar = estadoMaterialBibliotecas::pluck('codigo','id_estadoMaterialBiblioteca');
+        // $editoriall = Editorial::pluck('Editorial','id_editorial');//'campo','id'
+        // $autoress = Autor::pluck('Nombre','id_autor');
+        // $temaa = Tema_del_material::pluck('Area','id_temaDelMaterial');
+        // $bajaa = Baja::pluck('Baja','id_baja');
+        // $tipoDeMateriall = Tipodematerial::pluck('Tipo_de_material','id_tipoDeMaterial');
+        // $carreraa = Carrera::pluck('Carrera','id_carrera');
+        // $ubicacionn = Ubicacion::pluck('Sede','id_ubicacion');
+        // $estadoo = Estado::pluck('Estado','id_estado');
+        // //$codigoEjemplar = estadoMaterialBibliotecas::pluck('codigo','id_estadoMaterialBiblioteca');
 
-        return view('materialbiblioteca.create', compact('materialBibliotecas','editoriall','autoress','temaa','bajaa','tipoDeMateriall','carreraa','ubicacionn','estadoo'));
+        // return view('materialbiblioteca.create', compact('materialBibliotecas','editoriall','autoress','temaa','bajaa','tipoDeMateriall','carreraa','ubicacionn','estadoo'));
     }
 
     /**
@@ -76,15 +76,15 @@ class MaterialbibliotecaController extends Controller
     public function store(CreateMaterialbibliotecaRequest $request)
     {
        //return $request->all(); 
-       $materialBibliotecas = \App\Materialbiblioteca::create( $request->all() );
-       $materialBibliotecas->autores()->attach($request->autores);
-       $materialBibliotecas->ubicaciones()->attach($request->ubicaciones);
-       $materialBibliotecas->carreras()->attach($request->carreras);
-       $materialBibliotecas->temaDelmaterial()->attach($request->temaDelmaterial);
-       $materialBibliotecas->estado()->attach($request->estado);
+       // $materialBibliotecas = \App\Materialbiblioteca::create( $request->all() );
+       // $materialBibliotecas->autores()->attach($request->autores);
+       // $materialBibliotecas->ubicaciones()->attach($request->ubicaciones);
+       // $materialBibliotecas->carreras()->attach($request->carreras);
+       // $materialBibliotecas->temaDelmaterial()->attach($request->temaDelmaterial);
+       // $materialBibliotecas->estado()->attach($request->estado);
    
 
-       return redirect()->route('biblioteca.index', compact('materialBibliotecas'));
+       // return redirect()->route('biblioteca.index', compact('materialBibliotecas'));
     }
 
     /**
@@ -95,8 +95,8 @@ class MaterialbibliotecaController extends Controller
      */
     public function show($id)
     {
-        $ejemplaress = \App\Estado_materialbiblioteca::all();
-        return view('materialbiblioteca.show',compact('ejemplaress'));
+        // $ejemplaress = \App\Estado_materialbiblioteca::all();
+        // return view('materialbiblioteca.show',compact('ejemplaress'));
     }
 
     /**
@@ -141,7 +141,7 @@ class MaterialbibliotecaController extends Controller
         $materialBibliotecas->estado()->sync($request->estado);
 
         $materialBibliotecas->update($request->all());
-        return back()->with('infoUpdateMaterialBiblioteca','Material actualizado');//se coloca la llave info para lanzar mensage de se actualizo correctamente, la llave se activara con boostrack en el formulario edit de listaempleados
+        return redirect()->route('biblioteca.index')->with('infoUpdateMaterialBiblioteca','Material actualizado');//se coloca la llave info para lanzar mensage de se actualizo correctamente, la llave se activara con boostrack en el formulario edit de listaempleados
     }
 
     /**
