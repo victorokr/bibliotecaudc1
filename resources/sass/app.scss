@@ -846,6 +846,14 @@
 	
 }
 
+//logoudc vista index prestamos 
+.container-indexprestamos .card .card-body  .logoudc{
+	width: 15%; //ancho del logo en el navbar
+	max-height: 110px; //alto
+	margin-left: 890px;
+	margin-top: -80px;
+}
+
 //tamaño letra card-header consultantes
 .container-indexprestamos .card .card-header { 
 	font-weight: lighter; //negrita
@@ -907,18 +915,26 @@
 //tabla autores----------------------------------------------------------------------------------
 
 
-//controla la tabla consultantes ajustandola en pantalla
+//controla la tabla autores ajustandola en pantalla
 .container-autores{
 	margin-right: 12px;
 	margin-left: 212px;
 	padding-top: 12px;
 }
 
-//icono card consultantes
+//icono card autores
 .container-autores .card .card-header .icono { 
 	font-size: 25px; //tamaño del icono 
 	line-height: 20px;
 	
+}
+
+//logoudc vista index autor 
+.container-autores .card .card-body  .logoudc{
+	width: 15%; //ancho del logo en el navbar
+	max-height: 110px; //alto
+	margin-left: 890px;
+	margin-top: -80px;
 }
 
 //tamaño letra card-header consultantes
@@ -928,9 +944,9 @@
 
 }
 
-//controla el btn del card-hearder consultantes
+//controla el btn del card-hearder autores
 .container-autores .card .card-header .btn {
-	margin-left: 770px;
+	margin-left: 800px;
 	padding-top: 3px;//aumenta la distancia del margen superior dentro del btn
 	top: -4px;//mueve arriba o hacia abajo el btn
 }

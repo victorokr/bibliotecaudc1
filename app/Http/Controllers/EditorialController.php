@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Editorial;
 use App\Http\Requests\UpdateEditorialRequest;
 use App\Http\Requests\CreateEditorialRequest;
 
@@ -23,9 +24,16 @@ class EditorialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $listaEditoriales = \App\Editorial::all();
+        //$listaEditoriales = \App\Editorial::all();
+
+        $nombreEditorial = $request->get('Editorial');
+        
+
+        $listaEditoriales = Editorial::orderBy('id_editorial','DESC')
+        ->editorial($nombreEditorial)//autor es el nombre del metodo en el modelo, pero sin scope
+        ->paginate(4);
         return view ('editorial.index', compact('listaEditoriales'));
     }
 

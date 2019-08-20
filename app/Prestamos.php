@@ -87,12 +87,12 @@ class Prestamos extends Model
 
     }
 
-    // public function scopeAutor($query, $autor)
-    // {
-    //     if($autor)
-    //     return $query->whereHas("autores", function ($query) use ($autor){
-    //         $query->where('Nombre','LIKE', "%$autor%");
-    //     });
-    // }
+    public function scopeSolicitante($query, $nombreSolicitante)
+    {
+        if($nombreSolicitante)
+        return $query->whereHas("consultanteBiblioteca", function ($query) use ($nombreSolicitante){
+            $query->where('Nombre','LIKE', "%$nombreSolicitante%");
+        });
+    }
     
 }

@@ -44,8 +44,10 @@ class BibliotecainventarioController extends Controller
         ->paginate(4);
 
         //consulta libros sede 3
-         // $totalSedes= Materialbibliotecainventario::ubica()->get();
-
+         //$totalSedes= Materialbibliotecainventario::ubica()->get();
+        //$consultaMaterial= Materialbibliotecainventario::all()->sedetresCount();
+       
+        
         return view('materialbibliotecainventario.index', compact('materialBibliotecas'));
     }
 

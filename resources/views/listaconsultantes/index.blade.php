@@ -81,7 +81,7 @@
 								<button class="eliminar btn btn-danger btn-sm" type="submit"><i class="fas fa-trash-alt"></i></button>
 								</form> --}}
 								<button class="eliminar btn btn-danger btn-sm"
-								 data-toggle="modal" data-target="#delete"
+								 data-toggle="modal" onclick="deleteData({{$listaconsultante->id_consultanteBiblioteca}})" data-target="#delete"
 								title="Eliminar"><i class="fas fa-trash-alt"></i></button>
 							
 							</td>
@@ -107,30 +107,46 @@
 					       {{-- modal delete --}}
 						    <div class="modal" id="delete" tabindex="-1" role="dialog">
 							  <div class="modal-dialog" role="document">
+							   <form action="" id="deleteForm" method="POST">
 							    <div class="modal-content">
 							      <div class="modal-header" style="background: #FB1C1C" >
-							        <h5 class="modal-title">Eliminar Consultante</h5>
+							        <h5 class="modal-title">Eliminar Material</h5>
 							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							          <span aria-hidden="true">&times;</span>
 							        </button>
 							      </div>
-							      <form method="POST" action="{{ route('consultantes.destroy', $listaconsultante->id_consultanteBiblioteca) }}">
-							      	  {!! csrf_field()!!}
-									  {!! method_field('DELETE')!!}
 								      <div class="modal-body">
-								        <p>¿Está seguro de eliminar este usuario?</p>
+								      	{!! csrf_field()!!}
+									    {!! method_field('DELETE')!!}
+								        <p>¿Está seguro de eliminar este material?</p>
 								        {{-- <input type="hidden" name="id_materialBiblioteca" value=""> --}}
 								      </div>
 								      <div class="modal-footer">
-								      	<button type="submit" class="btn btn-danger">Si</button>
+								      	<button type="submit" class="btn btn-danger" data-dismiss="modal"
+								      	onclick="formSubmit()">Si</button>
 								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 								      </div>
-							      </form>
 							    </div>
+							   </form>
 							  </div>
+							           <script type="text/javascript">
+									     function deleteData(id_consultanteBiblioteca)
+									     {
+									         var id = id_consultanteBiblioteca;
+									         var url = '{{ route("consultantes.destroy", ":id") }}';
+									         url = url.replace(':id', id);
+									         $("#deleteForm").attr('action', url);
+									     }
+
+									     function formSubmit()
+									     {
+									         $("#deleteForm").submit();
+									     }
+									   </script>
 						    </div>
 				    </tbody>
 			  </table>
+			  {{ $listaconsultantes->render() }}
 		    </div>
 		         
 

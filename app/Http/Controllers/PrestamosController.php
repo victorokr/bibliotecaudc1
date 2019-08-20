@@ -32,9 +32,13 @@ class PrestamosController extends Controller
     }
 
 
-    public function index()
+    public function index(Request $request)
     {
-        $prestamoss = \App\Prestamos::orderBy('id_prestamo','ASC')->paginate(4);
+        $nombreSolicitante = $request->get('id_consultanteBiblioteca');
+
+        $prestamoss = \App\Prestamos::orderBy('id_prestamo','DESC')
+        ->solicitante($nombreSolicitante)
+        ->paginate(3);
 
         return view('prestamos.index',compact('prestamoss'));
     }

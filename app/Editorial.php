@@ -15,4 +15,11 @@ class Editorial extends Model
     {
         return $this->hasMany('App\Materialbiblioteca','id_materialBiblioteca');
     }
+
+
+    public function scopeEditorial($query, $nombreEditorial)
+    {
+        if($nombreEditorial)
+        return $query->where('Editorial','LIKE',"%$nombreEditorial%");
+    }
 }

@@ -10,6 +10,10 @@ class Autor extends Model
     protected $primaryKey = 'id_autor';
     protected $fillable = ['Nombre'];
 
-
+    public function scopeAutor($query, $nombreAutor)
+    {
+        if($nombreAutor)
+        return $query->where('Nombre','LIKE',"%$nombreAutor%");
+    }
    
 }

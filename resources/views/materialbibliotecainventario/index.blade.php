@@ -120,7 +120,7 @@
 								</form> --}}
 
 								<button class="eliminar btn btn-danger btn-sm"
-								 data-toggle="modal" data-target="#delete"
+								 data-toggle="modal" onclick="deleteData({{$materialBiblioteca->id_materialBiblioteca}})" data-target="#delete"
 								title="Eliminar"><i class="fas fa-trash-alt"></i></button>
 						
 					</td>
@@ -158,6 +158,7 @@
 			   {{-- modal delete --}}
 			    <div class="modal" id="delete" tabindex="-1" role="dialog">
 				  <div class="modal-dialog" role="document">
+				   <form action="" id="deleteForm" method="POST">
 				    <div class="modal-content">
 				      <div class="modal-header" style="background: #FB1C1C" >
 				        <h5 class="modal-title">Eliminar Material</h5>
@@ -165,20 +166,34 @@
 				          <span aria-hidden="true">&times;</span>
 				        </button>
 				      </div>
-				      <form method="POST" action="{{ route('inventario.destroy', $materialBiblioteca->id_materialBiblioteca) }}">
-				      	  {!! csrf_field()!!}
-						  {!! method_field('DELETE')!!}
 					      <div class="modal-body">
+					      	{!! csrf_field()!!}
+						    {!! method_field('DELETE')!!}
 					        <p>¿Está seguro de eliminar este material?</p>
 					        {{-- <input type="hidden" name="id_materialBiblioteca" value=""> --}}
 					      </div>
 					      <div class="modal-footer">
-					      	<button type="submit" class="btn btn-danger">Si</button>
+					      	<button type="submit" class="btn btn-danger" data-dismiss="modal"
+					      	onclick="formSubmit()">Si</button>
 					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 					      </div>
-				      </form>
 				    </div>
+				   </form>
 				  </div>
+				           <script type="text/javascript">
+						     function deleteData(id_materialBiblioteca)
+						     {
+						         var id = id_materialBiblioteca;
+						         var url = '{{ route("inventario.destroy", ":id") }}';
+						         url = url.replace(':id', id);
+						         $("#deleteForm").attr('action', url);
+						     }
+
+						     function formSubmit()
+						     {
+						         $("#deleteForm").submit();
+						     }
+						   </script>
 			    </div>
 
 			    {{-- modal total --}}
@@ -193,13 +208,28 @@
 				      </div>
 				      
 					    <div class="modal-body">
-					      <small><p>Total libros sede Tres:</small> {{ $materialBiblioteca->sedetresCount() }}</p>
+					      {{-- <small><p>Total libros sede Tres:</small> {{ $materialBiblioteca->sedetresCount() }}</p>
 
 					      <small><p>Total libros sede Dos:</small>  {{ $materialBiblioteca->sededosCount() }}</p>
 
 					        <small><p>Total libros sede Uno:</small>  {{ $materialBiblioteca->sedeunoCount() }}</p>
 					        
-					        <p>Total Material Biblioteca: {{ $materialBiblioteca->totalBiblioteca() }}</p>	
+					        <p>Total Material Biblioteca: {{ $materialBiblioteca->totalBiblioteca() }}</p> --}}	
+
+					        @foreach($materialBibliotecas as $materialBiblioteca)
+					          @if ($loop->first)
+					        	<small><p>Total libros sede Tres:</small> 
+					        		{{ $materialBiblioteca->sedetresCount() }}</p>
+
+					        	<small><p>Total libros sede Dos:</small>  
+					        		{{ $materialBiblioteca->sededosCount() }}</p>
+
+					        	<small><p>Total libros sede Uno:</small> 
+					        	    {{ $materialBiblioteca->sedeunoCount() }}</p>
+
+					        	<p>Total Material Biblioteca: {{ $materialBiblioteca->totalBiblioteca() }}</p>	
+					          @endif
+					        @endforeach
 					        
 					    </div>
 					      <div class="modal-footer">

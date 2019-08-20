@@ -11198,6 +11198,13 @@ a.text-dark:focus {
   line-height: 20px;
 }
 
+.container-indexprestamos .card .card-body .logoudc {
+  width: 15%;
+  max-height: 110px;
+  margin-left: 890px;
+  margin-top: -80px;
+}
+
 .container-indexprestamos .card .card-header {
   font-weight: lighter;
   font-size: 20px;
@@ -11250,13 +11257,20 @@ a.text-dark:focus {
   line-height: 20px;
 }
 
+.container-autores .card .card-body .logoudc {
+  width: 15%;
+  max-height: 110px;
+  margin-left: 890px;
+  margin-top: -80px;
+}
+
 .container-autores .card .card-header {
   font-weight: lighter;
   font-size: 20px;
 }
 
 .container-autores .card .card-header .btn {
-  margin-left: 770px;
+  margin-left: 800px;
   padding-top: 3px;
   top: -4px;
 }

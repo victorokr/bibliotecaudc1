@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Autor;
 use App\Http\Requests\UpdateAutorRequest;
 use App\Http\Requests\CreateAutorRequest;
 
@@ -24,9 +25,16 @@ class AutorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $listaAutores = \App\Autor::all();
+        
+
+        $nombreAutor = $request->get('Nombre');
+        
+
+        $listaAutores = Autor::orderBy('id_autor','DESC')
+        ->autor($nombreAutor)//autor es el nombre del metodo en el modelo, pero sin scope
+        ->paginate(4);
         return view('autor.index', compact('listaAutores'));
     }
 

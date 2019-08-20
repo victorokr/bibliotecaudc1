@@ -237,7 +237,7 @@
 
 				<div class="row justify-content-start">
 					<div class="col-12">
-					<input class="btn btn-success  btn-sm btn-block mt-1" type="submit" value="Iniciar Prestamo">
+					<input class="btn btn-success  btn-sm btn-block mt-1" type="submit" value="Procesar Prestamo">
 					</div>
 				</div>
 			  </div>	
