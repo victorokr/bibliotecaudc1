@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateEmpleadoRequest;
 use App\Http\Requests\CreateEmpleadoRequest;
 use Illuminate\Http\Request;
 use Illuminate\validation\Rule;
+use App\Empleado;
 use App\Role;
 
 class ListaempleadosController extends Controller
@@ -32,9 +33,18 @@ class ListaempleadosController extends Controller
 
 
 
-    public function index()
+    public function index(Request $request)
     {
-        $listaempleados = \App\Empleado::all();
+        //$listaempleados = \App\Empleado::all();
+
+
+
+        $nombreEmpleado = $request->get('Nombre');
+        
+
+        $listaempleados = Empleado::orderBy('id_empleado','DESC')
+        ->empleado($nombreEmpleado)//empleado es el nombre del metodo en el modelo, pero sin scope
+        ->paginate(4);
 
         return view('listaempleados.index', compact('listaempleados') );
     }
@@ -61,7 +71,7 @@ class ListaempleadosController extends Controller
     {
         $listaempleados = \App\Empleado::create( $request->all() );
         $listaempleados->roles()->attach($request->roles);
-        return redirect()->route('empleados.index', compact('listaempleados'));
+        return redirect()->route('empleados.index', compact('listaempleados'))->with('infoCreate','Empleado agregado');
     }
 
     /**

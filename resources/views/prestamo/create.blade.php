@@ -1,15 +1,28 @@
 @extends('layouts.app')
 @section('content')
 
-@if (session()->has('info'))
-<div class="alert alert-success">{{ session('info') }}</div>
-@endif
+
+
+<div class="container">
+  <div class="row justify-content-center">
+  	<div class="col-auto">
+		@if (session()->has('infoPrestamo'))
+		<div class="alert alert-success mt-1 text-center" style="width: 900px" id="alerta" >
+		  <strong>Aviso: </strong>{{ session('infoPrestamo') }}
+		  <button type="button" class="close" data-dismiss="alert" arial-label="cerrar" >
+				<span arial-hidden="true"> &times; </span>
+		  </button>
+	    </div>
+		@endif
+	</div>	
+  </div>
+</div>
 
 <div class="container-indexprestamo">
 	<div class="row justify-content-center">
 		<div class="col-auto col-12">
 		  <div class="card border-light">
-			<div class="card-header"><i class="fas fa-book-reader"></i> Solicitud de prestamo <a class="btn btn-success btn-sm" title="Agregar Material"  href="{{ url('prestamo/consultante/create') }}"> <i class="fas fa-plus"></i> </a></div>
+			<div class="card-header"><i class="fas fa-book-reader"></i> Solicitud de prestamo <a class="btn btn-success btn-sm" title="prestamo"  href="{{ url('prestamo/consultante/create') }}"> <i class="fas fa-book-reader"></i> </a></div>
 			   <div class="card-group">
 					<div class="card-body">
 						
@@ -31,12 +44,15 @@
 							    <div class="col-auto" title="Restablecer">
 							      <a href="{{ url('prestamo/consultante/create') }}"   class="btn btn-light mt-3 ml-1 "><i class="fas fa-reply"></i></a>
 							    </div>
+							    <div class="logoudc col-auto " title="logoUDC">
+			                      <img class="card-img-top img-fluid " src="/images/logoUDC.jpg"  >	
+			                    </div>
 							  </div>
 			              </form>
 
 
 			              <div class="table-responsive">
-						      <table class="table table-hover table-sm table-light table-bordered ">
+						      <table class="table table-hover table-sm   ">
 							    <caption>Prestamo</caption>
 							     <thead class="thead-light">
 								

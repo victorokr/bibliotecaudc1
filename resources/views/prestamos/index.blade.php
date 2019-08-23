@@ -54,7 +54,7 @@
 			</form>
 
 			<div class="table-responsive">
-		      <table class="table table-hover table-sm table-light table-bordered ">
+		      <table class="table table-hover table-sm  ">
 			    <caption>Prestamos</caption>
 			     <thead class="thead-light">
 				

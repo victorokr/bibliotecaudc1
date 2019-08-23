@@ -469,6 +469,15 @@
 	
 }
 
+//logoudc vista index empleado 
+.container-empleados .card .card-body  .logoudc{
+	width: 15%; //ancho del logo en el navbar
+	max-height: 110px; //alto
+	margin-left: 890px;
+	margin-top: -80px;
+}
+
+
 //tamaño letra card-header empleados
 .container-empleados .card .card-header { 
 	font-weight: lighter; //negrita
@@ -769,6 +778,15 @@
 	line-height: 20px;
 	
 }
+
+//logoudc vista index prestamo 
+.container-indexprestamo .card .card-body  .logoudc{
+	width: 15%; //ancho del logo en el navbar
+	max-height: 110px; //alto
+	margin-left: 890px;
+	margin-top: -80px;
+}
+
 
 //tamaño letra card-header consultantes
 .container-indexprestamo .card .card-header { 

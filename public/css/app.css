@@ -10940,6 +10940,13 @@ a.text-dark:focus {
   line-height: 20px;
 }
 
+.container-empleados .card .card-body .logoudc {
+  width: 15%;
+  max-height: 110px;
+  margin-left: 890px;
+  margin-top: -80px;
+}
+
 .container-empleados .card .card-header {
   font-weight: lighter;
   font-size: 20px;
@@ -11144,6 +11151,13 @@ a.text-dark:focus {
 .container-indexprestamo .card .card-header .icono {
   font-size: 25px;
   line-height: 20px;
+}
+
+.container-indexprestamo .card .card-body .logoudc {
+  width: 15%;
+  max-height: 110px;
+  margin-left: 890px;
+  margin-top: -80px;
 }
 
 .container-indexprestamo .card .card-header {

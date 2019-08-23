@@ -53,7 +53,7 @@
 			  
 
 			<div class="table-responsive">
-		      <table class="table table-hover table-sm table-light table-bordered ">
+		      <table class="table table-hover table-sm  ">
 			    <caption>Material Biblioteca</caption>
 			     <thead class="thead-light">
 				

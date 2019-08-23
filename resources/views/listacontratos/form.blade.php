@@ -37,13 +37,13 @@
 		      	<div class="input-group-prepend">
 			     <label class="input-group-text" for="validationCustom02">PeriodoDePrueba</label>
 			    </div>
-				<input class="form-control" type="text" name="PeriodoDePrueva"
+				<input class="form-control" type="text" name="PeriodoDePrueba"
 				value="{{ $listacontratos->PeriodoDePrueba }}" required>
 				<div class="valid-feedback">¡se ve bien!</div>
 				<small id="passwordHelpBlock" class="form-text text-muted">
 	                         
 				</small>
-				{!!$errors->first('PeriodoDePrueva','<span class=error>:message</span>')!!}
+				{!!$errors->first('PeriodoDePrueba','<span class=error>:message</span>')!!}
 			  </div>
 			</div>
     

@@ -61,7 +61,7 @@ class PrestamoController extends Controller
         $titulo     = $request->get('Titulo');
         $estado     = $request->get('Estado');
 
-        $consultaMaterial = Materialbiblioteca::orderBy('id_materialBiblioteca','ASC')
+        $consultaMaterial = Materialbiblioteca::orderBy('id_materialBiblioteca','DESC')
         ->codigo($codigoisbn)//codigo es el nombre del metodo en el modelo, pero sin scope
         ->titulo($titulo)
         ->paginate(2);
@@ -95,7 +95,7 @@ class PrestamoController extends Controller
         //$prestamos->novedades()->attach($request->novedades);
         //$prestamos->sanciones()->attach($request->sanciones);
 
-        return redirect()->route('consultante.create', compact('prestamos'));
+        return redirect()->route('consultante.create', compact('prestamos'))->with('infoPrestamo','Solicitud enviada');
     }
 
     /**

@@ -26,7 +26,7 @@ class UpdateContratoRequest extends FormRequest
         return [
             
             'Jornada'=>'required|regex:/^[\pL\s\-]+$/u|max:21',
-            'PeriodoDePrueva'=> ['required','max:20'],
+            'PeriodoDePrueba'=> ['required','max:20'],
             'Salario'=> 'required|regex:/^\d{1,3}(?:\.\d\d\d)*(?:,\d{1,2})?$/|max:21', //permite puntos de mil 1.200.000
             //'fechacontrato'=>'required|date|date_format:Y-m-d',
             //'tipoDeContrato'=>['required'],

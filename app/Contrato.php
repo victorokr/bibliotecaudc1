@@ -36,5 +36,15 @@ class Contrato extends Model
         return $this->belongsTo('App\Empresa','id_empresa');
     }
 
+    
+    //busqueda con campo llave foranea
+    public function scopeContract($query, $contratoEmpleado)
+    {
+        if($contratoEmpleado)
+        return $query->whereHas("empleado", function ($query) use ($contratoEmpleado){
+            $query->where('Nombre','LIKE', "%$contratoEmpleado%");
+        });
+    }
+
 
 }

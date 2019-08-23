@@ -82,4 +82,12 @@ class Empleado extends Authenticatable
 
         return false;
     }
+
+
+    public function scopeEmpleado($query, $nombreEmpleado)
+    {
+        if($nombreEmpleado)
+        return $query->where('Nombre','LIKE',"%$nombreEmpleado%");
+    }
+
 }

@@ -46,7 +46,7 @@
 			</form>
         
 		<div class="table-responsive">
-	      <table class="table table-hover table-sm table-light table-bordered ">
+	      <table class="table table-hover table-sm  ">
 		    <caption>Editoriales</caption>
 		     <thead class="thead-light">
 			

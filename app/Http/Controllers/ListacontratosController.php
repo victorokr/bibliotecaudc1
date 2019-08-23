@@ -9,6 +9,7 @@ use App\Tipo_de_contrato;
 use App\Cargo;
 use App\Empleado;
 use App\Empresa;
+use App\Contrato;
 use DB;
 
 class ListacontratosController extends Controller
@@ -29,9 +30,18 @@ class ListacontratosController extends Controller
 
 
 
-    public function index()
+    public function index(Request $request)
     {
-        $listacontratos = \App\Contrato::all();
+        //$listacontratos = \App\Contrato::all();
+
+
+
+        $contratoEmpleado = $request->get('id_empleado');
+        
+
+        $listacontratos = Contrato::orderBy('id_contrato','DESC')
+        ->contract($contratoEmpleado)
+        ->paginate(4);
 
         return view('listacontratos.index', compact('listacontratos') );
     }
@@ -86,7 +96,7 @@ class ListacontratosController extends Controller
 
 
         //return redirect()->route('contratos.index');
-        return redirect()->route('contratos.index', compact('listacontratos'));
+        return redirect()->route('contratos.index', compact('listacontratos'))->with('infoContratoCreate','Contrato Creado');
 
     }
 

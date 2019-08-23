@@ -2,16 +2,12 @@
 @section('content')
 
 
-@if (session()->has('info'))
-<div class="alert alert-success">{{ session('info') }}</div>
-@endif
-
 <div class="contenedorEditEmpleados">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
 			   <div class="card">
-			   	 <div class="card-header"><i class="icono fas fa-users-cog"></i> <small>{{ __('Editar Contratos') }}</small></div>
+			   	 <div class="card-header"><i class="icono fas fa-users-cog"></i> <small>{{ __('Crear Contrato') }}</small></div>
 					<div class="card-body">
 						<div class="card bg-light mb-3 text-center">
 						    <form class="needs-validation" novalidate method="POST" action="{{ route('contratos.store') }}"><!--empleados.store esta ruta se verifica en la consola con php artisan r:l en caso de no ser encontrada-->
