@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Editorial;
 use App\Http\Requests\UpdateEditorialRequest;
 use App\Http\Requests\CreateEditorialRequest;
+use Illuminate\Validation\Rule;
 
 class EditorialController extends Controller
 {
@@ -93,6 +94,8 @@ class EditorialController extends Controller
      */
     public function update(UpdateEditorialRequest $request, $id)
     {
+        $this->validate(request(), ['Editorial' =>['required','string','max:40',Rule::unique('editorial')->ignore($id,'id_editorial')]]);
+
          $listaEditoriales = \App\Editorial::findOrFail($id);
          
          $listaEditoriales->update($request->all());

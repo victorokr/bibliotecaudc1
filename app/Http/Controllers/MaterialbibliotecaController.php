@@ -15,6 +15,7 @@ use App\Estado_materialbiblioteca;
 use App\Estado;
 use App\Http\Requests\UpdateMaterialbibliotecaRequest;
 use App\Http\Requests\CreateMaterialbibliotecaRequest;
+use Illuminate\Validation\Rule;
 
 class MaterialbibliotecaController extends Controller
 {
@@ -132,6 +133,7 @@ class MaterialbibliotecaController extends Controller
      */
     public function update(UpdateMaterialbibliotecaRequest $request, $id)
     {
+         $this->validate(request(), ['Codigo_libro' =>['required','string','max:25',Rule::unique('materialbiblioteca')->ignore($id,'id_materialBiblioteca')]]);
         
         $materialBibliotecas = \App\Materialbiblioteca::findOrFail($id);
         $materialBibliotecas->autores()->sync($request->autores);

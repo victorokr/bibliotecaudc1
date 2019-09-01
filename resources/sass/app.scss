@@ -783,7 +783,7 @@
 .container-indexprestamo .card .card-body  .logoudc{
 	width: 15%; //ancho del logo en el navbar
 	max-height: 110px; //alto
-	margin-left: 890px;
+	margin-left: 905px;
 	margin-top: -80px;
 }
 
@@ -1217,7 +1217,7 @@ a {
 	font-family: 'Roboto', sans-serif; //tipo de letra
 	font-size: 13px; //tamaño de la letra
 	line-height: 14px; //espaciado entre links
-	background: #29363d;
+	background: #f7f7f7;//color parte inferior menu
 	position: absolute;
 	height: 100%;
 
@@ -1238,12 +1238,12 @@ a {
 
 //se accede a todos los elementos li y a
 .contenedor-menu .menu li a { 
-	color: #fff;
+	color: #474747; //color letra
 	display: block;
 	//position: absolute;
 	//height: 100%;
 	padding: 19px 15px; //espacio entre lineas y espacio del borde
-	background: #29363d;
+	background: #f7f7f7;//color fondo menu
 	//white-space: pre;
 }
 
@@ -1257,7 +1257,7 @@ a {
 
 //icono
 .contenedor-menu .menu .icono { 
-	font-size: 12px; //tamaño de los iconos del menu
+	font-size: 13px; //tamaño de los iconos del menu
 	line-height: 20px;
 }
 

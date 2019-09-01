@@ -6,89 +6,106 @@ use Illuminate\Database\Eloquent\Model;
 
 class Prestamo extends Model
 {
-    protected $table = 'prestamo';
-    protected $primaryKey = 'id_prestamo';
-    protected $fillable = ['Fecha_prestamo','Fecha_devolucion','id_tipoDePrestamo','id_consultanteBiblioteca','id_empleado','id_estado'];
+    protected $table = 'materialbiblioteca';
+    protected $primaryKey = 'id_materialBiblioteca';
+    protected $fillable = ['Codigo_libro','Codigo_ISBN','Titulo','Fecha','Edicion','id_editorial','id_baja','id_tipoDeMaterial'];
 
 
-
-    public function tipoDePrestamo()
+    public function editorial()//este metodo define la relacion de uno a muchos. Trae los datos de la tabla editorial
     {
-        return $this->belongsTo('App\Tipodeprestamo','id_tipoDePrestamo');
+        return $this->belongsTo('App\Editorial','id_editorial');
     }
 
-    public function empleado()
+   
+
+    public function tipoDeMaterial()
     {
-        return $this->belongsTo('App\Empleado','id_empleado');
+        return $this->belongsTo('App\Tipodematerial','id_tipoDeMaterial');
     }
 
-
-    public function consultanteBiblioteca()
+    public function autores()
     {
-        return $this->belongsTo('App\Consultante_biblioteca','id_consultanteBiblioteca');
+        return $this->belongsToMany('App\Autor','autor_materialbiblioteca','id_materialBiblioteca','id_autor');//el primero pertenece a la tabla pivot, 2do a la tabla empleado para evitar que eloquen lo busque en orden alfabetico, 3ro el id de la tabla a relacionar, tabla role.
+    }
+
+    public function temaDelmaterial()
+    {
+        return $this->belongsToMany('App\tema_del_material','mbiblioteca_temadelmaterial','id_materialBiblioteca','id_temaDelMaterial');
+    }
+
+    public function carreras()
+    {
+        return $this->belongsToMany('App\Carrera','carrera_mbiblioteca','id_materialBiblioteca','id_carrera');
     }
 
 
     public function estado()
     {
-        return $this->belongsTo('App\Estado','id_estado');
+        return $this->belongsToMany('App\Estado','estado_materialbiblioteca','id_materialBiblioteca','id_estado');
     }
-
-
-    public function materialBibliotecas()
-    {
-        return $this->belongsToMany('App\Materialbiblioteca','materialbiblioteca_prestamo','id_prestamo','id_materialBiblioteca');
-    }
-
-
-    public function novedades()
-    {
-        return $this->belongsToMany('App\Novedad','prestamo_novedad','id_prestamo','id_novedad');
-    }
-
-
-    public function sanciones()
-    {
-        return $this->belongsToMany('App\Sancion','sancion_prestamo','id_prestamo','id_sancion');
-    }
-
-
 
 
     public function ubicaciones()
     {
-        return $this->belongsToMany('App\Ubicacion','prestamo_ubicacion','id_prestamo','id_ubicacion');
+        return $this->belongsToMany('App\Ubicacion','mbiblioteca_ubicacion','id_materialBiblioteca','id_ubicacion');
     }
 
 
+   
 
 
-    // Query Scope metodos para busquedas codigo,autor,nombre
-    public function scopeCodigo($query, $codigoisbn)
+    public function prestamos()
     {
-        if($codigoisbn)
-        return $query->whereHas("materialBiblioteca", function ($query) use ($codigoisbn){
-    	$query->where('Codigo_ISBN','LIKE',"%$codigoisbn%");
-    		});
+        return $this->belongsToMany('App\Prestamos','materialbiblioteca_prestamo','id_materialBiblioteca','id_prestamo');
     }
+
+
+
+
+
+
+
+    public function scopeCarrera($query, $carreraLibro)
+    {
+        if($carreraLibro)
+        return $query->whereHas("carreras", function ($query) use ($carreraLibro){
+        $query->where('Carrera','LIKE',"%$carreraLibro%");
+              
+            });
+
+    }
+
+
 
     public function scopeTitulo($query, $titulo)
     {
         if($titulo)
-        return $query->whereHas("materialBiblioteca", function ($query) use ($titulo){
-        $query->where('Titulo','LIKE',"%$titulo%");
+        return $query->where('Titulo','LIKE',"%$titulo%")
+                     ->orWhere('Codigo_ISBN','LIKE',"%$titulo%");
+    }
+
+
+
+    public function scopeTema($query, $temaLibro)
+    {
+        if($temaLibro)
+        return $query->whereHas("temaDelmaterial", function ($query) use ($temaLibro){
+        $query->where('Area','LIKE',"%$temaLibro%");
+              
         	});
 
     }
 
-    public function scopeEstado($query, $estado)
-    {
-        if($estado)
-        return $query->whereHas("materialBiblioteca", function ($query) use ($estado){
-        $query->where('Estado','LIKE',"%$estado%");
-            });
 
-    }
+
+    // public function scopeEstado($query, $estado)
+    // {
+    //     if($estado)
+    //     return $query->whereHas("materialBiblioteca", function ($query) use ($estado){
+    //     $query->where('Estado','LIKE',"%$estado%");
+    //         });
+
+    // }
 
     // public function scopeAutor($query, $autor)
     // {

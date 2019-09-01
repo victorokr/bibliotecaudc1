@@ -58,6 +58,12 @@ class Prestamos extends Model
     }
 
 
+     public function temaDelMaterial()
+    {
+        return $this->belongsToMany('App\tema_del_material','prestamo_temamaterial','id_prestamo','id_temaDelMaterial');
+    }
+
+
 
 
     // Query Scope metodos para busquedas codigo,autor,nombre

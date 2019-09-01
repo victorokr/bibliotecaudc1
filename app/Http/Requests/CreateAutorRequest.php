@@ -24,7 +24,7 @@ class CreateAutorRequest extends FormRequest
     public function rules()
     {
         return [
-            'Nombre'=>'required|max:35',
+            'Nombre'=>'required|max:35|unique:autor,Nombre',
         ];
     }
 }

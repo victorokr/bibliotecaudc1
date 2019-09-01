@@ -263,7 +263,7 @@
                     @if (auth()->user()->hasRoles(['Estudiante']))
                     <li><a href="#"><i class="icono izquierda fas fa-book-reader"></i> Prestamo <i class="icono derecha fas fa-chevron-down"></i></a>
                         <ul>
-                            <li><a href="{{ url('prestamo/consultante/create') }}">Solicitar prestamo</a>
+                            <li><a href="{{ url('prestamo/consultante') }}">Solicitar prestamo</a>
                             
                         </ul>
                     </li>

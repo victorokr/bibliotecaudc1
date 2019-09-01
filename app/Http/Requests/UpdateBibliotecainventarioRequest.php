@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\validation\Rule;
 
-class CreateEditorialRequest extends FormRequest
+class UpdateBibliotecainventarioRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +25,11 @@ class CreateEditorialRequest extends FormRequest
     public function rules()
     {
         return [
-            'Editorial'=>'required|max:35|unique:editorial,Editorial',
+
+
+            //'Codigo_libro'=>'required|max:25|unique:materialbiblioteca,Codigo_libro',
+              
+
         ];
     }
 }

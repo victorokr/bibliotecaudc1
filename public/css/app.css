@@ -11156,7 +11156,7 @@ a.text-dark:focus {
 .container-indexprestamo .card .card-body .logoudc {
   width: 15%;
   max-height: 110px;
-  margin-left: 890px;
+  margin-left: 905px;
   margin-top: -80px;
 }
 
@@ -11450,7 +11450,7 @@ a {
   font-family: "Roboto", sans-serif;
   font-size: 13px;
   line-height: 14px;
-  background: #29363d;
+  background: #f7f7f7;
   position: absolute;
   height: 100%;
 }
@@ -11464,10 +11464,10 @@ a {
 }
 
 .contenedor-menu .menu li a {
-  color: #fff;
+  color: #474747;
   display: block;
   padding: 19px 15px;
-  background: #29363d;
+  background: #f7f7f7;
 }
 
 .contenedor-menu .menu li a:hover {
@@ -11476,7 +11476,7 @@ a {
 }
 
 .contenedor-menu .menu .icono {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 20px;
 }
 

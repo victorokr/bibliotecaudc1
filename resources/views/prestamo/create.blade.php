@@ -26,29 +26,7 @@
 			   <div class="card-group">
 					<div class="card-body">
 						
-						  <form method="GET" action="{{ route('consultante.create') }}">
-							  <div class="form-row align-items-center">
-							    <div class=" col-2">
-							      <label class="sr-only" for="inlineFormInput">Codigo_ISBN</label>
-							      <input type="text" class="form-control mb-2" value="{{ request('Codigo_ISBN')}}" id="prueba" name="Codigo_ISBN" placeholder="codigo ISBN">
-							    </div>
-							    <div class="col-auto col-5">
-							      <label class="sr-only" for="inlineFormInput">Titulo</label>
-							      <input type="text" class="form-control mb-2" value="{{ request('Titulo')}}" 
-							      id="prueba" name="Titulo" placeholder="titulo">
-							    </div>
-							    
-							    <div class="col-auto" title="Buscar">
-							      <button type="submit" class="btn btn-primary mt-3 ml-1 mr-1"><i class="fas fa-search"></i></button>
-							    </div>
-							    <div class="col-auto" title="Restablecer">
-							      <a href="{{ url('prestamo/consultante/create') }}"   class="btn btn-light mt-3 ml-1 "><i class="fas fa-reply"></i></a>
-							    </div>
-							    <div class="logoudc col-auto " title="logoUDC">
-			                      <img class="card-img-top img-fluid " src="/images/logoUDC.jpg"  >	
-			                    </div>
-							  </div>
-			              </form>
+						  
 
 
 			              <div class="table-responsive">
@@ -57,28 +35,44 @@
 							     <thead class="thead-light">
 								
 								  <tr>
-									<th>Codigo ISBN</th>
-									<th>TituloDelLibro</th>
-									<th>Estado</th>
-									<th>Sede-Ubicacion</th>
+									
+									<th scope="col">TituloDelLibro</th>
+									<th scope="col">Solicitante</th>
+									<th scope="col">Sede-Ubicacion</th>
 									
 								  </tr>
 
 
 							     </thead>
 
+							   {{--   <tbody>
+							     	<tr>
+							     		
+							     		<td>{{ auth()->user()->Nombre}}</td>
+
+							     	</tr>
+							     </tbody> --}}
+
 							     <tbody>
-								 @forelse ($consultaMaterial as $consultamaterial) 
+								 @foreach ($consultaMaterial as $consultamaterial) 
 
 								 <tr>
 
 									
-									<td>{{ optional($consultamaterial)->Codigo_ISBN}}</td>
-									<td>{{ optional($consultamaterial)->Titulo}}</td>
-									<td>{{ $consultamaterial->estado->pluck('Estado')->implode(' - ')}}</td>
-									<td>{{ $consultamaterial->ubicaciones->pluck('Sede')->implode(' - ')}}</td>
+									
+									<td>{{ $consultamaterial->Titulo}}</td>
+									<td>{{ auth()->user()->Nombre}}</td>
+
+									<td>{{ $consultamaterial->ubicaciones->pluck('Sede')->implode(' - ')}}</td>{{--  crear scope where idmaterial=idubicacion --}}
+
+
+
 
 									
+									{{-- <td>{{ $consultamaterial->estado->pluck('Estado')->implode(' - ')}}</td> --}}
+									
+									{{-- <td>{{ $consultamaterial->temaDelmaterial->pluck('Area')->implode(' - ')}}</td> --}}
+									{{-- <td>{{ $consultamaterial->carreras->pluck('Carrera')->implode(' - ')}}</td> --}}
 
 									 
 
@@ -88,22 +82,21 @@
 										
 									</td>
 									
-									@empty
-									<div class="alert alert-info">No se encontraron resultados en nuestros registros</div>
+									
 									
 
 								 </tr>
-								 @endforelse
+								 @endforeach
 							     </tbody>			
 							  </table>
-							  {{ $consultaMaterial->render() }} 
+							  
 						  </div>
 
 
 						    <form  method="POST" action="{{ route('consultante.store') }}"><!--empleados.store esta ruta se verifica en la consola con php artisan r:l en caso de no ser encontrada-->
 							{!!csrf_field() !!} 
 
-						    <div class="card-group">
+						    {{-- <div class="card-group">
 						    	<div class="card border-light">
 									<div class="card-body"> 
 									    <div class="form-row align-items-center"> 
@@ -123,6 +116,9 @@
 						    						$('.libros').select2();
 						    						placeholder: "seleccionar"
 						    						tags : true
+						    						$(".libros").select2({
+													  maximumSelectionLength: 1
+													});
 													});
 										  		  </script>
 										  	   {!!$errors->first('libros','<span class=error>:message</span>')!!}
@@ -215,139 +211,9 @@
 								</div>
 
 
-							  {{-- @if (auth()->user()->hasRoles(['Empleado']))
-								<div class="card border-light">
-									<div class="card-body justify-content-center">	
-									  <div class="form-row align-items-center">   
-									     <div class="col-8">
-									  	  <div class="input-group input-group-sm mb-3"> 
-										  	  <div class="input-group-prepend">
-										  		<span class="input-group-text">Fecha de Inicio</span>
-										  		<input class="form-control"  id="validationCustom01" style="width: 215px" type="date" name="Fecha_prestamo"
-										  		 value="{{old('Fecha_prestamo')  }}">
-										  	  </div>	  
-										  		<div class="valid-feedback">¡se ve bien!</div>
-												<small id="passwordHelpBlock" class="form-text text-muted">
-						                         
-												</small>
-												{!!$errors->first('Fecha_prestamo','<span class=error>:message</span>')!!} 
-										  </div> 
-										 </div>
-										   
-
-										 <div class="col-8">
-										    <div class="input-group input-group-sm mb-3">
-										      <div class="input-group-prepend">
-												<span class="input-group-text">Fecha Devolucion</span>
-												<input class="form-control"  id="validationCustom02" type="date" name="Fecha_devolucion" 
-												value="{{ old('Fecha_devolucion')}}">
-											  </div>	
-												<div class="valid-feedback">¡se ve bien!</div>
-												<small id="passwordHelpBlock" class="form-text text-muted">
-						                         
-												</small>
-												{!!$errors->first('Fecha_devolucion','<span class=error>:message</span>')!!}
-											</div>
-										 </div>	
-
-
-										 <div class="col-12">
-										  	<div class="input-group input-group-sm mb-4"> 
-										  	  <div class="input-group-prepend">
-										  	  	<span class="input-group-text">Recibe</span>
-									  			<select name="id_empleado" class="form-control custom-select mr-sm-2" id="inlineFormCustomSelect" style="width: 265px">
-													   <option value="" selected>seleccionar</option>	
-													   @foreach ($recibee as $recibe=>$Nombre)    
-													     <option value="{{ $recibe }}"
-													      {{ old('id_empleado') }} >
-													      {{$Nombre}} </option>
-													   @endforeach
-												</select>
-										  	  </div>
-										  	  	<div class="valid-feedback">¡se ve bien!</div> 
-												{!!$errors->first('id_empleado','<span class=error>:message</span>')!!}
-										  	</div>
-										 </div>
-
-									  </div>    
-									</div>
-								</div>
-
-
-
-								<div class="card border-light">
-									<div class="card-body">
-									  <div class="form-row align-items-center">
-										 <div class="col-12">
-									  		<div class="input-group input-group-sm mb-4"> 
-										  	  <div class="input-group-prepend">	
-									  			  <span class="input-group-text">Novedades</span>	
-									  			  <select  class="novedades form-control custom-select mr-sm-2" id="validationCustom5" name="novedades[]" multiple="multiple" style="width: 245px"> 
-										  			@foreach ($novedadess  as $novedades => $novedad)
-											  			<option value="{{ $novedades }}">
-											  			{{ $novedad }}</option>
-										  			@endforeach
-										  		   </select>	
-										  	  </div>
-										  	  <script type="text/javascript" >
-										  		  	$(document).ready(function() {
-						    						$('.novedades').select2();
-						    						placeholder: "seleccionar"
-						    						tags : true
-													});
-										  	  </script>
-										  	   {!!$errors->first('novedades','<span class=error>:message</span>')!!}
-										    </div>  
-										</div>
-
-
-										<div class="col-12">
-									  		<div class="input-group input-group-sm mb-4"> 
-										  	  <div class="input-group-prepend">	
-									  			  <span class="input-group-text">diasRetrasados</span>	
-									  			  <select  class="sancion form-control custom-select mr-sm-2" id="validationCustom6" name="sanciones[]" multiple="multiple" style="width: 220px"> 
-										  			@foreach ($sancioness  as $sanciones => $diasTranscurridos)
-											  			<option value="{{ $sanciones }}">
-											  			{{ $diasTranscurridos }}</option>
-										  			@endforeach
-										  		   </select>	
-										  	  </div>
-										  	  <script type="text/javascript" >
-										  		  	$(document).ready(function() {
-						    						$('.sancion').select2();
-						    						placeholder: "seleccionar"
-						    						tags : true
-													});
-										  		  </script>
-										  	   {!!$errors->first('sanciones','<span class=error>:message</span>')!!}
-										    </div>  
-										</div>
-
-
-										<div class="col-12">
-										  	<div class="input-group input-group-sm mb-4"> 
-										  	  <div class="input-group-prepend">
-										  	  	<span class="input-group-text">Estado</span>
-									  			<select name="id_estado" class="form-control custom-select  mr-sm-2" id="validationCustom07" style="width: 272px">
-													   <option value="" selected>seleccionar</option>	
-													   @foreach ($estadoPrestamoo as $estadoPretamo=>$Estado)    
-													     <option value="{{ $estadoPretamo }}" {{ old('id_estado') }} >
-													      {{$Estado}} </option>
-													   @endforeach
-												</select>
-										  	  </div>
-										  	  	<div class="valid-feedback">¡se ve bien!</div> 
-												{!!$errors->first('id_estado','<span class=error>:message</span>')!!}
-										  	</div>
-										 </div>
-
-											
-									  </div>	
-									</div>
-								</div>
-							  @endif --}}
+							 
 								  
-							</div>
+							</div> --}}
 	
 						              
 							</form>	  
@@ -362,26 +228,7 @@
     </div>
 </div>
 
-				{{-- <script>
-				// Example starter JavaScript for disabling form submissions if there are invalid fields
-				(function() {
-				  'use strict';
-				  window.addEventListener('load', function() {
-				    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-				    var forms = document.getElementsByClassName('needs-validation');
-				    // Loop over them and prevent submission
-				    var validation = Array.prototype.filter.call(forms, function(form) {
-				      form.addEventListener('submit', function(event) {
-				        if (form.checkValidity() === false) {
-				          event.preventDefault();
-				          event.stopPropagation();
-				        }
-				        form.classList.add('was-validated');
-				      }, false);
-				    });
-				  }, false);
-				})();
-				</script> --}}
+				
 
 
 

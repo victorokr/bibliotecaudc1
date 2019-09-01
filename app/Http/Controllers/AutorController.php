@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Autor;
 use App\Http\Requests\UpdateAutorRequest;
 use App\Http\Requests\CreateAutorRequest;
+use Illuminate\Validation\Rule;
 
 class AutorController extends Controller
 {
@@ -94,6 +95,8 @@ class AutorController extends Controller
      */
     public function update(UpdateAutorRequest $request, $id)
     {
+         $this->validate(request(), ['Nombre' =>['required','string','max:40',Rule::unique('autor')->ignore($id,'id_autor')]]);
+
          $listaAutores = \App\Autor::findOrFail($id);
          
          $listaAutores->update($request->all());

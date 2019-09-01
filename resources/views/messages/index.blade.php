@@ -10,7 +10,7 @@
 		  <div class="card-header"><i class="icono fas fa-envelope-open-text"></i> <small>{{ __('lista Mensajes') }}</small></div>
 		   <div class="card-body">	
 	         <div class="table-responsive">
-		       <table class="table table-hover table-sm table-light table-bordered">
+		       <table class="table table-hover table-sm ">
 			   <caption>Lista de Mensajes</caption>
 			   <thead class="thead-light">
 				<tr>

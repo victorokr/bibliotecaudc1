@@ -25,7 +25,7 @@ class CreateMaterialbibliotecaRequest extends FormRequest
     {
         return [
             
-            // 'codigo'=>'required|max:25',
+            'codigo'=>'required|max:25|unique:materialbiblioteca,Codigo_libro',
             'Codigo_ISBN'=>'required|max:25',
             'Titulo'=>'required|max:65',
             'Fecha' => 'required',

@@ -1,83 +1,251 @@
 @extends('layouts.app')
 @section('content')
  
-@if (session()->has('infoDeleteMaterial'))
-<div class="alert alert-success">{{ session('infoDeleteMaterial') }}</div>
-@endif
-
+<div class="container">
+  <div class="row justify-content-center">
+  	<div class="col-auto">
+		@if (session()->has('infoPrestamo'))
+		<div class="alert alert-success mt-1 text-center" style="width: 900px" id="alerta" >
+		  <strong>Aviso: </strong>{{ session('infoPrestamo') }}
+		  <button type="button" class="close" data-dismiss="alert" arial-label="cerrar" >
+				<span arial-hidden="true"> &times; </span>
+		  </button>
+	    </div>
+		@endif
+	</div>	
+  </div>
+</div>
 
 <div class="container-indexprestamo">
- <div class="row ">
-  <div class="col-xl-12 col-md-12 col-sm-12 col-lg-12 "> <!--es lo mismo que col-12 -->
-  	<div class="card">
-      <div class="card-header"><i class="fas fa-book-reader"></i> Solicitudes de prestamos <a class="btn btn-success btn-sm" title="Agregar Material"  href="{{ url('prestamo/consultante/create') }}"> <i class="fas fa-plus"></i> </a></div>
-       <div class="card-body">
-
-			<div class="table-responsive">
-		      <table class="table table-hover table-sm table-light table-bordered ">
-			    <caption>Prestamos</caption>
-			     <thead class="thead-light">
-				
-				  <tr>
-					<th>Acciones</th>
-					<th>ID</th>   <!--campos de la tabla-->
-					<th>InicioDePrestamo</th>
-					<th>DevolucionPrestamo</th>
-					<th>TipoDePrestamo</th>
-					<th>Recepcion</th>
-					<th>Solicitante</th>
-			        <th>Estado</th>
-					
-					<th>Sede</th>
-					
-
-				  </tr>
-
-
-			     </thead>
-
-			     <tbody>
-				 @forelse ($prestamoo as $prestamo) <!--desde el controlador, metodo index, se pasa la variable materialBibliotecas. Forelse se usa para lanzar mensaje en caso de no haber registros-->
-
-				 <tr>
-
-					<td><!--con esta etiqueta se alinean horizontalmente los botones del crud-->
-								
-									{{-- <a class="editar btn btn-info btn-sm" title="Editar" href="{{route('biblioteca.edit', $materialBiblioteca->id_materialBiblioteca) }}"><i class="fas fa-edit"></i></a> 
-						 
-								
-								
-								<form style="display: inline" method="POST" action="{{ route('biblioteca.destroy', $materialBiblioteca->id_materialBiblioteca) }}" >
-
-									{!! csrf_field()!!}
-									{!! method_field('DELETE')!!}
-
-									<button class="eliminar btn btn-danger btn-sm" title="Eliminar" type="submit"><i class="fas fa-trash-alt"></i></button>
-								</form> --}}
+	<div class="row justify-content-center">
+		<div class="col-auto col-12">
+		  <div class="card border-light">
+			<div class="card-header"><i class="fas fa-book-reader"></i> Solicitud de prestamo <a class="btn btn-success btn-sm" title="prestamo"  href="{{ url('prestamo/consultante/create') }}"> <i class="fas fa-book-reader"></i> </a></div>
+			   <div class="card-group">
+					<div class="card-body">
 						
-					</td>
-					<td>{{ $prestamo->id_prestamo   }}</td>
-					<td>{{ $prestamo->Fecha_prestamo	                 }}</td>
-					<td>{{ $prestamo->Fecha_devolucion                  }}</td>
-					<td>{{ optional($prestamo->tipoDePrestamo)->tipoDePrestamo}}</td>
-					<td>{{ optional($prestamo->consultanteBiblioteca)->Nombre}}</td>
-					<td>{{ optional($prestamo->empleado)->Nombre}}</td>
-					{{-- <td>{{ optional($prestamo->estadoMaterialBiblioteca)->codigo}}</td> --}}
-					@empty
-					<div class="alert alert-info">No se encontraron resultados en nuestros registros</div>
-					
+						  <form method="GET" action="{{ route('consultante.index') }}">
+							  <div class="form-row align-items-center">
+							    <div class=" col-2 mr-5">
+							      <label class="sr-only" for="inlineFormInput">Carrera</label>
+							      <input type="text" class="form-control mb-2" value="{{ request('carreras')}}" id="prueba" name="carreras" placeholder="Carrera" style="width: 227px">
+							    </div>
+							    <div class="col-auto col-4 mr-1">
+							      <label class="sr-only" for="inlineFormInput">Titulo</label>
+							      <input type="text" class="form-control mb-2" value="{{ request('Titulo')}}" 
+							      id="prueba" name="Titulo" placeholder="Titulo y Codigo ISBN"style="width: 370px" >
+							    </div>
+							    <div class="col-auto col-2 mr-2">
+							      <label class="sr-only" for="inlineFormInput">TemaDelLibro</label>
+							      <input type="text" class="form-control mb-2" value="{{ request('temaDelMaterial')}}" 
+							      id="prueba" name="temaDelMaterial" placeholder="Tema del Libro"style="width: 185px">
+							    </div>
+							    
+							    <div class="col-auto" title="Buscar">
+							      <button type="submit" class="btn btn-primary mt-3 ml-1 mr-1"><i class="fas fa-search"></i></button>
+							    </div>
+							    <div class="col-auto" title="Restablecer">
+							      <a href="{{ url('prestamo/consultante') }}"   class="btn btn-light mt-3 ml-1 "><i class="fas fa-reply"></i></a>
+							    </div>
+							    <div class="logoudc col-auto " title="logoUDC">
+			                      <img class="card-img-top img-fluid " src="/images/logoUDC.jpg"  >	
+			                    </div>
+							  </div>
+			              </form>
 
-				 </tr>
-				 @endforelse
-			     </tbody>			
-			  </table>
-			  {{-- {{ $materialBibliotecas->render() }}  --}}
-			</div>
-			
-	   </div>
+
+			              <div class="table-responsive">
+						      <table class="table table-hover table-sm   ">
+							    <caption>Prestamo</caption>
+							     <thead class="thead-light">
+								
+								  <tr>
+									<th>Codigo ISBN</th>
+									<th>TituloDelLibro</th>
+									<th>Estado</th>
+									<th>Sede-Ubicacion</th>
+									<th>Tema</th>
+									<th>Carrera</th>
+									<th>Acciones</th>
+								  </tr>
+
+
+							     </thead>
+
+							     <tbody>
+								 @forelse ($consultaMaterial as $consultamaterial) 
+
+								 <tr>
+
+									
+									<td>{{ optional($consultamaterial)->Codigo_ISBN}}</td>
+									<td>{{ optional($consultamaterial)->Titulo}}</td>
+									<td>{{ $consultamaterial->estado->pluck('Estado')->implode(' - ')}}</td>
+									<td>{{ $consultamaterial->ubicaciones->pluck('Sede')->implode(' - ')}}</td>
+									<td>{{ $consultamaterial->temaDelmaterial->pluck('Area')->implode(' - ')}}</td>
+									<td>{{ $consultamaterial->carreras->pluck('Carrera')->implode(' - ')}}</td>
+
+									 
+
+									<td>
+												
+										<a class="editar btn btn-info btn-sm" href="{{route('consultante.create', $consultamaterial->id_materialBiblioteca) }}" onClick="solPrestamo()">
+											<i class="fas fa-edit"></i>Prestamo</a> <!--crea el enlace sobre editar-->			
+										
+									</td>
+									
+									@empty
+									<div class="alert alert-info">No se encontraron resultados en nuestros registros</div>
+									
+
+								 </tr>
+								 @endforelse
+							     </tbody>			
+							  </table>
+							  {{ $consultaMaterial->render() }} 
+						  </div>
+
+
+						   {{--  <form  method="POST" action="{{ route('consultante.store') }}"><!--empleados.store esta ruta se verifica en la consola con php artisan r:l en caso de no ser encontrada-->
+							{!!csrf_field() !!} 
+
+						    <div class="card-group">
+						    	<div class="card border-light">
+									<div class="card-body"> 
+									    <div class="form-row align-items-center"> 
+										 <div class="col-12">
+									  		<div class="input-group input-group-sm mb-4"> 
+										  	  <div class="input-group-prepend">	
+									  			  <span class="input-group-text">Libros</span>	
+									  			  <select name="materialBibliotecas[]" class="libros form-control custom-select mr-sm-2" id="validationCustom3"  multiple="multiple" style="width: 285px" title="Ingresa el libro de la busqueda" required> 
+										  			@foreach ($listaMateriall  as $listaMaterial => $Titulo)
+											  			<option value="{{ $listaMaterial }}">
+											  			{{ $Titulo }}</option>
+										  			@endforeach
+										  		   </select>	
+										  	  </div>
+										  	      <script type="text/javascript" >
+										  		  	$(document).ready(function() {
+						    						$('.libros').select2();
+						    						placeholder: "seleccionar"
+						    						tags : true
+						    						$(".libros").select2({
+													  maximumSelectionLength: 1
+													});
+													});
+										  		  </script>
+										  	   {!!$errors->first('libros','<span class=error>:message</span>')!!}
+										    </div>  
+										</div>
+
+
+										 <div class="col-12">
+										  	<div class="input-group input-group-sm mb-1"> 
+										  	  <div class="input-group-prepend">
+										  	  	<span class="input-group-text">Solicitante</span>
+									  			<select name="id_consultanteBiblioteca" class="solicitante form-control custom-select mr-sm-2" id="inlineFormCustomSelect" style="width: 260px" title="Selecciona tu Nombre" required>
+													   <option value="" selected>ingresa tu nombre</option>	
+													   @foreach ($solicitantee as $solicitante=>$Nombre)    
+													     <option value="{{ $solicitante }}">
+													      {{$Nombre}} </option>
+													   @endforeach
+												</select>
+										  	  </div>
+										  	  <script type="text/javascript" >
+										  		  	$(document).ready(function() {
+						    						$('.solicitante').select2();
+						    						placeholder: "seleccionar"
+						    						tags : true
+													});
+										  	  </script>	 
+											  {!!$errors->first('solicitante','<span class=error>:message</span>')!!}
+										  	</div>
+										 </div>
+
+
+										 
+										</div> 
+									</div>
+									<div class="row justify-content-start">
+										<div class="col-12">
+											<input class="btn btn-success  btn-sm  mt-1" type="submit" value="Enviar">
+										</div>
+								    </div>	 
+								</div>
+
+
+
+								<div class="card border-light">
+									<div class="card-body">
+									  <div class="form-row align-items-center">
+
+									  	 <div class="col-12">
+										  	<div class="input-group input-group-sm mb-3"> 
+										  	  <div class="input-group-prepend">
+										  	  	<span class="input-group-text">TipoDePrestamo</span>
+									  			<select name="id_tipoDePrestamo" class="form-control custom-select  mr-sm-2" id="validationCustom04" style="width: 222px" required>
+													   <option value="" selected>seleccionar</option>	
+													   @foreach ($tipoDePrestamoo as $tipo=>$tipoDePrestamo)    
+													     <option value="{{ $tipo }}" {{ old('id_tipoDePrestamo') }} >
+													      {{$tipoDePrestamo}} </option>
+													   @endforeach
+												</select>
+										  	  </div>
+										  	  	<div class="valid-feedback">¡se ve bien!</div> 
+												{!!$errors->first('tipoDePrestamo','<span class=error>:message</span>')!!}
+										  	</div>
+										 </div>
+
+
+
+										 <div class="col-12">
+									  		<div class="input-group input-group-sm mb-4"> 
+										  	  <div class="input-group-prepend">	
+									  			  <span class="input-group-text">SedeDelLibro</span>	
+									  			  <select  class="sede form-control custom-select mr-sm-2" id="validationCustom5" name="ubicaciones[]" multiple="multiple" style="width: 245px"  title="Ingresa La Sede del Libro Buscado" required> 
+										  			@foreach ($ubicacioness  as $ubicaciones => $Sede)
+											  			<option value="{{ $ubicaciones }}">
+											  			{{ $Sede }}</option>
+										  			@endforeach
+										  		   </select>	
+										  	  </div>
+										  	  <script type="text/javascript" >
+										  		  	$(document).ready(function() {
+						    						$('.sede').select2();
+						    						placeholder: "seleccionar"
+						    						tags : true
+													});
+										  	  </script>
+										  	   {!!$errors->first('Sede','<span class=error>:message</span>')!!}
+										    </div>  
+										</div>	
+									  </div>	
+									</div>
+								</div> --}}
+
+
+							 
+								  
+							</div>
+	
+						              
+							</form>	  
+			           
+			        </div>
+	           </div>
+
+
+
+	    </div>
+	  </div>
     </div>
-  </div>		
- </div>
 </div>
+
+{{-- <script>
+	
+	function solPrestamo(){
+		alert("A");
+	}
+</script> --}}
 
 @endsection

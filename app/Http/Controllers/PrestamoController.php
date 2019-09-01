@@ -12,6 +12,8 @@ use App\Empleado;
 use App\Novedad;
 use App\Sancion;
 use App\Ubicacion;
+use App\Prestamo;
+use App\Tema_del_material;
 use App\Http\Requests\UpdatePrestamoRequest;
 use App\Http\Requests\CreatePrestamoRequest;
 
@@ -34,20 +36,18 @@ class PrestamoController extends Controller
 
     public function index(Request $request)
     {
-        // $codigoisbn = $request->get('Codigo_ISBN');
-        // $titulo     = $request->get('Titulo');
-        // $estado     = $request->get('Estado');
+        $carreraLibro = $request->get('carreras');
+        $titulo       = $request->get('Titulo');
+        $temaLibro    = $request->get('temaDelMaterial');
 
-        // $consultaMaterial = materialBiblioteca::orderBy('id_materialBiblioteca','ASC')
-        // ->codigo($codigoisbn)//codigo es el nombre del metodo en el modelo, pero sin scope
-        // ->titulo($titulo)
-        // ->paginate(4);
-
-        //  // $consultaMaterial = materialBiblioteca::orderBy('id_estadoMaterialBiblioteca','ASC')
-        //  // ->estado($estado);
+        $consultaMaterial = Prestamo::orderBy('id_materialBiblioteca','DESC')
+        ->carrera($carreraLibro)//codigo es el nombre del metodo en el modelo, pero sin scope
+        ->titulo($titulo)
+        ->tema($temaLibro)
+        ->paginate(2);
 
         // $prestamoo = \App\Prestamo::all();
-        // return view('prestamo.index',compact('prestamoo','consultaMaterial'));
+         return view('prestamo.index',compact('consultaMaterial'));
     }
 
     /**
@@ -57,23 +57,23 @@ class PrestamoController extends Controller
      */
     public function create(Request $request)
     {
-        $codigoisbn = $request->get('Codigo_ISBN');
-        $titulo     = $request->get('Titulo');
-        $estado     = $request->get('Estado');
+        $carreraLibro = $request->get('carreras');
+        $titulo       = $request->get('Titulo');
+        $temaLibro    = $request->get('temaDelMaterial');
 
-        $consultaMaterial = Materialbiblioteca::orderBy('id_materialBiblioteca','DESC')
-        ->codigo($codigoisbn)//codigo es el nombre del metodo en el modelo, pero sin scope
+        $consultaMaterial = Prestamo::orderBy('id_materialBiblioteca','DESC')
+        ->carrera($carreraLibro)//codigo es el nombre del metodo en el modelo, pero sin scope
         ->titulo($titulo)
+        ->tema($temaLibro)
         ->paginate(2);
 
-        $tipoDePrestamoo = Tipodeprestamo::pluck('tipoDePrestamo','id_tipoDePrestamo');//'campo','id'
-        $solicitantee = Consultante_biblioteca::pluck('Nombre','id_consultanteBiblioteca');
-        $listaMateriall = Materialbiblioteca::pluck('Titulo','id_materialBiblioteca');
-        $ubicacioness   = Ubicacion::pluck('Sede','id_ubicacion');
-        //$recibee = Empleado::pluck('Nombre','id_empleado');
-        //$estadoPrestamoo = Estado::pluck('Estado','id_estado');
-        //$novedadess = Novedad::pluck('novedad','id_novedad');
-        //$sancioness = Sancion::pluck('diasTranscurridos','id_sancion');
+
+
+        // $tipoDePrestamoo = Tipodeprestamo::pluck('tipoDePrestamo','id_tipoDePrestamo');//'campo','id'
+        // $solicitantee = Consultante_biblioteca::pluck('Nombre','id_consultanteBiblioteca');
+        // $listaMateriall = Materialbiblioteca::pluck('Titulo','id_materialBiblioteca');
+        // $ubicacioness   = Ubicacion::pluck('Sede','id_ubicacion');
+        
 
         return view('prestamo.create',compact('tipoDePrestamoo','solicitantee','consultaMaterial','listaMateriall','ubicacioness'));
 

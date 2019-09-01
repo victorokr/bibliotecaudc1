@@ -24,7 +24,7 @@ class UpdateEditorialRequest extends FormRequest
     public function rules()
     {
         return [
-            'Editorial'=>'required|max:35',
+            //'Editorial'=>'required|max:35',
         ];
     }
 }
