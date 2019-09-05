@@ -65,6 +65,11 @@ Route::resource('entradas', 'EntradasController');
 Route::resource('salidas', 'SalidasController');
 Route::resource('biblioteca/inventario', 'BibliotecainventarioController');
 
+//carga masiva
+Route::get('export','MyController@export')->name('export');
+Route::get('importExportView', 'MyController@importExportView');
+Route::post('import', 'MyController@import')->name('import');
+
 //rutas segundo login
 Route::get('consultantes/login', 'ConsultantesController@showLoginForm');
 Route::post('consultantes/login','ConsultantesController@login');

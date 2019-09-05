@@ -86,10 +86,33 @@
 									<td>{{ $consultamaterial->carreras->pluck('Carrera')->implode(' - ')}}</td>
 
 									 
-
 									<td>
-												
-										<a class="editar btn btn-info btn-sm" href="{{route('consultante.create', $consultamaterial->id_materialBiblioteca) }}" onClick="solPrestamo()">
+
+
+
+
+{{-- <option value="{{ sede->id_ubicacion }}">sede 3 septima </option> --}}
+
+										<a class="editar btn btn-info btn-sm" 
+											href="{{
+												route (
+													'consultante.create',
+													array (
+													'id_materialBiblioteca' => 
+													$consultamaterial->id_materialBiblioteca,
+
+													'tituloLibro' => $consultamaterial->Titulo,
+
+													'ubicaciones' => $consultamaterial->ubicaciones->pluck('Sede')
+													 ->implode(' - '),
+
+													
+
+													)
+												)
+												 
+											}}
+										">
 											<i class="fas fa-edit"></i>Prestamo</a> <!--crea el enlace sobre editar-->			
 										
 									</td>

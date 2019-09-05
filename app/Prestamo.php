@@ -50,19 +50,10 @@ class Prestamo extends Model
         return $this->belongsToMany('App\Ubicacion','mbiblioteca_ubicacion','id_materialBiblioteca','id_ubicacion');
     }
 
-
-   
-
-
     public function prestamos()
     {
         return $this->belongsToMany('App\Prestamos','materialbiblioteca_prestamo','id_materialBiblioteca','id_prestamo');
     }
-
-
-
-
-
 
 
     public function scopeCarrera($query, $carreraLibro)

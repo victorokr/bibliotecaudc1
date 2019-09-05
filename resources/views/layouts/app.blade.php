@@ -256,7 +256,12 @@
                     </li>
 
 
-                    <li><a href="#"><i class="icono izquierda fas fa-laptop"></i> Servicios <i class="icono derecha fas fa-chevron-down"></i></a></li>
+                    <li><a href="#"><i class="icono izquierda fas fa-laptop"></i> Cargar Material <i class="icono derecha fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{{ url('importExportView') }}">Cargar Libros</a>
+                            
+                        </ul> 
+                    </li>
                     @endif
 
 

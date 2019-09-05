@@ -13,9 +13,11 @@ use App\Novedad;
 use App\Sancion;
 use App\Ubicacion;
 use App\Prestamo;
+use App\Prestamos;
 use App\Tema_del_material;
 use App\Http\Requests\UpdatePrestamoRequest;
 use App\Http\Requests\CreatePrestamoRequest;
+use Illuminate\Support\Facades\Auth;
 
 class PrestamoController extends Controller
 {
@@ -88,14 +90,22 @@ class PrestamoController extends Controller
     public function store(CreatePrestamoRequest $request)
     {
         //return $request->all(); 
-        $prestamos = \App\Prestamo::create( $request->all() );//solo relaciones many to many en metodo store
+        $idDelLibro = $request->get ('id_materialBiblioteca');
+        //dd($idDelLibro);
 
-        $prestamos->materialBibliotecas()->attach($request->materialBibliotecas);
+        $prestamos = new Prestamos;
+        $prestamos->id_consultanteBiblioteca= Auth::user()->id_consultanteBiblioteca;
+
+        //solo relaciones many to many en metodo store
+        
+        
+        
+        $prestamos->save();
+
+        $prestamos->materialBibliotecas()->attach($request->$idDelLibro);
         $prestamos->ubicaciones()->attach($request->ubicaciones); 
-        //$prestamos->novedades()->attach($request->novedades);
-        //$prestamos->sanciones()->attach($request->sanciones);
 
-        return redirect()->route('consultante.create', compact('prestamos'))->with('infoPrestamo','Solicitud enviada');
+        return redirect()->route('consultante.index', compact('prestamos'))->with('infoPrestamo','Solicitud enviada');
     }
 
     /**

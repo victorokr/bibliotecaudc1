@@ -2,13 +2,21 @@
 
 @section('content')
 
-{{-- @if(session()->has('info'))
-	<h3>{{ session ('info') }}</h3>
-@else --}}
 
-      @if (session()->has('info'))
-      <div class="alert alert-success mt-10"><strong>Aviso: </strong>{{ session('info') }}</div>
-      @else
+<div class="container">
+  <div class="row justify-content-center">
+  	<div class="col-auto">
+		@if (session()->has('info'))
+		<div class="alert alert-success mt-1 text-center" style="width: 900px" id="alerta" >
+		  <strong>Aviso: </strong>{{ session('info') }}
+		  <button type="button" class="close" data-dismiss="alert" arial-label="cerrar" >
+				<span arial-hidden="true"> &times; </span>
+		  </button>
+	    </div>
+		@endif
+	</div>	
+  </div>
+</div>
 
 <div class="contenedorimgcontacto">
 	<div class="container  ">
