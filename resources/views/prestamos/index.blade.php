@@ -63,14 +63,15 @@
 					<th>Libro</th>
 					<th>Codigo</th>
 					<th>Sede</th>
-					<th>TipoDePrestamo</th>
 					<th>Solicitante</th>
+					<th>TipoDePrestamo</th>
 					<th>Recepcion</th>
-					<th>Novedades</th>
-					<th>DiasRetrasados</th>
 					<th>InicioDePrestamo</th>
 					<th>FinDelPrestamo</th>
-			        <th>EstadoDelPrestamo</th>
+					<th>EstadoDelPrestamo</th>
+					<th>Novedades</th>
+					<th>DiasRetrasados</th>
+			        <th>Acciones</th>
 					
 					
 
@@ -107,16 +108,26 @@
 					<td>{{ $prestamos->materialBibliotecas->pluck('Codigo_libro')->implode(' - ')}}</td>
 					
 					<td>{{ $prestamos->ubicaciones->pluck('Sede')->implode(' - ')}}</td>
-					<td>{{ optional($prestamos->tipoDePrestamo)->tipoDePrestamo}}</td>
 					<td>{{ optional($prestamos->consultanteBiblioteca)->Nombre}}</td>
+					<td>{{ optional($prestamos->tipoDePrestamo)->tipoDePrestamo}}</td>
+					
 					<td>{{ optional($prestamos->empleado)->Nombre}}</td>
-
-					<td>{{ $prestamos->novedades->pluck('novedad')->implode(' - ')}}</td>
-					<td>{{ $prestamos->sanciones->pluck('diasTranscurridos')->implode(' - ')}}</td>
 
 					<td>{{ $prestamos->Fecha_prestamo	                 }}</td>
 					<td>{{ $prestamos->Fecha_devolucion                  }}</td>
 					<td>{{ optional($prestamos->estado)->Estado}}</td>
+					<td>{{ $prestamos->novedades->pluck('novedad')->implode(' - ')}}</td>
+					<td>{{ $prestamos->sanciones->pluck('diasTranscurridos')->implode(' - ')}}</td>
+					
+					<td>
+						<form style="display: inline" method="POST" action="{{ route('prestamos.show', $prestamos->id_prestamo) }}" >
+
+									{!! csrf_field()!!}
+									{!! method_field('PATCH')!!}
+
+									<button class="eliminar btn btn-secondary btn-sm" title="finalizar" type="submit"><i class="fas fa-eye-slash"></i> Finalizar</button>
+						</form>
+					</td>
 					
 					
 					{{-- <td>{{ optional($prestamo->estadoMaterialBiblioteca)->codigo}}</td> --}}

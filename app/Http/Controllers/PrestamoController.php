@@ -46,7 +46,7 @@ class PrestamoController extends Controller
         ->carrera($carreraLibro)//codigo es el nombre del metodo en el modelo, pero sin scope
         ->titulo($titulo)
         ->tema($temaLibro)
-        ->paginate(2);
+        ->paginate(6);
 
         // $prestamoo = \App\Prestamo::all();
          return view('prestamo.index',compact('consultaMaterial'));
@@ -59,25 +59,7 @@ class PrestamoController extends Controller
      */
     public function create(Request $request)
     {
-        $carreraLibro = $request->get('carreras');
-        $titulo       = $request->get('Titulo');
-        $temaLibro    = $request->get('temaDelMaterial');
-
-        $consultaMaterial = Prestamo::orderBy('id_materialBiblioteca','DESC')
-        ->carrera($carreraLibro)//codigo es el nombre del metodo en el modelo, pero sin scope
-        ->titulo($titulo)
-        ->tema($temaLibro)
-        ->paginate(2);
-
-
-
-        // $tipoDePrestamoo = Tipodeprestamo::pluck('tipoDePrestamo','id_tipoDePrestamo');//'campo','id'
-        // $solicitantee = Consultante_biblioteca::pluck('Nombre','id_consultanteBiblioteca');
-        // $listaMateriall = Materialbiblioteca::pluck('Titulo','id_materialBiblioteca');
-        // $ubicacioness   = Ubicacion::pluck('Sede','id_ubicacion');
-        
-
-        return view('prestamo.create',compact('tipoDePrestamoo','solicitantee','consultaMaterial','listaMateriall','ubicacioness'));
+        return view('prestamo.create');
 
     }
 
@@ -89,21 +71,18 @@ class PrestamoController extends Controller
      */
     public function store(CreatePrestamoRequest $request)
     {
-        //return $request->all(); 
+         //return $request->all(); 
         $idDelLibro = $request->get ('id_materialBiblioteca');
         //dd($idDelLibro);
-
+        $idDeLaSede =$request ->get ('ubicaciones');
+        //dd($idDeLaSede);
         $prestamos = new Prestamos;
         $prestamos->id_consultanteBiblioteca= Auth::user()->id_consultanteBiblioteca;
 
-        //solo relaciones many to many en metodo store
-        
-        
-        
         $prestamos->save();
-
-        $prestamos->materialBibliotecas()->attach($request->$idDelLibro);
-        $prestamos->ubicaciones()->attach($request->ubicaciones); 
+        //solo relaciones many to many en metodo store
+        $prestamos->materialBibliotecas()->attach($idDelLibro);
+        $prestamos->ubicaciones()        ->attach($idDeLaSede); 
 
         return redirect()->route('consultante.index', compact('prestamos'))->with('infoPrestamo','Solicitud enviada');
     }

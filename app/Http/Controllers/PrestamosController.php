@@ -15,6 +15,7 @@ use App\Prestamos;
 use App\Ubicacion;
 use App\Http\Requests\UpdatePrestamoRequest;
 use App\Http\Requests\CreatePrestamoRequest;
+use Illuminate\Support\Facades\Auth;
 
 class PrestamosController extends Controller
 {
@@ -38,7 +39,7 @@ class PrestamosController extends Controller
 
         $prestamoss = \App\Prestamos::orderBy('id_prestamo','DESC')
         ->solicitante($nombreSolicitante)
-        ->paginate(3);
+        ->paginate(4);
 
         return view('prestamos.index',compact('prestamoss'));
     }
@@ -71,8 +72,14 @@ class PrestamosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+
+        $prestamos = Prestamos::findOrFail($id);
+        $prestamos->id_estado = '4';
+
+        
+         
+         $prestamos->save();
     }
 
     /**
@@ -108,12 +115,25 @@ class PrestamosController extends Controller
     {
         $prestamos = \App\Prestamos::findOrFail($id);
 
+        $prestamos->Fecha_prestamo = $request->input('Fecha_prestamo');
+        $prestamos->Fecha_devolucion = $request->input('Fecha_devolucion');
+        $prestamos->id_tipoDePrestamo = $request->input('id_tipoDePrestamo');
+        $prestamos->id_consultanteBiblioteca = $request->input('id_consultanteBiblioteca');
+        $prestamos->id_empleado =  Auth::user()->id_empleado;
+        $prestamos->id_estado = '2';
+
+
+        
+
+       
+
+
         $prestamos->materialBibliotecas()->sync($request->materialBibliotecas);
         $prestamos->ubicaciones()->sync($request->ubicaciones); 
         $prestamos->novedades()->sync($request->novedades);
         $prestamos->sanciones()->sync($request->sanciones);
-
-        $prestamos->update($request->all());
+        $prestamos->save();
+        
 
         return redirect()->route('prestamos.index')->with('infoUpdatePrestamo','Prestamo iniciado');
         //return back()->with('infoUpdateMaterialBiblioteca','Material actualizado');

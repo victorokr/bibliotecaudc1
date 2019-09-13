@@ -54,23 +54,7 @@
 				 </div>
 
 
-				 <div class="col-12">
-				  	<div class="input-group input-group-sm mb-4"> 
-				  	  <div class="input-group-prepend">
-				  	  	<span class="input-group-text">TipoDePrestamo</span>
-			  			<select name="id_tipoDePrestamo" class="form-control custom-select  mr-sm-2" id="validationCustom02" style="width: 200px"  >
-							   <option value="" selected>seleccionar</option>	
-							   @foreach ($tipoDePrestamoo as $tipo=>$tipoDePrestamo)    
-							     <option value="{{ $tipo }}" {{ old('id_tipoDePrestamo',
-							     $prestamos->id_tipoDePrestamo)== $tipo ? 'selected':'' }} >
-							      {{$tipoDePrestamo}} </option>
-							   @endforeach
-						</select>
-				  	  </div>
-				  	  	<div class="valid-feedback">¡se ve bien!</div> 
-						{!!$errors->first('tipoDePrestamo','<span class=error>:message</span>')!!}
-				  	</div>
-				 </div>
+				 
 
 
 				 <div class="col-12">
@@ -137,10 +121,28 @@
 						</small>
 						{!!$errors->first('Fecha_devolucion','<span class=error>:message</span>')!!}
 					</div>
+				 </div>
+
+				 <div class="col-12">
+				  	<div class="input-group input-group-sm mb-4"> 
+				  	  <div class="input-group-prepend">
+				  	  	<span class="input-group-text">TipoDePrestamo</span>
+			  			<select name="id_tipoDePrestamo" class="form-control custom-select  mr-sm-2" id="validationCustom02" style="width: 200px"  >
+							   <option value="" selected>seleccionar</option>	
+							   @foreach ($tipoDePrestamoo as $tipo=>$tipoDePrestamo)    
+							     <option value="{{ $tipo }}" {{ old('id_tipoDePrestamo',
+							     $prestamos->id_tipoDePrestamo)== $tipo ? 'selected':'' }} >
+							      {{$tipoDePrestamo}} </option>
+							   @endforeach
+						</select>
+				  	  </div>
+				  	  	<div class="valid-feedback">¡se ve bien!</div> 
+						{!!$errors->first('tipoDePrestamo','<span class=error>:message</span>')!!}
+				  	</div>
 				 </div>	
 
 
-				 <div class="col-12">
+				 {{-- <div class="col-12">
 				  	<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">
 				  	  	<span class="input-group-text">Estado</span>
@@ -156,7 +158,7 @@
 				  	  	<div class="valid-feedback">¡se ve bien!</div> 
 						{!!$errors->first('id_estado','<span class=error>:message</span>')!!}
 				  	</div>
-				 </div>
+				 </div> --}}
 
 				 
 				</div> 
@@ -169,7 +171,7 @@
 			  <div class="form-row align-items-center">
 
 
-			  	 <div class="col-12">
+			  	 {{-- <div class="col-12">
 				  	<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">
 				  	  	<span class="input-group-text">Recibe</span>
@@ -184,7 +186,7 @@
 				  	  	<div class="valid-feedback">¡se ve bien!</div> 
 						{!!$errors->first('id_empleado','<span class=error>:message</span>')!!}
 				  	</div>
-				 </div>
+				 </div> --}}
 
 
 				 <div class="col-12">

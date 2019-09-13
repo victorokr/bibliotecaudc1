@@ -91,7 +91,7 @@
 
 
 
-{{-- <option value="{{ sede->id_ubicacion }}">sede 3 septima </option> --}}
+
 
 										<a class="editar btn btn-info btn-sm" 
 											href="{{
