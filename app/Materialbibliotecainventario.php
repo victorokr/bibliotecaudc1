@@ -8,7 +8,8 @@ class Materialbibliotecainventario extends Model
 {
     protected $table = 'materialbiblioteca';
     protected $primaryKey = 'id_materialBiblioteca';
-    protected $fillable = ['Codigo_libro','Codigo_ISBN','Titulo','Fecha','Edicion','id_editorial','id_baja','id_tipoDeMaterial'];
+    protected $fillable = ['Codigo_libro','Codigo_ISBN','Titulo','NumeroDePaginas','Edicion','id_editorial','id_baja','id_tipoDeMaterial'];
+    protected $guarded = [];
 
 
     public function editorial()//este metodo define la relacion de uno a muchos. Trae los datos de la tabla editorial

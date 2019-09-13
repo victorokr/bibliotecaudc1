@@ -16,11 +16,13 @@ class MaterialImport implements ToModel
     {
         return new Materialbibliotecainventario([
             
-            'Codigo_libro' => $row[0],
-            'Codigo_ISBN'  => $row[1],
-            'Titulo'       => $row[2],
-            'Fecha'        => $row[3],
-            'Edicion'      => $row[4],
+            'Codigo_libro'       => $row[0],
+            'Codigo_ISBN'        => $row[1],
+            'Titulo'             => $row[2],
+            'Edicion'            => $row[3],
+            'NumeroDePaginas'    => $row[4],
+            'id_baja'            => $row[5],
+            'id_tipoDeMaterial'  => $row[6],
 
         ]);
     }

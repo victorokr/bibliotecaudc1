@@ -12,6 +12,6 @@ class MaterialExport implements FromCollection
     */
     public function collection()
     {
-        return Materialbibliotecainventario::get(['Codigo_libro','Codigo_ISBN','Titulo','Edicion','Fecha']);
+        return Materialbibliotecainventario::get(['Codigo_libro','Codigo_ISBN','Titulo','Edicion','NumeroDePaginas','id_baja','id_tipoDeMaterial']);
     }
 }

@@ -31,6 +31,15 @@
 	    </div>
 		@endif
 
+		@if (session()->has('infoImport'))
+		<div class="alert alert-success mt-1 text-center" style="width: 900px" id="alerta" >
+		  <strong>Aviso: </strong>{{ session('infoImport') }}
+		  <button type="button" class="close" data-dismiss="alert" arial-label="cerrar" >
+				<span arial-hidden="true"> &times; </span>
+		  </button>
+	    </div>
+		@endif
+
 	</div>	
   </div>
 </div>
@@ -85,8 +94,8 @@
 					<th>Titulo</th>
 					<th>tipoDeMaterial</th>
 					<th>Baja</th>
-					<th>Entrada</th>
 					<th>FechaDeEntrada</th>
+					<th>Entrada</th>
 					<th>TrasladosDeSede</th>
 					<th>Sede Actual</th>
 					<th>Estado</th>
@@ -129,9 +138,11 @@
 					<td>{{ $materialBiblioteca->Titulo                  }}</td>
 					<td>{{ optional($materialBiblioteca->tipoDeMaterial)->Tipo_de_material                      }}</td>
 					
+
 					<td>{{ optional($materialBiblioteca->baja)->Baja      }}</td>
-					<td>{{ $materialBiblioteca->entradas->pluck('Entrada')->implode(' - ')}}</td>
 					<td>{{ $materialBiblioteca->created_at	        }}</td>
+					<td>{{ $materialBiblioteca->entradas->pluck('Entrada')->implode(' - ')}}</td>
+					
 
 					<td>{{ $materialBiblioteca->salidas->pluck('Salida')->implode(' - ')}}</td>
 

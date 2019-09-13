@@ -22,6 +22,6 @@ class MyController extends Controller
     public function import()
     {
     	Excel::import(new MaterialImport, request()->file('file'));
-    	return back();
+    	return redirect()->route('inventario.index')->with('infoImport','Material Agregado desde plantilla xlsx');
     }
 }
