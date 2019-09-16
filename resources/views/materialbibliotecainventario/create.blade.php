@@ -74,15 +74,15 @@
 											 <div class="col-12 pt-2">
 										  		  <div class="input-group input-group-sm mb-4 mr-1">	
 										  			<div class="input-group-prepend">
-										     		<label class="input-group-text" for="validationCustom04">Fecha</label>
+										     		<label class="input-group-text" for="validationCustom04">N° Paginas</label>
 										    		</div>
-													 <input class="form-control" type="date" name="Fecha" 
-													 value="{{ old('Fecha') }}"  required>
+													 <input class="form-control" type="text" name="NumeroDePaginas" 
+													 value="{{ old('NumeroDePaginas') }}"  required>
 													    <div class="valid-feedback">
 										  				¡se ve bien!
 										  			    </div>
 										  		  </div>	    
-													 {!!$errors->first('Fecha','<span class=error>:message</span>')!!}
+													 {!!$errors->first('NumeroDePaginas','<span class=error>:message</span>')!!}
 										     </div>
 
 										     
@@ -270,7 +270,7 @@
 											  	</div>
 											 </div>
 
-										  	 <div class="col-10">
+										  	 {{-- <div class="col-10">
 										  		<div class="input-group input-group-sm mb-4"> 
 											  	  <div class="input-group-prepend">
 										  			  <span class="input-group-text">Salidas</span>
@@ -293,7 +293,7 @@
 											  	  
 											  	   {!!$errors->first('salida','<span class=error>:message</span>')!!}
 											  	</div>
-											 </div> 
+											 </div> --}} 
 
 
 											 <div class="col-12">

@@ -1,7 +1,25 @@
+@extends('layouts.app')
+@section('content')
 
+
+<div class="contenedorEditEmpleados">
+  <div class="row">
+	<div class="col-12">
+	  <div class="card border-light">
+		<div class="card-header"><i class="icono fas fa-users-cog"></i> <small>{{ __('Finalizar Prestamo') }}</small></div>
+			<div class="card-body">
+				<div class="card bg-light mb-3">
+					    <form method="POST" action="{{ route('prestamos.update',
+					     $prestamos->id_prestamo) }}"><!--consultantes.update esta ruta se verifica en la consola con php artisan r:l en caso de no ser encontrada-->
+						{!! method_field('PUT')!!}  <!--funcion para enviar metodo put, laravel solo soporta post y get-->
+
+								  
+						
+
+					             
  {!!csrf_field() !!} 
 
-    <div class="card-deck">
+    <div class="card-group">
 		<div class="card border-light">
 		  <div class="card-header"><small>Informacion del prestamo</small></div>	
 			<div class="card-body justify-content-center">	
@@ -21,7 +39,7 @@
 				  	      <script type="text/javascript" >
 				  		  	$(document).ready(function() {
     						$('.libros').select2();
-
+    						
     						$(".libros").select2({
 							  maximumSelectionLength: 1,
 							  selectOnClose: true
@@ -110,7 +128,7 @@
 			  	  <div class="input-group input-group-sm mb-3"> 
 				  	  <div class="input-group-prepend">
 				  		<span class="input-group-text">Fecha de Inicio</span>
-				  		<input class="form-control"  id="validationCustom04" style="width: 215px" type="date" name="Fecha_prestamo" value="{{ $prestamos->Fecha_prestamo  }}" required>
+				  		<input class="form-control"  id="validationCustom04" style="width: 215px" type="date" name="Fecha_prestamo" value="{{ $prestamos->Fecha_prestamo  }}" readonly required>
 				  	  </div>	  
 				  		<div class="valid-feedback">¡se ve bien!</div>
 						<small id="passwordHelpBlock" class="form-text text-muted">
@@ -125,7 +143,7 @@
 				    <div class="input-group input-group-sm mb-3">
 				      <div class="input-group-prepend">
 						<span class="input-group-text">Fecha Devolucion</span>
-						<input class="form-control"  id="validationCustom05" type="date" name="Fecha_devolucion" value="{{ $prestamos->Fecha_devolucion}}" required >
+						<input class="form-control"  id="validationCustom05" type="date" name="Fecha_devolucion" value="{{ $prestamos->Fecha_devolucion}}" readonly required >
 					  </div>	
 						<div class="valid-feedback">¡se ve bien!</div>
 						<small id="passwordHelpBlock" class="form-text text-muted">
@@ -139,7 +157,7 @@
 				  	<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">
 				  	  	<span class="input-group-text">TipoDePrestamo</span>
-			  			<select name="id_tipoDePrestamo" class="form-control custom-select  mr-sm-2" id="validationCustom02" style="width: 200px" required >
+			  			<select name="id_tipoDePrestamo" class="tipo form-control custom-select  mr-sm-2" id="validationCustom02" style="width: 200px"  required >
 							   <option value="" selected>seleccionar</option>	
 							   @foreach ($tipoDePrestamoo as $tipo=>$tipoDePrestamo)    
 							     <option value="{{ $tipo }}" {{ old('id_tipoDePrestamo',
@@ -148,6 +166,17 @@
 							   @endforeach
 						</select>
 				  	  </div>
+				  	    <script type="text/javascript" >
+				  		  	$(document).ready(function() {
+    						$('.tipo').select2();
+    						
+    						$(".tipo").select2({
+							  maximumSelectionLength: 1,
+							  selectOnClose: true
+							});
+
+							});
+				  		</script>
 				  	  	<div class="valid-feedback">¡se ve bien!</div> 
 						{!!$errors->first('tipoDePrestamo','<span class=error>:message</span>')!!}
 				  	</div>
@@ -171,21 +200,16 @@
 						{!!$errors->first('id_estado','<span class=error>:message</span>')!!}
 				  	</div>
 				 </div> --}}
-				 <div class="row justify-content-start">
-					<div class="col-12">
-					<input class="btn btn-success  btn-sm btn-block mt-1" type="submit" value="Procesar Prestamo">
-					</div>
-				</div>
 
 				 
 				</div> 
 			</div>	 
 		</div>
 
-		{{-- <div class="card border-light">
+		<div class="card border-light">
 		  <div class="card-header"><small>Devolución del prestamo</small></div>
 			<div class="card-body">
-			  <div class="form-row align-items-center"> --}}
+			  <div class="form-row align-items-center">
 
 
 			  	 {{-- <div class="col-12">
@@ -206,7 +230,7 @@
 				 </div> --}}
 
 
-				 {{-- <div class="col-12">
+				 <div class="col-12">
 			  		<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">	
 			  			  <span class="input-group-text">Novedades</span>	
@@ -226,10 +250,10 @@
 				  	  </script>
 				  	   {!!$errors->first('novedades','<span class=error>:message</span>')!!}
 				    </div>  
-				</div> --}}
+				</div>
 
 
-				{{-- <div class="col-12">
+				<div class="col-12">
 			  		<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">	
 			  			  <span class="input-group-text">diasRetrasados</span>	
@@ -249,15 +273,33 @@
 				  		  </script>
 				  	   {!!$errors->first('sanciones','<span class=error>:message</span>')!!}
 				    </div>  
-				</div> --}}
+				</div>
 
 
 				
 
-				
-			{{--   </div>	
+				<div class="row justify-content-start">
+					<div class="col-12">
+					<input class="btn btn-success  btn-sm btn-block mt-1" type="submit" value="Finalizar Prestamo">
+					</div>
+				</div>
+			  </div>	
 			</div>
-		</div> --}}
-	</div>			    
+		</div>
+	</div>
 
 
+								  
+
+
+
+								  
+						</form>	  
+		        </div>
+		    </div>
+	  </div>
+	</div>
+  </div>
+</div>
+
+@endsection

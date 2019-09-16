@@ -28,7 +28,7 @@ class UpdateMaterialbibliotecaRequest extends FormRequest
             //'codigo'=>'required|max:25',
             'Codigo_ISBN'=>'required|max:25',
             'Titulo'=>'required|max:65',
-            'Fecha' => 'required',
+            'NumeroDePaginas'=>'required|numeric|min:2',
             'Edicion'=>'required|max:20',
             'id_editorial' => 'required',
             'id_baja' => 'required',

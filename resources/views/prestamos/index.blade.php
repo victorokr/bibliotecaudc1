@@ -119,15 +119,21 @@
 					<td>{{ $prestamos->novedades->pluck('novedad')->implode(' - ')}}</td>
 					<td>{{ $prestamos->sanciones->pluck('diasTranscurridos')->implode(' - ')}}</td>
 					
+					
+					@if($prestamos->id_estado === 4)
 					<td>
-						<form style="display: inline" method="POST" action="{{ route('prestamos.show', $prestamos->id_prestamo) }}" >
-
-									{!! csrf_field()!!}
-									{!! method_field('PATCH')!!}
-
-									<button class="eliminar btn btn-secondary btn-sm" title="finalizar" type="submit"><i class="fas fa-eye-slash"></i> Finalizar</button>
-						</form>
+						<a class="editar btn btn-secondary btn-sm" 
+						href="{{route('prestamos.show', $prestamos->id_prestamo)}}"><i class="fas fa-eye-slash"></i>Finalizado</a>
+						
 					</td>
+					@else
+					<td>
+						<a class="editar btn btn-success btn-sm" 
+						href="{{route('prestamos.show', $prestamos->id_prestamo)}}"><i class="far fa-eye"></i>  Finalizar...</a>
+						
+					</td>
+					@endif
+
 					
 					
 					{{-- <td>{{ optional($prestamo->estadoMaterialBiblioteca)->codigo}}</td> --}}

@@ -63,7 +63,7 @@
 					<th>Codigo ISBN</th>
 					<th>Titulo</th>
 					<th>Autor</th>
-					<th>Fecha</th>
+					<th>N°Paginas</th>
 			        <th>Edicion</th>
 					<th>Editorial</th>
 					<th>Tema</th>
@@ -109,7 +109,7 @@
 					<td>{{ $materialBiblioteca->Codigo_ISBN                  }}</td>
 					<td>{{ $materialBiblioteca->Titulo                  }}</td>
 					<td>{{ $materialBiblioteca->autores->pluck('Nombre')->implode(' - ')  }}</td>
-					<td>{{ $materialBiblioteca->Fecha                   }}</td>
+					<td>{{ $materialBiblioteca->NumeroDePaginas                   }}</td>
 					<td>{{ $materialBiblioteca->Edicion                  }}</td>
 					<td>{{ optional($materialBiblioteca->editorial)->Editorial}}</td>
 					<td>{{ $materialBiblioteca->temaDelmaterial->pluck('Area')->implode(' - ')}}</td>

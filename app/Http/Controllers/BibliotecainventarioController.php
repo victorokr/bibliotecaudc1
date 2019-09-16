@@ -93,7 +93,7 @@ class BibliotecainventarioController extends Controller
            "Codigo_libro" => $request->input('Codigo_libro'),
            "Codigo_ISBN"  => $request->input('Codigo_ISBN'),
            "Titulo"       => $request->input('Titulo'),
-           "Fecha"        => $request->input('Fecha'),
+           "NumeroDePaginas"        => $request->input('NumeroDePaginas'),
            "Edicion"      => $request->input('Edicion'),
            "id_editorial" => $request->input('id_editorial'),
            "id_baja"      => '6',
@@ -103,7 +103,7 @@ class BibliotecainventarioController extends Controller
 
        //$estadoBaja = Materialbibliotecainventario::create(['id_baja' => 6]);
        $materialBibliotecas->entradas()->attach($request->entradas);
-       $materialBibliotecas->salidas()->attach($request->salidas);
+       $materialBibliotecas->salidas()->attach(4);
        $materialBibliotecas->ubicaciones()->attach($request->ubicaciones);
        $materialBibliotecas->estado()->attach(1);
        $materialBibliotecas->autores()->attach($request->autores);

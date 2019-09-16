@@ -27,7 +27,7 @@ class UpdateBibliotecainventarioRequest extends FormRequest
         return [
 
 
-            //'Codigo_libro'=>'required|max:25|unique:materialbiblioteca,Codigo_libro',
+            'NumeroDePaginas'=>'required|numeric|min:2',
               
 
         ];

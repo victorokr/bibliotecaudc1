@@ -60,9 +60,9 @@ class PrestamosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+       
     }
 
     /**
@@ -73,13 +73,32 @@ class PrestamosController extends Controller
      */
     public function show($id)
     {   
-
         $prestamos = Prestamos::findOrFail($id);
-        $prestamos->id_estado = '4';
+
+        $listaMateriall = Materialbiblioteca::pluck('Titulo','id_materialBiblioteca');
+        $ubicacioness   = Ubicacion::pluck('Sede','id_ubicacion');
+        $tipoDePrestamoo = Tipodeprestamo::pluck('tipoDePrestamo','id_tipoDePrestamo');//'campo','id'
+        $solicitantee = Consultante_biblioteca::pluck('Nombre','id_consultanteBiblioteca');
+        $recibee = Empleado::pluck('Nombre','id_empleado');
+        $novedadess = Novedad::pluck('novedad','id_novedad');
+        $sancioness = Sancion::pluck('diasTranscurridos','id_sancion');
+        $estadoPrestamoo = Estado::pluck('Estado','id_estado');
+
+        
+        
+
+        // $updateEstado = DB::table('prestamo')
+        // ->where(id_prestamo, $id)
+        // ->update([
+        //     'id_estado' => '4',
+        //     'Fecha_prestamo' => '',
+        //     'Fecha_devolucion' => ''
+        // ])->get();
 
         
          
-         $prestamos->save();
+         //$prestamos->save();
+         return view('prestamos.show', compact('prestamos','listaMateriall','ubicacioness','tipoDePrestamoo','solicitantee','recibee','novedadess','sancioness','estadoPrestamoo'));
     }
 
     /**
@@ -114,28 +133,43 @@ class PrestamosController extends Controller
     public function update(Request $request, $id)
     {
         $prestamos = \App\Prestamos::findOrFail($id);
+       // $estadoLibro = Materialbiblioteca::findOrFail($id);
 
+        $prestamos->materialBibliotecas()->sync($request->materialBibliotecas);
+        $prestamos->ubicaciones()->sync($request->ubicaciones); 
+        $prestamos->novedades()->sync($request->novedades);
+        $prestamos->sanciones()->sync($request->sanciones);
+
+        if (is_null($request->novedades)) {
+            # code...
+       
         $prestamos->Fecha_prestamo = $request->input('Fecha_prestamo');
         $prestamos->Fecha_devolucion = $request->input('Fecha_devolucion');
         $prestamos->id_tipoDePrestamo = $request->input('id_tipoDePrestamo');
         $prestamos->id_consultanteBiblioteca = $request->input('id_consultanteBiblioteca');
         $prestamos->id_empleado =  Auth::user()->id_empleado;
         $prestamos->id_estado = '2';
+        $prestamos->save();
+        // $estadoLibro->estado()->sync('2');
+        // $estadoLibro->save();
 
+        return redirect()->route('prestamos.index')->with('infoUpdatePrestamo','Prestamo iniciado');
+        }
 
+        else{
+        $prestamos->Fecha_prestamo = $request->input('Fecha_prestamo');
+        $prestamos->Fecha_devolucion = $request->input('Fecha_devolucion');
+        $prestamos->id_tipoDePrestamo = $request->input('id_tipoDePrestamo');
+        $prestamos->id_consultanteBiblioteca = $request->input('id_consultanteBiblioteca');
+        $prestamos->id_empleado =  Auth::user()->id_empleado;
+        $prestamos->id_estado = '4';
+
+        }
         
-
-       
-
-
-        $prestamos->materialBibliotecas()->sync($request->materialBibliotecas);
-        $prestamos->ubicaciones()->sync($request->ubicaciones); 
-        $prestamos->novedades()->sync($request->novedades);
-        $prestamos->sanciones()->sync($request->sanciones);
         $prestamos->save();
         
 
-        return redirect()->route('prestamos.index')->with('infoUpdatePrestamo','Prestamo iniciado');
+        return redirect()->route('prestamos.index')->with('infoUpdatePrestamo','Prestamo Finalizado');
         //return back()->with('infoUpdateMaterialBiblioteca','Material actualizado');
     }
 

@@ -52,15 +52,15 @@
 				 <div class="col-8 pt-2">
 			  		  <div class="input-group input-group-sm mb-4">	
 			  			<div class="input-group-prepend">
-			     		<label class="input-group-text" for="validationCustom04">Fecha</label>
+			     		<label class="input-group-text" for="validationCustom04">N°Paginas</label>
 			    		</div>
-						 <input class="form-control" type="date" name="Fecha" 
-						 value="{{ $materialBibliotecas->Fecha }}" required>
+						 <input class="form-control" type="text" name="NumeroDePaginas" 
+						 value="{{ $materialBibliotecas->NumeroDePaginas }}" required>
 						    <div class="valid-feedback">
 			  				¡se ve bien!
 			  			    </div>
 			  		  </div>	    
-						 {!!$errors->first('Fecha','<span class=error>:message</span>')!!}
+						 {!!$errors->first('NumeroDePaginas','<span class=error>:message</span>')!!}
 				 </div>
 
 
