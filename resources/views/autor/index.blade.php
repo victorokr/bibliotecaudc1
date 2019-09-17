@@ -26,7 +26,7 @@
        <div class="card-body">
        	 <form method="GET" action="{{ route('autor.index') }}">
 			  <div class="form-row align-items-center">
-			    <div class=" col-2">
+			    <div class=" col-3">
 			      <label class="sr-only" for="inlineFormInput">Autor</label>
 			      <input type="text" class="form-control mb-2" value="{{ request('Nombre')}}" id="prueba" name="Nombre" placeholder="Nombre">
 			    </div>

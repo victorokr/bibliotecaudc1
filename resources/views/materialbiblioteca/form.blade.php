@@ -211,7 +211,7 @@
 			  		<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">	
 			  			  <span class="input-group-text">Sede</span>	
-			  			  <select  class="sede form-control custom-select mr-sm-2" id="validationCustom10" name="ubicaciones[]" multiple="multiple" style="width: 305px" required> 
+			  			  <select  class="sede form-control custom-select mr-sm-2" id="validationCustom10" name="ubicaciones[]"  style="width: 305px" required> 
 				  			@foreach ($ubicacionn  as $ubica => $Sede)
 					  			<option value="{{ $ubica }}"{{ $materialBibliotecas->ubicaciones->pluck('id_ubicacion')->contains($ubica) ? 'selected' : '' }}>{{ $Sede }}</option>
 				  			@endforeach
@@ -220,8 +220,12 @@
 				  	  <script type="text/javascript" >
 				  		  	$(document).ready(function() {
     						$('.sede').select2();
-    						placeholder: "seleccionar"
-    						tags : true
+    						
+    						$(".sede").select2({
+							  maximumSelectionLength: 1,
+							  selectOnClose: true
+							});
+
 							});
 				  		  </script>
 				  	   {!!$errors->first('ubicaciones','<span class=error>:message</span>')!!}
@@ -232,7 +236,7 @@
 			  		<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">	
 			  			  <span class="input-group-text">Estado</span>	
-			  			  <select  class="estado form-control custom-select mr-sm-2" id="validationCustom11" name="estado[]"multiple="multiple" style="width: 295px" required> 
+			  			  <select  class="estado form-control custom-select mr-sm-2" id="validationCustom11" name="estado[]" style="width: 295px" required> 
 				  			@foreach ($estadoo  as $estado => $Estado)
 					  			<option value="{{ $estado }}"{{ $materialBibliotecas->estado
 					  				->pluck('id_estado')->contains($estado) ? 'selected' : '' }}>
@@ -243,8 +247,12 @@
 				  	  <script type="text/javascript" >
 				  		  	$(document).ready(function() {
     						$('.estado').select2();
-    						placeholder: "seleccionar"
-    						tags : true
+    						
+    						$(".estado").select2({
+							  maximumSelectionLength: 1,
+							  selectOnClose: true
+							});
+
 							});
 				  		  </script>
 				  	   {!!$errors->first('estado','<span class=error>:message</span>')!!}

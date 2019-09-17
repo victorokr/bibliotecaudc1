@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Prestamos extends Model
 {
@@ -99,6 +100,29 @@ class Prestamos extends Model
         return $query->whereHas("consultanteBiblioteca", function ($query) use ($nombreSolicitante){
             $query->where('Nombre','LIKE', "%$nombreSolicitante%");
         });
+    }
+
+
+    public function calcularDiasDeSancion()
+    {
+        // $fechaActual = new \DateTime();
+         $fechaFin = ($this->Fecha_devolucion);
+        
+
+        $fechaActual = Carbon::now();
+        $fechaExpiracion = Carbon::parse($fechaFin);
+        $diasDiferencia = $fechaActual->diffInDays($fechaExpiracion);
+
+        return $diasDiferencia;
+    }
+
+    public function montoHaPagar()
+    {
+        $diasRetrasados = $this->calcularDiasDeSancion();
+        $valorPorDia    = '2000';
+        $valorTotal     = $diasRetrasados*$valorPorDia;
+        
+        return $valorTotal;
     }
     
 }

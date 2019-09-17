@@ -35,12 +35,12 @@ class MaterialbibliotecaController extends Controller
     public function index(Request $request)
     {
 
-        $codigoisbn = $request->get('Codigo_ISBN');
+        $temaLibro  = $request->get('Tema');
         $titulo     = $request->get('Titulo');
         $autor      = $request->get('autores');
 
         $materialBibliotecas = Materialbiblioteca::orderBy('id_materialBiblioteca','DESC')
-        ->codigo($codigoisbn)//codigo es el nombre del metodo en el modelo, pero sin scope
+        ->tema($temaLibro)//codigo es el nombre del metodo en el modelo, pero sin scope
         ->titulo($titulo)
         ->autor($autor)
         ->paginate(4);

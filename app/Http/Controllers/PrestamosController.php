@@ -13,6 +13,7 @@ use App\Novedad;
 use App\Sancion;
 use App\Prestamos;
 use App\Ubicacion;
+use Carbon\Carbon;
 use App\Http\Requests\UpdatePrestamoRequest;
 use App\Http\Requests\CreatePrestamoRequest;
 use Illuminate\Support\Facades\Auth;
@@ -73,6 +74,11 @@ class PrestamosController extends Controller
      */
     public function show($id)
     {   
+        // $fe = new \DateTime();
+        // dd($fe);
+
+       // $fe = Carbon::now();
+       // dd($fe);
         $prestamos = Prestamos::findOrFail($id);
 
         $listaMateriall = Materialbiblioteca::pluck('Titulo','id_materialBiblioteca');
@@ -81,7 +87,7 @@ class PrestamosController extends Controller
         $solicitantee = Consultante_biblioteca::pluck('Nombre','id_consultanteBiblioteca');
         $recibee = Empleado::pluck('Nombre','id_empleado');
         $novedadess = Novedad::pluck('novedad','id_novedad');
-        $sancioness = Sancion::pluck('diasTranscurridos','id_sancion');
+        $sancioness = Sancion::pluck('multa','id_sancion');
         $estadoPrestamoo = Estado::pluck('Estado','id_estado');
 
         
@@ -117,7 +123,7 @@ class PrestamosController extends Controller
         $solicitantee = Consultante_biblioteca::pluck('Nombre','id_consultanteBiblioteca');
         $recibee = Empleado::pluck('Nombre','id_empleado');
         $novedadess = Novedad::pluck('novedad','id_novedad');
-        $sancioness = Sancion::pluck('diasTranscurridos','id_sancion');
+        $sancioness = Sancion::pluck('multa','id_sancion');
         $estadoPrestamoo = Estado::pluck('Estado','id_estado');
 
         return view('prestamos.edit', compact('prestamos','listaMateriall','ubicacioness','tipoDePrestamoo','solicitantee','recibee','novedadess','sancioness','estadoPrestamoo'));

@@ -70,7 +70,7 @@
 					<th>FinDelPrestamo</th>
 					<th>EstadoDelPrestamo</th>
 					<th>Novedades</th>
-					<th>DiasRetrasados</th>
+					<th>Multa</th>
 			        <th>Acciones</th>
 					
 					
@@ -117,7 +117,7 @@
 					<td>{{ $prestamos->Fecha_devolucion                  }}</td>
 					<td>{{ optional($prestamos->estado)->Estado}}</td>
 					<td>{{ $prestamos->novedades->pluck('novedad')->implode(' - ')}}</td>
-					<td>{{ $prestamos->sanciones->pluck('diasTranscurridos')->implode(' - ')}}</td>
+					<td>{{ $prestamos->sanciones->pluck('multa')->implode(' - ')}}</td>
 					
 					
 					@if($prestamos->id_estado === 4)

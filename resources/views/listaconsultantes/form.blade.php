@@ -3,6 +3,7 @@
 
     <div class="card-deck">
 		<div class="card border-light">
+		   <div class="card-header"><small>Informacion personal</small></div>
 			<div class="card-body">	
 			    
 			     <div class="col-12">
@@ -81,6 +82,7 @@
 		</div>
 
 		<div class="card border-light">
+		  <div class="card-header"><small>Informacion de contacto</small></div>	
 			<div class="card-body">    
 			  	 <div class="col-12">
 			  	 	<div class="input-group input-group-sm mb-4"> 
@@ -147,6 +149,7 @@
 
 
 		<div class="card border-light">
+		  <div class="card-header"><small>Informacion universidad</small></div>
 			<div class="card-body">
 				 <div class="col-12">
 				    <div class="input-group input-group-sm mb-4"> 

@@ -68,16 +68,23 @@ class Materialbiblioteca extends Model
 
 
     // Query Scope metodos para busquedas codigo,autor,nombre
-    public function scopeCodigo($query, $codigoisbn)
+    public function scopeTema($query, $temaLibro)
     {
-        if($codigoisbn)
-        return $query->where('Codigo_ISBN','LIKE',"%$codigoisbn%");
+        if($temaLibro)
+        return $query->whereHas("temaDelmaterial", function ($query) use ($temaLibro){
+        $query->where('Area','LIKE',"%$temaLibro%");
+              
+            });
+
     }
+    
 
     public function scopeTitulo($query, $titulo)
     {
         if($titulo)
-        return $query->where('Titulo','LIKE',"%$titulo%");
+        return $query->where('Titulo','LIKE',"%$titulo%")
+                     ->orWhere('Codigo_libro','LIKE',"%$titulo%")
+                     ->orWhere('Codigo_ISBN','LIKE',"%$titulo%");
     }
 
     public function scopeAutor($query, $autor)

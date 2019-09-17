@@ -11,8 +11,8 @@
 			  	 <div class="col-12">
 			  		<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">	
-			  			  <span class="input-group-text">Libros</span>	
-			  			  <select name="materialBibliotecas[]"  class="libros form-control custom-select mr-sm-2" id="validationCustom1"   style="width: 265px" title="Ingresa el libro de la busqueda"   required> 
+			  			  <span class="input-group-text">Material</span>	
+			  			  <select name="materialBibliotecas[]"  class="libros form-control custom-select mr-sm-2" id="validationCustom1"   style="width: 385px" title="Ingresa el libro de la busqueda"   required> 
 				  			@foreach ($listaMateriall  as $listaMaterial => $Titulo)
 					  			<option value="{{ $listaMaterial }}"{{ $prestamos->materialBibliotecas->pluck('id_materialBiblioteca')->contains($listaMaterial) ? 'selected' : '' }}>{{ $Titulo }}</option>
 				  			@endforeach
@@ -38,7 +38,7 @@
 				  	<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">
 				  	  	<span class="input-group-text">Solicitante</span>
-			  			<select name="id_consultanteBiblioteca" class="solicitante form-control custom-select mr-sm-2" id="inlineFormCustomSelect" style="width: 240px" title="Selecciona tu Nombre" required>
+			  			<select name="id_consultanteBiblioteca" class="solicitante form-control custom-select mr-sm-2" id="inlineFormCustomSelect" style="width: 370px" title="Selecciona tu Nombre" required>
 							   <option value="" selected>seleccionar</option>	
 							   @foreach ($solicitantee as $solicitante=>$Nombre)    
 							     <option value="{{ $solicitante }}" {{ old('id_consultanteBiblioteca',$prestamos->id_consultanteBiblioteca)== $solicitante ? 'selected':'' }} >
@@ -69,7 +69,7 @@
 			  		<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">	
 			  			  <span class="input-group-text">UbicacionSede</span>	
-			  			  <select name="ubicaciones[]" class="sede form-control custom-select mr-sm-2" id="validationCustom03"   style="width: 210px" title="Ingresa el libro de la busqueda" required> 
+			  			  <select name="ubicaciones[]" class="sede form-control custom-select mr-sm-2" id="validationCustom03"   style="width: 343px" title="Ingresa el libro de la busqueda" required> 
 				  			@foreach ($ubicacioness  as $ubicaciones => $Sede)
 					  			<option value="{{ $ubicaciones }}"{{ $prestamos->ubicaciones->pluck('id_ubicacion')->contains($ubicaciones) ? 'selected' : '' }}>{{ $Sede }}</option>
 				  			@endforeach
@@ -173,7 +173,7 @@
 				 </div> --}}
 				 <div class="row justify-content-start">
 					<div class="col-12">
-					<input class="btn btn-success  btn-sm btn-block mt-1" type="submit" value="Procesar Prestamo">
+					<input class="btn btn-success  btn-sm btn-block mt-1" type="submit" value="Procesar Prestamo" style="width: 300px">
 					</div>
 				</div>
 

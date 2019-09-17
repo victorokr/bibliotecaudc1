@@ -107,4 +107,7 @@ class Prestamo extends Model
     // }
 
 
+    
+
+
 }

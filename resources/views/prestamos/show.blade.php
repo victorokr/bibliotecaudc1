@@ -19,9 +19,9 @@
 					             
  {!!csrf_field() !!} 
 
-    <div class="card-group">
+    <div class="card-deck">
 		<div class="card border-light">
-		  <div class="card-header"><small>Informacion del prestamo</small></div>	
+		  <div class="card-header text-center"><small>Informacion del prestamo</small></div>	
 			<div class="card-body justify-content-center">	
 			  <div class="form-row align-items-center">
 
@@ -29,8 +29,8 @@
 			  	 <div class="col-12">
 			  		<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">	
-			  			  <span class="input-group-text">Libros</span>	
-			  			  <select name="materialBibliotecas[]"  class="libros form-control custom-select mr-sm-2" id="validationCustom1"   style="width: 265px" title="Ingresa el libro de la busqueda"   required> 
+			  			  <span class="input-group-text">Material</span>	
+			  			  <select name="materialBibliotecas[]"  class="libros form-control custom-select mr-sm-2" id="validationCustom1"    title="Ingresa el libro de la busqueda"   required> 
 				  			@foreach ($listaMateriall  as $listaMaterial => $Titulo)
 					  			<option value="{{ $listaMaterial }}"{{ $prestamos->materialBibliotecas->pluck('id_materialBiblioteca')->contains($listaMaterial) ? 'selected' : '' }}>{{ $Titulo }}</option>
 				  			@endforeach
@@ -56,7 +56,7 @@
 				  	<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">
 				  	  	<span class="input-group-text">Solicitante</span>
-			  			<select name="id_consultanteBiblioteca" class="solicitante form-control custom-select mr-sm-2" id="inlineFormCustomSelect" style="width: 240px" title="Selecciona tu Nombre" required>
+			  			<select name="id_consultanteBiblioteca" class="solicitante form-control custom-select mr-sm-2" id="inlineFormCustomSelect" style="width: 370px" title="Selecciona tu Nombre" required>
 							   <option value="" selected>seleccionar</option>	
 							   @foreach ($solicitantee as $solicitante=>$Nombre)    
 							     <option value="{{ $solicitante }}" {{ old('id_consultanteBiblioteca',$prestamos->id_consultanteBiblioteca)== $solicitante ? 'selected':'' }} >
@@ -87,7 +87,7 @@
 			  		<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">	
 			  			  <span class="input-group-text">UbicacionSede</span>	
-			  			  <select name="ubicaciones[]" class="sede form-control custom-select mr-sm-2" id="validationCustom03"   style="width: 210px" title="Ingresa el libro de la busqueda" required> 
+			  			  <select name="ubicaciones[]" class="sede form-control custom-select mr-sm-2" id="validationCustom03"   style="width: 343px" title="Ingresa el libro de la busqueda" required> 
 				  			@foreach ($ubicacioness  as $ubicaciones => $Sede)
 					  			<option value="{{ $ubicaciones }}"{{ $prestamos->ubicaciones->pluck('id_ubicacion')->contains($ubicaciones) ? 'selected' : '' }}>{{ $Sede }}</option>
 				  			@endforeach
@@ -108,56 +108,11 @@
 				    </div>  
 				</div>
 
-
-			     
-
-			  </div>    
-			</div>
-		</div>
-
-
-
-
-
-
-		<div class="card border-light">
-		  <div class="card-header"><small>Informacion de inicio del prestamo</small></div>	
-			<div class="card-body"> 
-			    <div class="form-row align-items-center"> 
-				 <div class="col-8">
-			  	  <div class="input-group input-group-sm mb-3"> 
-				  	  <div class="input-group-prepend">
-				  		<span class="input-group-text">Fecha de Inicio</span>
-				  		<input class="form-control"  id="validationCustom04" style="width: 215px" type="date" name="Fecha_prestamo" value="{{ $prestamos->Fecha_prestamo  }}" readonly required>
-				  	  </div>	  
-				  		<div class="valid-feedback">¡se ve bien!</div>
-						<small id="passwordHelpBlock" class="form-text text-muted">
-                         
-						</small>
-						{!!$errors->first('Fecha_prestamo','<span class=error>:message</span>')!!} 
-				  </div> 
-				 </div>
-				   
-
-				 <div class="col-8">
-				    <div class="input-group input-group-sm mb-3">
-				      <div class="input-group-prepend">
-						<span class="input-group-text">Fecha Devolucion</span>
-						<input class="form-control"  id="validationCustom05" type="date" name="Fecha_devolucion" value="{{ $prestamos->Fecha_devolucion}}" readonly required >
-					  </div>	
-						<div class="valid-feedback">¡se ve bien!</div>
-						<small id="passwordHelpBlock" class="form-text text-muted">
-                         
-						</small>
-						{!!$errors->first('Fecha_devolucion','<span class=error>:message</span>')!!}
-					</div>
-				 </div>
-
-				 <div class="col-12">
+				<div class="col-12">
 				  	<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">
 				  	  	<span class="input-group-text">TipoDePrestamo</span>
-			  			<select name="id_tipoDePrestamo" class="tipo form-control custom-select  mr-sm-2" id="validationCustom02" style="width: 200px"  required >
+			  			<select name="id_tipoDePrestamo" class="tipo form-control custom-select  mr-sm-2" id="validationCustom02" style="width: 333px"  required >
 							   <option value="" selected>seleccionar</option>	
 							   @foreach ($tipoDePrestamoo as $tipo=>$tipoDePrestamo)    
 							     <option value="{{ $tipo }}" {{ old('id_tipoDePrestamo',
@@ -180,7 +135,57 @@
 				  	  	<div class="valid-feedback">¡se ve bien!</div> 
 						{!!$errors->first('tipoDePrestamo','<span class=error>:message</span>')!!}
 				  	</div>
-				 </div>	
+				 </div>
+
+				<div class="col-8">
+			  	  <div class="input-group input-group-sm mb-3"> 
+				  	  <div class="input-group-prepend">
+				  		<span class="input-group-text">Fecha de Inicio</span>
+				  		<input class="form-control"  id="validationCustom04" style="width: 343px" type="date" name="Fecha_prestamo" value="{{ $prestamos->Fecha_prestamo  }}" readonly required>
+				  	  </div>	  
+				  		<div class="valid-feedback">¡se ve bien!</div>
+						<small id="passwordHelpBlock" class="form-text text-muted">
+                         
+						</small>
+						{!!$errors->first('Fecha_prestamo','<span class=error>:message</span>')!!} 
+				  </div> 
+				 </div>
+
+				 <div class="col-8">
+				    <div class="input-group input-group-sm mb-3">
+				      <div class="input-group-prepend">
+						<span class="input-group-text">Fecha Devolucion</span>
+						<input class="form-control"  id="validationCustom05" type="date" name="Fecha_devolucion" value="{{ $prestamos->Fecha_devolucion}}" readonly required style="width: 328px" >
+					  </div>	
+						<div class="valid-feedback">¡se ve bien!</div>
+						<small id="passwordHelpBlock" class="form-text text-muted">
+                         
+						</small>
+						{!!$errors->first('Fecha_devolucion','<span class=error>:message</span>')!!}
+					</div>
+				 </div>
+
+				 
+			     
+
+			  </div>    
+			</div>
+		</div>
+
+
+
+
+
+
+		{{-- <div class="card border-light">
+		  <div class="card-header text-center"><small>Multas</small></div>	
+			<div class="card-body"> 
+			    <div class="form-row align-items-center"> --}}
+			      
+
+				 
+
+				 	
 
 
 				 {{-- <div class="col-12">
@@ -202,12 +207,12 @@
 				 </div> --}}
 
 				 
-				</div> 
+			{{-- 	</div> 
 			</div>	 
-		</div>
+		</div> --}}
 
 		<div class="card border-light">
-		  <div class="card-header"><small>Devolución del prestamo</small></div>
+		  <div class="card-header text-center"><small>Devolución del prestamo</small></div>
 			<div class="card-body">
 			  <div class="form-row align-items-center">
 
@@ -234,7 +239,7 @@
 			  		<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">	
 			  			  <span class="input-group-text">Novedades</span>	
-			  			  <select  class="novedades form-control custom-select mr-sm-2" id="validationCustom06" name="novedades[]" multiple="multiple" style="width: 245px"> 
+			  			  <select  class="novedades form-control custom-select mr-sm-2" id="validationCustom06" name="novedades[]" multiple="multiple" style="width: 394px" required> 
 				  			@foreach ($novedadess  as $novedades => $novedad)
 					  			<option value="{{ $novedades }}"{{ $prestamos->novedades->pluck('id_novedad')->contains($novedades) ? 'selected' : '' }}>
 					  			{{ $novedad }}</option>
@@ -252,23 +257,46 @@
 				    </div>  
 				</div>
 
+				<div class="col-12">
+				    <table class="table table-sm table-bordered">
+					  <thead class="thead-light">
+					    <tr>
+					      <th scope="col"><small>Dias retrasados</small></th>
+					      <th scope="col"><small>Debe</small></th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      
+					      <td>{{ $prestamos->calcularDiasDeSancion() }}</td>
+					      <td>{{ number_format($prestamos->montoHaPagar(),0,',','.') }}</td>
+					    </tr>
+					   
+					  </tbody>
+					</table>
+				 </div>
+
 
 				<div class="col-12">
 			  		<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">	
-			  			  <span class="input-group-text">diasRetrasados</span>	
-			  			  <select  class="sancion form-control custom-select mr-sm-2" id="validationCustom07" name="sanciones[]" multiple="multiple" style="width: 220px"> 
-				  			@foreach ($sancioness  as $sanciones => $diasTranscurridos)
+			  			  <span class="input-group-text">multa</span>	
+			  			  <select  class="sancion form-control custom-select mr-sm-2" id="validationCustom07" name="sanciones[]" multiple="multiple" style="width: 430px" required> 
+				  			@foreach ($sancioness  as $sanciones => $multa)
 					  			<option value="{{ $sanciones }}"{{ $prestamos->sanciones->pluck('id_sancion')->contains($sanciones) ? 'selected' : '' }}>
-					  			{{ $diasTranscurridos }}</option>
+					  			{{ $multa }}</option>
 				  			@endforeach
 				  		   </select>	
 				  	  </div>
 				  	  <script type="text/javascript" >
 				  		  	$(document).ready(function() {
     						$('.sancion').select2();
-    						placeholder: "seleccionar"
-    						tags : true
+    						
+    						$(".sancion").select2({
+							  maximumSelectionLength: 1,
+							  selectOnClose: true
+							});
+
 							});
 				  		  </script>
 				  	   {!!$errors->first('sanciones','<span class=error>:message</span>')!!}
@@ -278,9 +306,9 @@
 
 				
 
-				<div class="row justify-content-start">
+				<div class="row justify-content-center">
 					<div class="col-12">
-					<input class="btn btn-success  btn-sm btn-block mt-1" type="submit" value="Finalizar Prestamo">
+					<input class="btn btn-success  btn-sm btn-block mt-1" type="submit" value="Finalizar Prestamo" style="width: 450px">
 					</div>
 				</div>
 			  </div>	

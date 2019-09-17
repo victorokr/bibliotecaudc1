@@ -28,14 +28,14 @@
 
             <form method="GET" action="{{ route('biblioteca.index') }}">
 			  <div class="form-row align-items-center">
-			    <div class=" col-2">
-			      <label class="sr-only" for="inlineFormInput">Codigo_ISBN</label>
-			      <input type="text" class="form-control mb-2" value="{{ request('Codigo_ISBN')}}" id="prueba" name="Codigo_ISBN" placeholder="codigo ISBN">
+			    <div class=" col-4">
+			      <label class="sr-only" for="inlineFormInput">Tema ej: psicologia</label>
+			      <input type="text" class="form-control mb-2" value="{{ request('Codigo_ISBN')}}" id="prueba" name="Tema" placeholder="Tema ej:psicologia"  >
 			    </div>
 			    <div class="col-auto col-5">
 			      <label class="sr-only" for="inlineFormInput">Titulo</label>
-			      <input type="text" class="form-control mb-2" value="{{ request('Titulo')}}" 
-			      id="prueba" name="Titulo" placeholder="titulo">
+			      <input type="text" class="form-control mb-2 " value="{{ request('Titulo')}}" 
+			      id="prueba" name="Titulo" placeholder="titulo-codigos">
 			    </div>
 			    <div class="col-auto col-3">
 			      <label class="sr-only" for="inlineFormInput">Autor</label>
