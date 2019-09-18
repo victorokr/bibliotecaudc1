@@ -14,6 +14,7 @@ use App\Sancion;
 use App\Prestamos;
 use App\Ubicacion;
 use Carbon\Carbon;
+use DB;
 use App\Http\Requests\UpdatePrestamoRequest;
 use App\Http\Requests\CreatePrestamoRequest;
 use Illuminate\Support\Facades\Auth;
@@ -36,6 +37,7 @@ class PrestamosController extends Controller
 
     public function index(Request $request)
     {
+        // return  $request->all();
         $nombreSolicitante = $request->get('id_consultanteBiblioteca');
 
         $prestamoss = \App\Prestamos::orderBy('id_prestamo','DESC')
@@ -139,7 +141,7 @@ class PrestamosController extends Controller
     public function update(Request $request, $id)
     {
         $prestamos = \App\Prestamos::findOrFail($id);
-       // $estadoLibro = Materialbiblioteca::findOrFail($id);
+        //$estadoMaterial = Estado::findOrFail($id);
 
         $prestamos->materialBibliotecas()->sync($request->materialBibliotecas);
         $prestamos->ubicaciones()->sync($request->ubicaciones); 
@@ -156,8 +158,12 @@ class PrestamosController extends Controller
         $prestamos->id_empleado =  Auth::user()->id_empleado;
         $prestamos->id_estado = '2';
         $prestamos->save();
-        // $estadoLibro->estado()->sync('2');
-        // $estadoLibro->save();
+
+        // DB::table('estado_materialbiblioteca')->where('id_estado',$id)
+        // ->update(['id_estado',2]);
+
+         // $estadoMaterial->materialBibliotecas()->sync('2');
+         // $estadoMaterial->save();
 
         return redirect()->route('prestamos.index')->with('infoUpdatePrestamo','Prestamo iniciado');
         }

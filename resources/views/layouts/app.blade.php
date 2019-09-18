@@ -272,6 +272,12 @@
                             
                         </ul>
                     </li>
+                    <li><a href="#"><i class="icono izquierda fas fa-book"></i> MisPrestamos <i class="icono derecha fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{{ url('misprestamos') }}">Historial</a>
+                            
+                        </ul>
+                    </li>
                     @endif
 
                     

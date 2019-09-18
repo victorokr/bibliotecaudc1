@@ -60,6 +60,7 @@ Route::resource('editorial', 'EditorialController');
 Route::resource('autor', 'AutorController');
 Route::resource('prestamo/consultante', 'PrestamoController');
 Route::resource('prestamos', 'PrestamosController');
+Route::resource('misprestamos', 'MisprestamosController');
 Route::resource('bajas', 'BajasController');
 Route::resource('entradas', 'EntradasController');
 Route::resource('salidas', 'SalidasController');

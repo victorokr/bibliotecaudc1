@@ -82,6 +82,13 @@ class Consultante_biblioteca extends Authenticatable
     }
 
 
+     public function prestamo()//este metodo define la relacion de uno a muchos. Trae los datos de la tabla prestamo
+    {
+        return $this->hasOne('App\Prestamos','id_prestamo');
+    }
+
+
+
     public function scopeDocumento($query, $documentoConsultante)
     {
         if($documentoConsultante)
