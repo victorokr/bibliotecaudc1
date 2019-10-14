@@ -61,7 +61,7 @@ class Prestamos extends Model
 
      public function temaDelMaterial()
     {
-        return $this->belongsToMany('App\tema_del_material','prestamo_temamaterial','id_prestamo','id_temaDelMaterial');
+        return $this->belongsToMany('App\Tema_del_material','prestamo_temamaterial','id_prestamo','id_temaDelMaterial');
     }
 
 
@@ -106,14 +106,19 @@ class Prestamos extends Model
     public function calcularDiasDeSancion()
     {
         // $fechaActual = new \DateTime();
-         $fechaFin = ($this->Fecha_devolucion);
-        
+        $fechaFin     = ($this->Fecha_devolucion);
+        $diasRetrasados = '0';
 
-        $fechaActual = Carbon::now();
+        $fechaActual     = Carbon::now();
         $fechaExpiracion = Carbon::parse($fechaFin);
-        $diasDiferencia = $fechaActual->diffInDays($fechaExpiracion);
-
-        return $diasDiferencia;
+        $diasDiferencia  = $fechaActual->diffInDays($fechaExpiracion);
+        if ($fechaExpiracion > $fechaActual) {
+            return $diasRetrasados;
+        }
+        else{
+            return $diasDiferencia;
+        }
+        
     }
 
     public function montoHaPagar()
@@ -123,6 +128,40 @@ class Prestamos extends Model
         $valorTotal     = $diasRetrasados*$valorPorDia;
         
         return $valorTotal;
+    }
+
+    public function printDays()
+    {   $ceroDias       = '0';
+        
+            return $ceroDias;  
+    }
+
+    public function diasEstado()
+    {
+        $diasRetrasados = $this->calcularDiasDeSancion();
+        $diasSinMulta   = $this->printDays();
+        $estadoPrestamo = ($this->id_estado);
+
+        if ($estadoPrestamo === 2) {
+            return $diasRetrasados;
+        }
+        else{
+            return $diasSinMulta;
+        }
+
+    }
+
+    public function valor()
+    {   $sinMulta       = '0';
+        $valor          = $this->montoHaPagar();
+        $estadoPrestamo = ($this->id_estado);
+
+        if ($estadoPrestamo === 2) {
+            return $valor;
+        }
+        else{
+            return $sinMulta;
+        }
     }
     
 }

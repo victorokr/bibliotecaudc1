@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateEditorialRequest extends FormRequest
+class UpdatePrestamosRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class CreateEditorialRequest extends FormRequest
     public function rules()
     {
         return [
-            'Editorial'=>'required|max:35|alpha_dash|unique:editorial,Editorial',
+            // 'Fecha_prestamo'  => 'required|after:today'
+            // 'Fecha_devolucion'  => 'required|after:yesterday'
         ];
     }
 }

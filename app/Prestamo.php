@@ -30,7 +30,7 @@ class Prestamo extends Model
 
     public function temaDelmaterial()
     {
-        return $this->belongsToMany('App\tema_del_material','mbiblioteca_temadelmaterial','id_materialBiblioteca','id_temaDelMaterial');
+        return $this->belongsToMany('App\Tema_del_material','mbiblioteca_temadelmaterial','id_materialBiblioteca','id_temaDelMaterial');
     }
 
     public function carreras()

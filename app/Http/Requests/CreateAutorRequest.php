@@ -22,9 +22,9 @@ class CreateAutorRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {
+    {   //alpha_dash no permite espacios en blanco
         return [
-            'Nombre'=>'required|max:35|unique:autor,Nombre',
+            'Nombre'=>'required|max:35|alpha_dash|unique:autor,Nombre',
         ];
     }
 }

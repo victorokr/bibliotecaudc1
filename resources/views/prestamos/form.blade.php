@@ -171,11 +171,23 @@
 						{!!$errors->first('id_estado','<span class=error>:message</span>')!!}
 				  	</div>
 				 </div> --}}
-				 <div class="row justify-content-start">
-					<div class="col-12">
-					<input class="btn btn-success  btn-sm btn-block mt-1" type="submit" value="Procesar Prestamo" style="width: 300px">
-					</div>
-				</div>
+				 @if (is_null($prestamos->Fecha_prestamo)) 
+				 
+				 	<div class="row justify-content-start">
+						<div class="col-12">
+						<input class="btn btn-success  btn-sm btn-block mt-1" type="submit" value="Procesar Prestamo" style="width: 300px">
+						</div>
+				    </div>
+				 
+				 @else
+				    <div class="row justify-content-start">
+						<div class="col-12">
+						<input class="btn btn-success  btn-sm btn-block mt-1 disabled" type="submit" value="Procesar Prestamo" style="width: 300px" disabled>
+						</div>
+				    </div>
+
+				 
+				 @endif
 
 				 
 				</div> 

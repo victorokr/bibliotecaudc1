@@ -268,14 +268,16 @@
 					  <tbody>
 					    <tr>
 					      
-					      <td>{{ $prestamos->calcularDiasDeSancion() }}</td>
-					      <td>{{ number_format($prestamos->montoHaPagar(),0,',','.') }}</td>
+					      <td>{{ $prestamos->diasEstado() }}</td>
+					      <td>${{ number_format($prestamos->valor(),0,',','.') }}</td>
 					    </tr>
 					   
 					  </tbody>
 					</table>
 				 </div>
 
+				{{-- <input type="hidden" name="diasDeRetraso"
+				   value="{{ request('ubicaciones') }}">  --}}
 
 				<div class="col-12">
 			  		<div class="input-group input-group-sm mb-4"> 

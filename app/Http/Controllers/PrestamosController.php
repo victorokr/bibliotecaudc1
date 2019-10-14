@@ -15,7 +15,7 @@ use App\Prestamos;
 use App\Ubicacion;
 use Carbon\Carbon;
 use DB;
-use App\Http\Requests\UpdatePrestamoRequest;
+use App\Http\Requests\UpdatePrestamosRequest;
 use App\Http\Requests\CreatePrestamoRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -138,7 +138,7 @@ class PrestamosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePrestamosRequest $request, $id)
     {
         $prestamos = \App\Prestamos::findOrFail($id);
         //$estadoMaterial = Estado::findOrFail($id);
@@ -150,7 +150,11 @@ class PrestamosController extends Controller
 
         if (is_null($request->novedades)) {
             # code...
-       
+        $rules =[
+            'Fecha_prestamo'  => 'required|before:tomorrow|after:yesterday',
+            'Fecha_devolucion'  => 'required|after:yesterday',
+        ];
+        $this->validate($request, $rules);
         $prestamos->Fecha_prestamo = $request->input('Fecha_prestamo');
         $prestamos->Fecha_devolucion = $request->input('Fecha_devolucion');
         $prestamos->id_tipoDePrestamo = $request->input('id_tipoDePrestamo');
