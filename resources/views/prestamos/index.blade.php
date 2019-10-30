@@ -29,7 +29,7 @@
  <div class="row ">
   <div class="col-xl-12 col-md-12 col-sm-12 col-lg-12 "> <!--es lo mismo que col-12 -->
   	<div class="card">
-      <div class="card-header"><i class="fas fa-book-reader"></i> Solicitudes de prestamos <a class="btn btn-success btn-sm" title="inicio"  href="{{ url('empleados/area') }}"> <i class="fas fa-home"></i> </a></div>
+      <div class="card-header"><i class="fas fa-book-reader"></i> Solicitudes de prestamos <a class="btn btn-success btn-sm" title="inicio"  href="{{ url('empleados/area') }}"> <i class="fas fa-home"></i></a></div>
        <div class="card-body">
        	      <form method="GET" action="{{ route('prestamos.index') }}">
 			  <div class="form-row align-items-center">
@@ -54,7 +54,7 @@
 			</form>
 
 			<div class="table-responsive">
-		      <table class="table table-hover table-sm  ">
+		      <table class="table table-hover table-sm table-bordered ">
 			    <caption>Prestamos</caption>
 			     <thead class="thead-light">
 				
@@ -70,7 +70,9 @@
 					<th>FinDelPrestamo</th>
 					<th>EstadoDelPrestamo</th>
 					<th>Novedades</th>
-					<th>Multa</th>
+					<th>DiasRetrasados</th>
+					<th>Debe</th>
+					<th>EstadoMulta</th>
 			        <th>Acciones</th>
 					
 					
@@ -117,6 +119,8 @@
 					<td>{{ $prestamos->Fecha_devolucion                  }}</td>
 					<td>{{ optional($prestamos->estado)->Estado}}</td>
 					<td>{{ $prestamos->novedades->pluck('novedad')->implode(' - ')}}</td>
+					<td>{{ $prestamos->diasRetrasados}}</td>
+					<td>${{ number_format($prestamos->debe,0,',','.') }}</td>
 					<td>{{ $prestamos->sanciones->pluck('multa')->implode(' - ')}}</td>
 					
 					

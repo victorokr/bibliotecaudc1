@@ -140,6 +140,7 @@ class PrestamosController extends Controller
      */
     public function update(UpdatePrestamosRequest $request, $id)
     {
+        //return  $request->all();
         $prestamos = \App\Prestamos::findOrFail($id);
         //$estadoMaterial = Estado::findOrFail($id);
 
@@ -177,8 +178,10 @@ class PrestamosController extends Controller
         $prestamos->Fecha_devolucion = $request->input('Fecha_devolucion');
         $prestamos->id_tipoDePrestamo = $request->input('id_tipoDePrestamo');
         $prestamos->id_consultanteBiblioteca = $request->input('id_consultanteBiblioteca');
-        $prestamos->id_empleado =  Auth::user()->id_empleado;
+        $prestamos->id_empleado    =  Auth::user()->id_empleado;
         $prestamos->id_estado = '4';
+        $prestamos->diasRetrasados = $request->input('diasRetrasados');
+        $prestamos->debe           = $request->input('debe');
 
         }
         

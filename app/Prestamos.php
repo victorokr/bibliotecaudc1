@@ -9,7 +9,7 @@ class Prestamos extends Model
 {
     protected $table = 'prestamo';
     protected $primaryKey = 'id_prestamo';
-    protected $fillable = ['Fecha_prestamo','Fecha_devolucion','id_tipoDePrestamo','id_consultanteBiblioteca','id_empleado','id_estado'];
+    protected $fillable = ['Fecha_prestamo','Fecha_devolucion','id_tipoDePrestamo','id_consultanteBiblioteca','id_empleado','id_estado','diasRetrasados','debe'];
 
 
     public function tipoDePrestamo()

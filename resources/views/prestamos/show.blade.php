@@ -276,14 +276,17 @@
 					</table>
 				 </div>
 
-				{{-- <input type="hidden" name="diasDeRetraso"
-				   value="{{ request('ubicaciones') }}">  --}}
+				<input type="hidden" name="diasRetrasados"
+				   value="{{ $prestamos->diasEstado() }}"> 
+
+				   <input type="hidden" name="debe"
+				   value="{{ $prestamos->valor() }}"> 
 
 				<div class="col-12">
 			  		<div class="input-group input-group-sm mb-4"> 
 				  	  <div class="input-group-prepend">	
-			  			  <span class="input-group-text">multa</span>	
-			  			  <select  class="sancion form-control custom-select mr-sm-2" id="validationCustom07" name="sanciones[]" multiple="multiple" style="width: 430px" required> 
+			  			  <span class="input-group-text">EstadoMulta</span>	
+			  			  <select  class="sancion form-control custom-select mr-sm-2" id="validationCustom07" name="sanciones[]" multiple="multiple" style="width: 387px" required> 
 				  			@foreach ($sancioness  as $sanciones => $multa)
 					  			<option value="{{ $sanciones }}"{{ $prestamos->sanciones->pluck('id_sancion')->contains($sanciones) ? 'selected' : '' }}>
 					  			{{ $multa }}</option>

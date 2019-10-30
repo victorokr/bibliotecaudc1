@@ -21,9 +21,15 @@ class MaterialImport implements ToModel
             'Titulo'             => $row[2],
             'Edicion'            => $row[3],
             'NumeroDePaginas'    => $row[4],
-            'id_baja'            => $row[5],
-            'id_tipoDeMaterial'  => $row[6],
+            'id_baja'            => $row[5] = '6',
+            'id_tipoDeMaterial'  => $row[6] = '1',
 
         ]);
     }
+
+    public function entradas()
+    {
+        return $this->belongsToMany('App\Entrada','entrada_mbiblioteca','id_materialBiblioteca','id_entrada');
+    }
+
 }

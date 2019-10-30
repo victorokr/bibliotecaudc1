@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use App\Exports\MaterialExport;
 use App\Imports\MaterialImport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Entrada;
 
 class MyController extends Controller
 {
     public function importExportView()
     {
-    	return view('cargamasiva.import');
+        $entradass = Entrada::pluck('Entrada','id_entrada');
+    	return view('cargamasiva.import', compact('entradass'));
     }
 
     public function export()
@@ -19,9 +21,13 @@ class MyController extends Controller
     	return Excel::download(new MaterialExport, 'material.xlsx');
     }
 
-    public function import()
+    public function import(Request $request)
     {
-    	Excel::import(new MaterialImport, request()->file('file'));
-    	return redirect()->route('inventario.index')->with('infoImport','Material Agregado desde plantilla xlsx');
+    	$insertar = Excel::import(new MaterialImport, request()->file('file'));
+
+       
+        //$insertar->entradas()->attach($request->entradas);
+
+    	return redirect()->route('inventario.index', compact('insertar'))->with('infoImport','Material Agregado desde plantilla xlsx');
     }
 }
