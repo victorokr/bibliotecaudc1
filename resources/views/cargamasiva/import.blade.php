@@ -12,7 +12,7 @@
          <div class="card-body">
           <form action="{{ route('import') }}"method="POST" enctype="multipart/form-data" >
             {!!csrf_field() !!}
-               {{-- <div class="col-10">
+               <div class="col-10">
                   <div class="input-group input-group-sm mb-4"> 
                     <div class="input-group-prepend">
                         <span class="input-group-text">Entradas</span>
@@ -35,7 +35,7 @@
                             
                              {!!$errors->first('entradas','<span class=error>:message</span>')!!}
                   </div>
-               </div> --}}
+               </div>
 
             <input type="file" name="file" class="form-control">
             <br>
