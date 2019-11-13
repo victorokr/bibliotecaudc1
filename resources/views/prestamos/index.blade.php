@@ -123,8 +123,8 @@
 					<td>${{ number_format($prestamos->debe,0,',','.') }}</td>
 					<td>{{ $prestamos->sanciones->pluck('multa')->implode(' - ')}}</td>
 					
-					
-					@if($prestamos->id_estado === 4)
+					{{-- en produccion va con comilla el 4 --}}
+					@if($prestamos->id_estado === '4')
 					<td>
 						<a class="editar btn btn-secondary btn-sm" 
 						href="{{route('prestamos.show', $prestamos->id_prestamo)}}"><i class="fas fa-eye-slash"></i>Finalizado</a>

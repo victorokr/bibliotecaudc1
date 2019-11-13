@@ -19,7 +19,7 @@ class Materialbiblioteca extends JsonResource
               'Codigo_ISBN' => $this->Codigo_ISBN,
               'Titulo' => $this->Titulo,
               'NumeroDePaginas' => $this->NumeroDePaginas,
-              'estado' => $this->estado->first()->Estado,
+              'estado' => $this->estado->first() !== null ? $this->estado->first()->Estado : 'Desconocido',
               'sede' => $this->ubicaciones
             ];
     }

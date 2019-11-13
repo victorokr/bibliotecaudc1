@@ -9,7 +9,7 @@
                 <div class="card-group">
                   <div class="card bg-light mb-3 ">
                   	
-                    <img class="card-img-top img-fluid" src="/images/logoGrande.png"  alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="/images/logoGrande.PNG"  alt="Card image cap">
                       <div class="card-body">
                          <small class=" font-italic text-muted">Bienvenido al Sistema de gestion de prestamos he inventario </small>  
                       </div>
@@ -19,7 +19,7 @@
                     <div class="col-12">
                         <div class="card bg-light mb-3 text-center">
                           	
-                          <img class="card-img-top img-fluid" src="/images/woman.png"  alt="Card image cap">
+                          <img class="card-img-top img-fluid" src="/images/woman.PNG"  alt="Card image cap">
                             <div class="card-body">
                             	<h6 class="card-title">Area Empleados</h6>
                                 

@@ -8,7 +8,7 @@
     
     
     <!--icono de la biblioteca-->
-    <link rel="shortcut icon" href="/images/icono.png">
+    <link rel="shortcut icon" href="/images/icono.PNG">
 
     <!--iconos desde internet font Awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -48,7 +48,7 @@
 <div id="app">
  <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-laravel">
     <a class="row tamañoimg navbar-brand" href="#">
-        <img class="navbar-light" src="/images/logo.png">
+        <img class="navbar-light" src="/images/logo.PNG">
     </a>
 
 

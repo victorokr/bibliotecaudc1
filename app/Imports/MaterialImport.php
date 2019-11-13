@@ -24,6 +24,8 @@ class MaterialImport implements ToModel, WithHeadingRow, WithValidation
     */
     public function model(array $row)
     {
+        // 
+
         // buscar id editorial en base
         $editorial = \App\Editorial::where ('Editorial', $row['editorial'])->first();
         // si no existe crearla y buscar id del editorial creado
@@ -53,10 +55,15 @@ class MaterialImport implements ToModel, WithHeadingRow, WithValidation
             'id_autor' => $autor->id_autor,
             'id_materialBiblioteca' => $material->id_materialBiblioteca 
         ]);
+        
+        $sede = \App\Ubicacion::where('Sede', $row['sede'])->first();
+        \App\Mbiblioteca_ubicacion::create(['id_ubicacion' => $sede->id_ubicacion, 'id_materialBiblioteca' => $material->id_materialBiblioteca]);
 
-        // $sede = \App\Ubicacion::where('Sede', $row['sede'])->first();
-        // \App\Mbiblioteca_ubicacion::create(['id_ubicacion' => $sede->id_ubicacion, 'id_materialBiblioteca' => $material->id_materialBiblioteca]);
-
+          // if ($row['codigolibro'] == 19) {
+          //   dump($editorial);
+          //   dump($material);
+          //   exit;
+          // }
     }
 
     public function rules(): array
@@ -69,16 +76,13 @@ class MaterialImport implements ToModel, WithHeadingRow, WithValidation
                         $onFailure("El codigo de material $value ya existe");
                    }
                }
-            //,
-            // 'sede' => function($attribute, $value, $onFailure) {
-            //     //dd($value, $attribute);
-            //        $sede =  \App\Ubicacion::where('Sede', $value)->first();
-            //        //dd($sede);
-            //        if (!isset($sede)) {
-            //             dd($value, $attribute);
-            //             $onFailure("La sede $value no existe");
-            //        }
-            //    }
+            ,
+            'sede' => function($attribute, $value, $onFailure) {
+                   $sede =  \App\Ubicacion::where('Sede', $value)->first();
+                   if (!isset($sede)) {
+                        $onFailure("La sede $value no existe");
+                   }
+               }
          ];
      }
 }

@@ -135,7 +135,7 @@
       
         <div class="card-group">
           <div class="card bg-light mb-3 text-center">
-            <img class="card-img-top" src="images/udc8.png" alt="Card image cap">
+            <img class="card-img-top" src="images/udc8.PNG" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title font-italic font-weight-bold">Sede 1 (Sede verde)</h5>
                 <p class="card-text font-italic">La sede uno esta ubicada en la Cl. 36 #7-19, Bogotá. Cuenta actualmente con 917 libros, los cuales se podran consultar de manera presencial de 8am a 8pm de lunes a viernes.</p>
@@ -147,7 +147,7 @@
 
     <div class="contenedor-imagen col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
   <div class="card bg-light mb-3 text-center">
-    <img class="card-img-top" src="images/udc2.png" alt="Card image cap">
+    <img class="card-img-top" src="images/udc2.PNG" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title font-italic font-weight-bold">Sede 2 (Sede ladrillo)</h5>
       <p class="card-text font-italic">La sede uno esta ubicada en la Cra 7 # 35-72. Parque nacional Bogotá. Cuenta actualmente con 1505 libros, los cuales se podran consultar de manera presencial de 8am a 8pm de lunes a viernes..</p>
@@ -158,7 +158,7 @@
 
    <div class="contenedor-imagen col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
   <div class="card bg-light mb-3 text-center">
-    <img class="card-img-top" src="images/udc1.png" alt="Card image cap">
+    <img class="card-img-top" src="images/udc1.PNG" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title font-italic font-weight-bold">Sede 3 (Carrera 13)</h5>
       <p class="card-text font-italic">La sede uno esta ubicada en la Cra 13 # 35-99. Ecoopetrol, Bogotá. Cuenta actualmente con 1609 libros, los cuales se podran consultar de manera presencial de 8am a 8pm de lunes a viernes..</p>

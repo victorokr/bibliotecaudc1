@@ -308,14 +308,26 @@
 				    </div>  
 				</div>
 
+				@if (is_null($prestamos->Fecha_prestamo)) 
+				 
+				 	<div class="row justify-content-center">
+						<div class="col-12">
+						  <input class="btn btn-success  btn-sm btn-block mt-1" type="submit" value="Finalizar Prestamo" style="width: 450px" disabled>
+						</div>
+				   </div>
+				 
+				 @else
+				    <div class="row justify-content-center">
+						<div class="col-12">
+						   <input class="btn btn-success  btn-sm btn-block mt-1" type="submit" value="Finalizar Prestamo" style="width: 450px">
+						</div>
+				    </div>
 
+				 
+				 @endif
 				
 
-				<div class="row justify-content-center">
-					<div class="col-12">
-					<input class="btn btn-success  btn-sm btn-block mt-1" type="submit" value="Finalizar Prestamo" style="width: 450px">
-					</div>
-				</div>
+				
 			  </div>	
 			</div>
 		</div>
