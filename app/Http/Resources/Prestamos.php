@@ -20,19 +20,18 @@ class Prestamos extends JsonResource
           "id_consultanteBiblioteca" => $this->id_consultanteBiblioteca,
           "Fecha_prestamo" => $this->Fecha_prestamo,
           "Fecha_devolucion" => $this->tipoDePrestamo,
-          "estado" => [
+          "estado" => isset($this->estado) ? [
             "id_estado"=> $this->id_estado,
-            "estado" => isset ($this->estado) ? $this->estado: null
-          ],
-          "empleado" => [
+            "estado" => $this->estado 
+          ] : null,
+          "empleado" => isset($this->empleado) ? [
             "id_empleado" => $this->id_empleado,
-            "empleado_email" => isset($this->empleado) ? $this->empleado->email: null,
-            "empleado_nombre" => isset($this->Nombre) ? $this->empleado->Nombre: null
-          ],
+            "empleado_email" =>  $this->empleado->email,
+            "empleado_nombre" => $this->empleado->Nombre
+          ] : null,
           "diasRetrasados" => isset($this->diasRetrasados) ? $this->diasRetrasados : 0,
           "debe" =>  isset($this->debe) ? $this->debe : 0
           
-
         ];
     }
 }

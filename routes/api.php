@@ -3,9 +3,12 @@
 use Illuminate\Http\Request;
 use App\Materialbiblioteca;
 use App\Prestamos;
+use App\Consultante_biblioteca;
+use App\Http\Resources\ConsultantebibliotecaCollection;
 use App\Http\Resources\MaterialbibliotecaCollection;
 use App\Http\Resources\PrestamosCollection;
 use App\Materialbiblioteca_prestamo;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,15 +68,16 @@ Route::post('create/prestamomaterial', function(Request $request) {
   }
 })->middleware ('auth:api');
 
-
 // auth consultante
 Route::get('auth/consultante', function(Request $request)
 {
   if (Auth::guard('consultants')->attempt($request->only('email','password'),$request->filled('remember')))
   {
-    return response()->json(["message" => "success", "data" => Auth::guard('consultants')->user()], 200);
+    $id_consultante = Auth::guard('consultants')->user()->id_consultanteBiblioteca;
+    $consultante = new ConsultantebibliotecaCollection (Consultante_biblioteca::where('id_consultanteBiblioteca',$id_consultante)->get());
+    return response()->json(["message" => "success", "data" => $consultante], 200);
   } else {
-    return response()->json(["message" => "login de consultante incorrecto", "data" => []], 200);
+    return response()->json(["message" => "login de consultante incorrecto", "data" => []], 400);
   }
 })->middleware ('auth:api');
 

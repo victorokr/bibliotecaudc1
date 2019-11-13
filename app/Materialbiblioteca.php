@@ -36,6 +36,15 @@ class Materialbiblioteca extends Model
     	return $this->belongsToMany('App\Tema_del_material','mbiblioteca_temadelmaterial','id_materialBiblioteca','id_temaDelMaterial');
     }
 
+
+
+    public function entradas()
+    {
+        return $this->belongsToMany('App\Entrada','Entrada_mbiblioteca','id_materialBiblioteca','id_entrada_mbiblioteca');
+    }
+
+
+
     public function carreras()
     {
     	return $this->belongsToMany('App\Carrera','carrera_mbiblioteca','id_materialBiblioteca','id_carrera');

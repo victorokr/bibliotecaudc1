@@ -59,6 +59,16 @@ class MaterialImport implements ToModel, WithHeadingRow, WithValidation
         $sede = \App\Ubicacion::where('Sede', $row['sede'])->first();
         \App\Mbiblioteca_ubicacion::create(['id_ubicacion' => $sede->id_ubicacion, 'id_materialBiblioteca' => $material->id_materialBiblioteca]);
 
+        
+        $entrada = \App\Entrada::find($this->request->input('entradas'))->first();
+        \App\Entrada_mbiblioteca::create(['id_entrada' => $entrada->id_entrada, 'id_materialBiblioteca' => $material->id_materialBiblioteca]);
+
+         $estado = \App\Estado::where('Estado', 'Disponible')->first();
+        \App\Estado_materialbiblioteca::create(['id_estado' => $estado->id_estado, 'id_materialBiblioteca' => $material->id_materialBiblioteca]);
+
+        $salida = \App\Salida::where('salida', 'Sin Traslados')->first();
+        \App\Mbiblioteca_salida::create(['id_salida' => $salida->id_salida, 'id_materialBiblioteca' => $material->id_materialBiblioteca]);
+
           // if ($row['codigolibro'] == 19) {
           //   dump($editorial);
           //   dump($material);

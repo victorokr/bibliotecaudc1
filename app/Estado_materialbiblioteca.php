@@ -8,7 +8,7 @@ class Estado_materialbiblioteca extends Model
 {
     protected $table = 'estado_materialbiblioteca';
     protected $primaryKey = 'id_estadoMaterialBiblioteca';
-   // protected $fillable = ['codigo'];
+    protected $fillable = ['id_estado','id_materialBiblioteca'];
 
     
 

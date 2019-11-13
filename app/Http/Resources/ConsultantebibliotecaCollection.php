@@ -15,7 +15,7 @@ class ConsultantebibliotecaCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-          'message': 'success',
+          'message'=> 'success',
           'data' => $this->collection
         ];
     }

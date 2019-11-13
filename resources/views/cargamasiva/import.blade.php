@@ -29,7 +29,7 @@
                     </div>
                </div>
 
-               <div class="col-12">
+               {{-- <div class="col-12">
                           <div class="input-group input-group-sm mb-4"> 
                             <div class="input-group-prepend"> 
                               <span class="input-group-text">SedeActual</span>  
@@ -51,13 +51,13 @@
                               </script>
                              {!!$errors->first('ubicaciones','<span class=error>:message</span>')!!}
                           </div>  
-               </div>
+               </div> --}}
 
                <div class="col-10">
                   <div class="input-group input-group-sm mb-4"> 
                     <div class="input-group-prepend">
                         <span class="input-group-text">Entradas</span>
-                        <select  class="entrada form-control custom-select mr-sm-2" id="validationCustom03" name="entradas[]" multiple="multiple" style="width: 220px" >
+                        <select  class="entrada form-control custom-select mr-sm-2" id="validationCustom03" name="entradas[]" multiple="multiple" style="width: 195px" >
                         @foreach ($entradass as $entradas => $Entrada)
                           <option value="{{ $entradas }}">
                           {{ $Entrada }}</option>

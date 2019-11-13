@@ -15,6 +15,7 @@ class MyController extends Controller
     public function importExportView()
     {
         $entradass       = Entrada::pluck('Entrada','id_entrada');
+
         $tipoDeMateriall = Tipodematerial::pluck('Tipo_de_material','id_tipoDeMaterial');
         $ubicacionn      = Ubicacion::pluck('Sede','id_ubicacion');
     	return view('cargamasiva.import', compact('entradass','tipoDeMateriall','ubicacionn'));

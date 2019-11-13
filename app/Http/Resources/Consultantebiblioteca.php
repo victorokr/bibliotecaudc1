@@ -23,14 +23,14 @@ class Consultantebiblioteca extends JsonResource
            "Direccion" => $this->Direccion,
            "email"     => $this->email,
            "lugarDeResidencia"     => $this->lugarDeResidencia,
-           "institucion_universidad" => [
-              "id_institucionUniversidad" => isset ($this->institucionUniversidad) ? $this->institucionUniversidad->id_institucionUniversidad,
-              "institucion_Universidad" => isset ($this->institucionUniversidad) ? $this->institucionUniversidad->institucion_Universidad
-           ],
-           "facultad" => [
-             "id_facultad"=> isset($this->facultad)? $this->facultad->id_facultad,
-             "facultad"=> isset($this->facultad)? $this->facultad->facultad
-           ]
+           "institucion_universidad" => isset ($this->institucionUniversidadd) ? [
+              "id_institucionUniversidad" => $this->institucionUniversidadd->id_institucionUniversidad,
+              "institucion_Universidad" => $this->institucionUniversidadd->institucion_Universidad
+           ] : null,
+           "facultad" => isset($this->facultadd) ? [
+             "id_facultad"=> $this->facultadd->id_facultad,
+             "facultad"=> $this->facultadd->facultad
+           ] : null
         ];
     }
 }
