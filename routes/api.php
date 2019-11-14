@@ -26,12 +26,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request)
     return $request->user();
 });
 
-Route::get('list/material', function()
+Route::get('material', function()
 {
   try {
     return new MaterialbibliotecaCollection(Materialbiblioteca::all());
   } catch (Exception $e) {
-    return response()->json(["message" => $e->getMessage()], 400);
+    return response()->json(["message" => $e->getMessage(), "data" => []], 400);
   }
 })->middleware ('auth:api');
 
@@ -43,13 +43,12 @@ Route::post('create/prestamo', function(Request $request)
   return response()->json (
     [
       "id_prestamo" => $prestamo->id_prestamo,
-      "message" => "Prestamo creado satisfactoriamente"
-    ],
-    201
-  );
+      "message" => "Prestamo creado satisfactoriamente",
+      "data" => [$prestamo] 
+    ],201);
 }
 catch (Exception $e) {
-  return response()->json(["message" => $e->getMessage()], 400);
+  return response()->json(["message" => $e->getMessage(), "data" => []], 400);
 }
 })->middleware ('auth:api');
 
@@ -58,13 +57,13 @@ Route::post('create/prestamomaterial', function(Request $request) {
     $prestamo_material = Materialbiblioteca_prestamo::create($request->all());
     return response()->json (
       [
-        "id_prestamomaterial" => $prestamo_material->id_materialBibliotecaPrestamo,
-        "message" => "PrestamoMaterialBiblioteca creado satisfactoriamente"
+        "message" => "Prestamo Material Biblioteca creado satisfactoriamente",
+        "data" => [$prestamo_material]
       ],
       201
     );
   } catch (Exception $e) {
-    return response()->json(["message" => $e->getMessage()], 400);
+    return response()->json(["message" => $e->getMessage(), "data" => []], 400);
   }
 })->middleware ('auth:api');
 
@@ -74,15 +73,15 @@ Route::get('auth/consultante', function(Request $request)
   if (Auth::guard('consultants')->attempt($request->only('email','password'),$request->filled('remember')))
   {
     $id_consultante = Auth::guard('consultants')->user()->id_consultanteBiblioteca;
-    $consultante = new ConsultantebibliotecaCollection (Consultante_biblioteca::where('id_consultanteBiblioteca',$id_consultante)->get());
-    return response()->json(["message" => "success", "data" => $consultante], 200);
+    $consultante = new ConsultantebibliotecaCollection (Consultante_biblioteca::where('id_consultanteBiblioteca', $id_consultante)->get());
+    return response()->json($consultante, 200);
   } else {
-    return response()->json(["message" => "login de consultante incorrecto", "data" => []], 400);
+    return response()->json(["message" => "login de consultante incorrecto", "data" => []], 404);
   }
 })->middleware ('auth:api');
 
 
-Route::get('list/consultante/prestamos', function(Request $request)
+Route::get('consultante/prestamos', function(Request $request)
 {
   if (!$request->has('id_consultante')) {
     return response()->json(["message" => "parametro 'id_consultante' requerido"], 400);
@@ -90,8 +89,9 @@ Route::get('list/consultante/prestamos', function(Request $request)
       try {
         return new PrestamosCollection (Prestamos::where('id_consultanteBiblioteca', $request->id_consultante)->get());
       } catch (Exception $e) {
-        return response()->json(["message" => $e->getMessage()], 400);
+        return response()->json(["message" => $e->getMessage(), "data" => []], 400);
       }
   }
 
 })->middleware ('auth:api');
+

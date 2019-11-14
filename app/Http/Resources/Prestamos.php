@@ -18,11 +18,12 @@ class Prestamos extends JsonResource
         return [
           "id_prestamo" => $this->id_prestamo,
           "id_consultanteBiblioteca" => $this->id_consultanteBiblioteca,
+          "tipoDePrestamo" => $this->tipoDePrestamo,
           "Fecha_prestamo" => $this->Fecha_prestamo,
-          "Fecha_devolucion" => $this->tipoDePrestamo,
+          "Fecha_devolucion" => $this->Fecha_devolucion,
           "estado" => isset($this->estado) ? [
             "id_estado"=> $this->id_estado,
-            "estado" => $this->estado 
+            "estado" => $this->estado->Estado 
           ] : null,
           "empleado" => isset($this->empleado) ? [
             "id_empleado" => $this->id_empleado,
