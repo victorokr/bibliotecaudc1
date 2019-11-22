@@ -103,10 +103,9 @@
 
 													'tituloLibro' => $consultamaterial->Titulo,
 
-													'ubicaciones' => $consultamaterial->ubicaciones->pluck('Sede')
-													 ->implode(' - '),
+													'ubicaciones' => $consultamaterial->ubicaciones->pluck('Sede')->implode(' - '),
 
-													
+													'idUbicaciones' => $consultamaterial->ubicaciones->pluck('id_ubicacion')->implode(' - '),
 
 													)
 												)

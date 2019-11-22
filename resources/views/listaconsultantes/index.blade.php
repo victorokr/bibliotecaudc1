@@ -110,7 +110,7 @@
 							   <form action="" id="deleteForm" method="POST">
 							    <div class="modal-content">
 							      <div class="modal-header" style="background: #FB1C1C" >
-							        <h5 class="modal-title">Eliminar Material</h5>
+							        <h5 class="modal-title">Eliminar Consultante</h5>
 							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							          <span aria-hidden="true">&times;</span>
 							        </button>
@@ -118,7 +118,7 @@
 								      <div class="modal-body">
 								      	{!! csrf_field()!!}
 									    {!! method_field('DELETE')!!}
-								        <p>¿Está seguro de eliminar este material?</p>
+								        <p>¿Eliminar consultante?</p>
 								        {{-- <input type="hidden" name="id_materialBiblioteca" value=""> --}}
 								      </div>
 								      <div class="modal-footer">

@@ -61,8 +61,9 @@
 				  <tr>
 					<th>Acciones</th> 
 					<th>Libro</th>
-					<th>Codigo</th>
 					<th>Sede</th>
+					<th>Codigo</th>
+					
 					<th>Solicitante</th>
 					<th>TipoDePrestamo</th>
 					<th>Recepcion</th>
@@ -107,9 +108,10 @@
 						
 					</td>
 					<td>{{ $prestamos->materialBibliotecas->pluck('Titulo')->implode(' - ')}}</td>
+					<td>{{ $prestamos->ubicaciones->pluck('Sede')->implode(' - ')}}</td>
 					<td>{{ $prestamos->materialBibliotecas->pluck('Codigo_libro')->implode(' - ')}}</td>
 					
-					<td>{{ $prestamos->ubicaciones->pluck('Sede')->implode(' - ')}}</td>
+					
 					<td>{{ optional($prestamos->consultanteBiblioteca)->Nombre}}</td>
 					<td>{{ optional($prestamos->tipoDePrestamo)->tipoDePrestamo}}</td>
 					
@@ -124,7 +126,7 @@
 					<td>{{ $prestamos->sanciones->pluck('multa')->implode(' - ')}}</td>
 					
 					{{-- en produccion va con comilla el 4 --}}
-					@if($prestamos->id_estado === '4')
+					@if($prestamos->id_estado === 4)
 					<td>
 						<a class="editar btn btn-secondary btn-sm" 
 						href="{{route('prestamos.show', $prestamos->id_prestamo)}}"><i class="fas fa-eye-slash"></i>Finalizado</a>

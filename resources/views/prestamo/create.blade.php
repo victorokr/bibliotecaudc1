@@ -81,7 +81,7 @@
 							     value="{{ ('auth()->id_consultanteBiblioteca()') }}"> --}}
 
 							     <input type="hidden" name="ubicaciones"
-							     value="{{ request('ubicaciones') }}">
+							     value="{{ request('idUbicaciones') }}">
 
 								<div class="row justify-content-start">
 									<div class="col-12">

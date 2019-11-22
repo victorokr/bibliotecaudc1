@@ -59,6 +59,13 @@ class Prestamos extends Model
     }
 
 
+    // public function consultaUbicacionLibro()
+    // {
+    //     $numSede= Ubicacion::where('id_ubicacion' === )->get();
+    //     dd($numSede);
+    // }
+
+
      public function temaDelMaterial()
     {
         return $this->belongsToMany('App\Tema_del_material','prestamo_temamaterial','id_prestamo','id_temaDelMaterial');

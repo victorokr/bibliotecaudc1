@@ -83,7 +83,7 @@ class PrestamoController extends Controller
         //solo relaciones many to many en metodo store
         $prestamos->materialBibliotecas()->attach($idDelLibro);
         $prestamos->ubicaciones()        ->attach($idDeLaSede); 
-
+        //dd($prestamos);
         return redirect()->route('consultante.index', compact('prestamos'))->with('infoPrestamo','Solicitud enviada');
     }
 

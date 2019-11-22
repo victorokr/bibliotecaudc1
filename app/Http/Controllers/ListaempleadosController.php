@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateEmpleadoRequest;
 use App\Http\Requests\CreateEmpleadoRequest;
 use Illuminate\Http\Request;
-use Illuminate\validation\Rule;
+use Illuminate\Validation\Rule;
 use App\Empleado;
 use App\Role;
 

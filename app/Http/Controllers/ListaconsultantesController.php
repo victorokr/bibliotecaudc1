@@ -9,7 +9,7 @@ use App\Facultad;
 use App\Tipo_de_consultante;
 use App\Consultante_biblioteca;
 use App\Http\Requests\UpdateConsultanteRequest;
-use Illuminate\validation\Rule;
+use Illuminate\Validation\Rule;
 use App\Http\Requests\CreateConsultanteRequest;
 
 class ListaconsultantesController extends Controller
