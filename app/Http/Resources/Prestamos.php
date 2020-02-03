@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Materialbiblioteca as MaterialResource;
 
 class Prestamos extends JsonResource
 {
@@ -31,8 +32,8 @@ class Prestamos extends JsonResource
             "empleado_nombre" => $this->empleado->Nombre
           ] : null,
           "diasRetrasados" => isset($this->diasRetrasados) ? $this->diasRetrasados : 0,
-          "debe" =>  isset($this->debe) ? $this->debe : 0
-          
+          "debe" =>  isset($this->debe) ? $this->debe : 0,
+          "materiales" => MaterialResource::collection($this->materialBibliotecas()->get())
         ];
     }
 }

@@ -107,6 +107,13 @@ class Prestamo extends Model
     // }
 
 
+    public function bottonDisableEstado()
+    {
+       
+        // $misprestamos = Prestamos::orderBy('id_prestamo','DESC')
+        // ->where('id_consultanteBiblioteca','=', Auth::user()->id_consultanteBiblioteca)->get();
+    }
+
     
 
 

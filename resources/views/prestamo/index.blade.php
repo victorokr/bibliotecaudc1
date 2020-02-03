@@ -85,13 +85,25 @@
 									<td>{{ $consultamaterial->temaDelmaterial->pluck('Area')->implode(' - ')}}</td>
 									<td>{{ $consultamaterial->carreras->pluck('Carrera')->implode(' - ')}}</td>
 
+
+
+
+
+
+									@if( $consultamaterial->estado->pluck('Estado')->implode(' - ') === ('En Prestamo'))
+										<td>
+
+											<a class="btn btn-secondary btn-sm ml-0" href="#" role="button"disabled><i class="fas fa-business-time"></i> ocupado</a>
+											
+										</td>
+									    
+
+									@else
+
+
+
 									 
 									<td>
-
-
-
-
-
 
 										<a class="editar btn btn-info btn-sm" 
 											href="{{
@@ -112,9 +124,12 @@
 												 
 											}}
 										">
-											<i class="fas fa-edit"></i>Prestamo</a> <!--crea el enlace sobre editar-->			
-										
+											<i class="fas fa-edit"></i>Prestamo</a> <!--crea el enlace sobre editar-->	
+
 									</td>
+									@endif
+
+
 									
 									@empty
 									<div class="alert alert-info">No se encontraron resultados en nuestros registros</div>

@@ -8,6 +8,7 @@ use App\Http\Resources\ConsultantebibliotecaCollection;
 use App\Http\Resources\MaterialbibliotecaCollection;
 use App\Http\Resources\PrestamosCollection;
 use App\Materialbiblioteca_prestamo;
+use App\Prestamo_ubicacion;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -33,7 +34,7 @@ Route::get('material', function()
   } catch (Exception $e) {
     return response()->json(["message" => $e->getMessage(), "data" => []], 400);
   }
-})->middleware ('auth:api');
+});//->middleware ('auth:api');
 
 Route::post('create/prestamo', function(Request $request)
 {
@@ -50,7 +51,7 @@ Route::post('create/prestamo', function(Request $request)
 catch (Exception $e) {
   return response()->json(["message" => $e->getMessage(), "data" => []], 400);
 }
-})->middleware ('auth:api');
+});//->middleware ('auth:api');
 
 Route::post('create/prestamomaterial', function(Request $request) {
   try {
@@ -65,7 +66,7 @@ Route::post('create/prestamomaterial', function(Request $request) {
   } catch (Exception $e) {
     return response()->json(["message" => $e->getMessage(), "data" => []], 400);
   }
-})->middleware ('auth:api');
+});//->middleware ('auth:api');
 
 // auth consultante
 Route::get('auth/consultante', function(Request $request)
@@ -78,7 +79,7 @@ Route::get('auth/consultante', function(Request $request)
   } else {
     return response()->json(["message" => "login de consultante incorrecto", "data" => []], 404);
   }
-})->middleware ('auth:api');
+});//->middleware ('auth:api');
 
 
 Route::get('consultante/prestamos', function(Request $request)
@@ -93,5 +94,20 @@ Route::get('consultante/prestamos', function(Request $request)
       }
   }
 
-})->middleware ('auth:api');
+});//->middleware ('auth:api');
+
+Route::post('create/ubicacionprestamo', function(Request $request) {
+  try {
+    $ubicacion_prestamo = Prestamo_ubicacion::create($request->all());
+    return response()->json (
+      [
+        "message" => "Ubicaci贸n Prestamo creado satisfactoriamente",
+        "data" => [$ubicacion_prestamo]
+      ],
+      201
+    );
+  } catch (Exception $e) {
+    return response()->json(["message" => $e->getMessage(), "data" => []], 400);
+  }
+});//->middleware ('auth:api');
 
